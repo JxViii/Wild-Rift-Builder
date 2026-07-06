@@ -38,7 +38,7 @@ namespace lol
 
     const std::string getTitle() const { return _title; };
     const std::string getDesc() const { return _desc; };
-    const lol::Stat getStat() const { return _stat; };
+    lol::Stat getStat() { return _stat; };
   };
 
   class Object

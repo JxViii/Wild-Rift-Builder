@@ -5,51 +5,53 @@ const ITEMS = [
   {
     title: "Infinity Edge",
     category: "PHYSICAL",
-    gold: 3200,
+    gold: 3400,
     image: "img/Infinity_Edge_item_HD.png",
-    stats: { AD: 70, CRIT: 25 },
+    stats: { AD: 65, CRIT: 25 },
     passives: [
-      { title: "Perfection", desc: "If you have at least 60% Critical Strike Chance, gain +40% Critical Strike Damage." },
+      { title: "Infinity", desc: "Critical Strikes deal 205% damage instead of 175%" },
+      { title: "Limit Break", desc: "When you gain CRIT from items that exceed 100%, every 1% excess grants 0.6% bonus Critical Damage"}
     ],
   },
   {
     title: "Bloodthirster",
     category: "PHYSICAL",
-    gold: 3200,
+    gold: 3000,
     image: "img/Bloodthirster_item_HD.png",
-    stats: { AD: 65, OMNIVAMP: 18 },
+    stats: { AD: 55, HP: 250, CRIT: 25 },
     passives: [
-      { title: "Overheal", desc: "Excess healing from Life Steal is converted into a shield." },
+      { title: "Bloody", desc: "+8% Omnivamp. Attacks that Critically Strike gain and additional 4% Omnivamp", stats: { OMNIVAMP: 8 } },
     ],
   },
   {
     title: "Kraken Slayer",
     category: "PHYSICAL",
-    gold: 3200,
+    gold: 2800,
     image: "img/Kraken_Slayer_item_HD.png",
-    stats: { AD: 65, ATTACK_SPEED: 40 },
+    stats: { AD: 40, ATTACK_SPEED: 30 },
     passives: [
-      { title: "Bring It Down", desc: "Every third basic attack deals bonus true damage." },
+      { title: "Cloud Stride", desc: "+5% Movement Speed", stats: { SPEED_PERCENTAGE: 5 }},
+      { title: "Bring It Down", desc: "Every third basic attack deals 120-160 bonus physical damage (110-150 for ranged champions), increased by 1% per 1% HP the target is missing, up to a 70% increase" },
     ],
   },
   {
     title: "Rabadon's Deathcap",
     category: "MAGIC",
-    gold: 3200,
+    gold: 3400,
     image: "img/Rabadon's_Deathcap_item_HD.png",
-    stats: { AP: 120 },
+    stats: { AP: 100, MP_PERCENTAGE: 7 },
     passives: [
-      { title: "Magical Opus", desc: "Increases Ability Power by 35%.", stats: { AP_PERCENTAGE: 35 } },
+      { title: "Magical Opus", desc: "Increases Ability Power by 20-45%. (We emulate 45%)", stats: { AP_PERCENTAGE: 45 } },
     ],
   },
   {
     title: "Luden's Tempest",
     category: "MAGIC",
-    gold: 3000,
+    gold: 2900,
     image: "img/Luden's_Tempest_item_HD.png",
-    stats: { AP: 80, MANA_REGEN: 8, SPEED: 8 },
+    stats: { AP: 85, MAX_MANA: 300, CD: 20, MP_PERCENTAGE: 7},
     passives: [
-      { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage and grants a burst of Move Speed." },
+      { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP." },
     ],
   },
   {
@@ -57,59 +59,62 @@ const ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Liandry's_Torment_item_HD.png",
-    stats: { AP: 70, HP: 300 },
+    stats: { AP: 75, HP: 250, MP_PERCENTAGE: 7 },
     passives: [
-      { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time increased vs. crowd controlled targets." },
+      { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time 0.6% - 3.0% of the targets max HP as bonus magic damage per second for 3 seconds" },
     ],
   },
   {
     title: "Guardian Angel",
     category: "DEFENSE",
-    gold: 3000,
+    gold: 3400,
     image: "img/Guardian_Angel_item_HD.png",
-    stats: { AD: 40, ARMOR: 50 },
+    stats: { AD: 40, ARMOR: 40 },
     passives: [
-      { title: "Rebirth", desc: "Upon taking lethal damage, restore health and stasis briefly instead of dying (once per bind time)." },
+      { title: "Resurrect", desc: "Upon taking lethal damage, restore 50% base HP and 30% MAX MANA after 4 seconds of extasis." },
     ],
   },
   {
     title: "Force of Nature",
     category: "DEFENSE",
-    gold: 3000,
+    gold: 2750,
     image: "img/Force_of_Nature_item_HD.png",
-    stats: { MR: 60, HP: 350, SPEED_PERCENTAGE: 5 },
+    stats: { MR: 60, HP: 350 },
     passives: [
-      { title: "Absorb", desc: "Taking magic damage grants stacking Move Speed and, at max stacks, bonus Health regen." },
+      { title: "Storm", desc: "+5% Movement Speed", stats: { SPEED_PERCENTAGE: 5 }},
+      { title: "Absorb", desc: "Taking magic damage grants 1 stack for 7 seconds, max 4 stacks. Dealing damage to an enemy Champion will refresh the duration of the stacks. At maximum stacks, gain 10% Movement Speed and reduce all incoming magic damage by 25%" },
     ],
   },
   {
     title: "Frozen Heart",
     category: "DEFENSE",
-    gold: 2400,
+    gold: 2750,
     image: "img/Frozen_Heart_item_HD.png",
-    stats: { ARMOR: 70, MAX_MANA: 400 },
+    stats: { ARMOR: 80, MAX_MANA: 200, CD: 25 },
     passives: [
-      { title: "Rime", desc: "Reduces the Attack Speed of nearby enemies." },
+      { title: "Winter's Caress", desc: "Against champions, basic attacks and magic damage you deal or take will inflict a stack of Chill lasting 3 seconds, refreshing on subsequent hits and stacking up to 4 times (1 second cooldown per ability per target). Each stack cripples the target's attack speed by 9%, stacking up to 36% reduction." },
     ],
   },
   {
     title: "Death's Dance",
     category: "PHYSICAL",
-    gold: 3200,
+    gold: 3100,
     image: "img/Death's_Dance_item_HD.png",
-    stats: { AD: 55, ARMOR: 45 },
+    stats: { AD: 35, ARMOR: 40, CD: 15 },
     passives: [
-      { title: "Ignore Pain", desc: "Defers a portion of damage taken as a burning DoT instead of losing it all at once." },
+      { title: "Defy", desc: "Champion takedowns remove Cauterize's remaining stored damage and heal you for 8% maximum health over 2 seconds."},
+      { title: "Cauterize", desc: " Melee 27% / Ranged 12% of physical and magic damage taken from champions is instead dealt as true damage over 4 seconds, dealing a portion of the stored damage every second." },
     ],
   },
   {
     title: "Nashor's Tooth",
     category: "MAGIC",
-    gold: 3000,
+    gold: 2800,
     image: "img/Nashor's_Tooth_item_HD.png",
-    stats: { AP: 80, ATTACK_SPEED: 50, MANA_REGEN: 10 },
+    stats: { ATTACK_SPEED: 45, CD: 20 },
     passives: [
-      { title: "Icathian Bite", desc: "Basic attacks deal bonus magic damage on-hit." },
+      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP (NOT INCLUDED IN OUR CALCULATIONS)" },
+      { title: "Icathian Bite", desc: "Basic attacks deal bonus magic damage on-hit (15 AP + 20% Bonus AD + 30% Bonus AP)." },
     ],
   },
   {
@@ -125,45 +130,44 @@ const ITEMS = [
   {
     title: "Abyssal Mask",
     category: "DEFENSE",
-    gold: 2800,
+    gold: 3000,
     image: "img/Abyssal_Mask_item_HD.png",
-    stats: { HP: 300, MAX_MANA: 300, MR: 40, CD: 10 },
+    stats: { HP: 400, MR: 55, CD: 10 },
     passives: [
-      { title: "Eternity", desc: "Restore Mana equal to 15% of damage taken from champions. Restore Health equal to 20% of Mana spent, capped at 25 Health per cast." },
-      { title: "Abyssal", desc: "Taking magic damage generates charges equal to 20% of the damage taken (lasting 5 seconds). Rooting an enemy champion consumes charges to cause a 400-yard explosion near the first rooted target, dealing magic damage equal to the remaining charges." },
+      { title: "Unmake", desc: "Curses enemy champions within 600 units, reducing MR by 5 plus 1.2% Bonus HP, up to 25 MR. For each champion cursed, gain 9 bonus MR." },
     ],
   },
   // NOTE: Actualizer is an AAA ARAM-exclusive item; stats/gold uncertain, verify in-game.
-  {
-    title: "Actualizer",
-    category: "MAGIC",
-    gold: 2200,
-    image: "img/Actualizer_item_HD.png",
-    stats: { AP: 60, MAX_MANA: 300, CD: 10 },
-    passives: [
-      { title: "Mana Burst", desc: "AAA ARAM exclusive item that grants a burst window for mages built around mana and ability usage." },
-    ],
-  },
+  // {
+  //   title: "Actualizer",
+  //   category: "MAGIC",
+  //   gold: 2200,
+  //   image: "img/Actualizer_item_HD.png",
+  //   stats: { AP: 60, MAX_MANA: 300, CD: 10 },
+  //   passives: [
+  //     { title: "Mana Burst", desc: "AAA ARAM exclusive item that grants a burst window for mages built around mana and ability usage." },
+  //   ],
+  // },
   {
     title: "Archangel's Staff",
     category: "MAGIC",
     gold: 2950,
     image: "img/Archangel's_Staff_item_HD.png",
-    stats: { AP: 35, MAX_MANA: 500, CD: 20 },
+    stats: { AP: 35, MAX_MANA: 500, CD: 20, MP_PERCENTAGE: 7 },
     passives: [
       { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent." },
-      { title: "Mana Charge", desc: "Increases max Mana by 12 every time Mana is spent, up to 3 times every 12 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
+      { title: "Mana Charge", desc: "Increases max Mana by 18 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
     ],
   },
   {
     title: "Ardent Censer",
     category: "SUPPORT",
-    gold: 2800,
+    gold: 2700,
     image: "img/Ardent_Censer_item_HD.png",
-    stats: { AP: 60, HP: 250, CD: 10 },
+    stats: { AP: 35, HP: 250, CD: 20, MANA_REGEN: 50, HEAL: 5 },
     passives: [
-      { title: "Ardent", desc: "Grants +5% Move Speed." },
-      { title: "Censer", desc: "Healing or shielding an allied champion (excluding yourself) grants both of you bonus Attack Speed and your basic attacks deal bonus magic damage for 6 seconds." },
+      { title: "Ardent", desc: "Grants +5% Move Speed." , stats: { SPEED_PERCENTAGE: 5 }},
+      { title: "Censer", desc: "Healing or shielding an allied champion (excluding yourself) they gain bonus Attack Speed 15% - 40% and their basic attacks deal bonus magic damage  16-30 for 6 seconds. This damage can critically strike" },
     ],
   },
   // NOTE: Armored Advance appears to be a Midlane Quest upgrade item from PC League of Legends, not confirmed to exist in Wild Rift; stats/gold uncertain, verify.
@@ -178,16 +182,16 @@ const ITEMS = [
       { title: "Noxian Endurance", desc: "Taking physical damage from champions grants a shield that absorbs physical damage for 4 seconds (12 second cooldown)." },
     ],
   },
-  {
-    title: "Axiom Arc",
-    category: "PHYSICAL",
-    gold: 2600,
-    image: "img/Axiom_Arc_item_HD.png",
-    stats: { AD: 55, ARMOR_PEN: 18, CD: 20 },
-    passives: [
-      { title: "Flux", desc: "Takedowns on champions refund a portion of your Ultimate's cooldown." },
-    ],
-  },
+  // {
+  //   title: "Axiom Arc",
+  //   category: "PHYSICAL",
+  //   gold: 2600,
+  //   image: "img/Axiom_Arc_item_HD.png",
+  //   stats: { AD: 55, ARMOR_PEN: 18, CD: 20 },
+  //   passives: [
+  //     { title: "Flux", desc: "Takedowns on champions refund a portion of your Ultimate's cooldown." },
+  //   ],
+  // },
   {
     title: "Banshee's Veil",
     category: "MAGIC",
@@ -263,11 +267,11 @@ const ITEMS = [
   {
     title: "Chempunk Chainsword",
     category: "PHYSICAL",
-    gold: 2500,
+    gold: 2800,
     image: "img/Chempunk_Chainsword_item_HD.png",
     stats: { AD: 40, HP: 250 },
     passives: [
-      { title: "Wound", desc: "Dealing physical damage to champions applies Grievous Wounds for 3 seconds, reducing healing received." },
+      { title: "Sepsis", desc: "Dealing physical damage to enemy champions inflicts 50% Grievous Wounds for 3 seconds." },
     ],
   },
   {
@@ -292,17 +296,17 @@ const ITEMS = [
       { title: "Noxian Haste", desc: "Healing, shielding, or buffing an ally, damaging enemy champions with abilities, or using a Summoner Spell grants bonus Move Speed for 4 seconds." },
     ],
   },
-  {
-    title: "Crown of the Shattered Queen",
-    category: "MAGIC",
-    gold: 3000,
-    image: "img/Crown_of_the_Shattered_Queen_item_HD.png",
-    stats: { AP: 60, MAX_MANA: 200, CD: 20, MP_PERCENTAGE: 7 },
-    passives: [
-      { title: "Safeguard", desc: "Grants a spell shield that blocks the next hostile ability." },
-      { title: "Poise", desc: "While Safeguard is not on cooldown, gain 20 Ability Power; damaging active abilities against champions reduce Safeguard's remaining cooldown." },
-    ],
-  },
+  // {
+  //   title: "Crown of the Shattered Queen",
+  //   category: "MAGIC",
+  //   gold: 3000,
+  //   image: "img/Crown_of_the_Shattered_Queen_item_HD.png",
+  //   stats: { AP: 60, MAX_MANA: 200, CD: 20, MP_PERCENTAGE: 7 },
+  //   passives: [
+  //     { title: "Safeguard", desc: "Grants a spell shield that blocks the next hostile ability." },
+  //     { title: "Poise", desc: "While Safeguard is not on cooldown, gain 20 Ability Power; damaging active abilities against champions reduce Safeguard's remaining cooldown." },
+  //   ],
+  // },
   {
     title: "Cryptbloom",
     category: "MAGIC",
@@ -311,6 +315,19 @@ const ITEMS = [
     stats: { AP: 75, CD: 20, MP_PERCENTAGE: 30 },
     passives: [
       { title: "Blooming", desc: "When an enemy dies within 3 seconds of you damaging them, a healing nova spawns at their location for your team (60 second cooldown)." },
+    ],
+  },
+  {
+    title: "Runaan's Hurricane",
+    category: "PHYSICAL",
+    gold: 2900,
+    image: "img/Runans.png",
+    stats: { CRIT: 25, ATTACK_SPEED: 35 },
+    passives: [
+      { title: "Wind's fury", desc: "Attacks strike 2 additional nearby enemies, each dealing 55%AD, these attack trigger on hit effects" },
+      {
+        title: "Wind Blade", desc:"Attacks deal 15 bonus AD on-hit"
+      },
     ],
   },
   {
@@ -425,11 +442,21 @@ const ITEMS = [
   {
     title: "Gargoyle Stoneplate",
     category: "ACTIVE",
-    gold: 1500,
+    gold: 2900,
     image: "img/Gargoyle_Stoneplate_item_HD.png",
-    stats: {},
+    stats: { ARMOR: 45, MR: 45, HP: 200, CD: 10 },
     passives: [
       { title: "Fortify", desc: "Grants a shield that absorbs 30% of maximum Health, decaying over 4 seconds. If 3 or more enemies are nearby, the shield value increases by 100%. Damage dealt is reduced by 40% for 4 seconds (45s cooldown)." },
+    ],
+  },
+  {
+    title: "Redemption",
+    category: "ACTIVE",
+    gold: 2600,
+    image: "img/Gargoyle_Stoneplate_item_HD.png",
+    stats: { AP: 45, HEAL: 5, MANA_REGEN: 50, HP: 150, CD: 20 },
+    passives: [
+      { title: "Redemption", desc: "Select a big area and after 2.5s it summons a lighting that heals allies and damages enemy champions" },
     ],
   },
   {
@@ -444,11 +471,21 @@ const ITEMS = [
   },
   // NOTE: gold/stats sourced from PC League of Legends data — search results for the Wild Rift version were inconsistent/unreliable; verify before relying on it.
   {
+    title: "Stridebreaker",
+    category: "ACTIVE",
+    gold: 3100,
+    image: "img/Goredrinker_item_HD.png",
+    stats: { AD: 40, HP: 400, ATTACK_SPEED: 15 },
+    passives: [
+      { title: "Thirsting Slash", desc: "Unique Active: Deal physical damage to nearby enemies and heal for a percent of missing Health, increased for each enemy champion hit (15s cooldown)." },
+    ],
+  },
+  {
     title: "Goredrinker",
     category: "ACTIVE",
-    gold: 3300,
+    gold: 3100,
     image: "img/Goredrinker_item_HD.png",
-    stats: { AD: 45, HP: 400, CD: 15 },
+    stats: { AD: 40, HP: 350, CD: 15, OMNIVAMP: 8 },
     passives: [
       { title: "Thirsting Slash", desc: "Unique Active: Deal physical damage to nearby enemies and heal for a percent of missing Health, increased for each enemy champion hit (15s cooldown)." },
     ],
@@ -478,7 +515,7 @@ const ITEMS = [
   },
   {
     title: "Heartsteel",
-    category: "PHYSICAL",
+    category: "DEFENSE",
     gold: 2800,
     image: "img/Heartsteel_item_HD.png",
     stats: { HP: 700, CD: 25 },
@@ -490,9 +527,9 @@ const ITEMS = [
   {
     title: "Hextech Rocketbelt",
     category: "ACTIVE",
-    gold: 2650,
+    gold: 2700,
     image: "img/Hextech_Rocketbelt_item_HD.png",
-    stats: { AP: 70, HP: 300, CD: 20 },
+    stats: { AP: 70, HP: 250, CD: 20 },
     passives: [
       { title: "Supersonic", desc: "Unique Active: Dash a short distance in the target direction, unleashing an arc of rockets that deal magic damage to enemies hit, then gain bonus Move Speed while facing nearby enemy champions (40s cooldown)." },
     ],
@@ -605,7 +642,7 @@ const ITEMS = [
   },
   {
     title: "Knight's Vow",
-    category: "DEFENSE",
+    category: "SUPPORT",
     gold: 2600,
     image: "img/Knight's_Vow_item_HD.png",
     stats: { ARMOR: 40, HP: 400, CD: 10 },
@@ -627,12 +664,11 @@ const ITEMS = [
   {
     title: "Locket of the Iron Solari",
     category: "ACTIVE",
-    gold: 2200,
+    gold: 2600,
     image: "img/Locket_of_the_Iron_Solari_item_HD.png",
     stats: { HP: 200, ARMOR: 30, MR: 30, CD: 10 },
     passives: [
-      { title: "Consecrate", desc: "Grants nearby allied champions bonus armor and magic resist." },
-      { title: "Devotion", desc: "Active: shields you and nearby allies, decaying over a few seconds (90s cooldown)." },
+      { title: "Devotion", desc: "Active: shields you and nearby allies, decaying over a few seconds (60s cooldown)." },
     ],
   },
   {
@@ -693,7 +729,7 @@ const ITEMS = [
     category: "ACTIVE",
     gold: 3100,
     image: "img/Mercurial_Scimitar_item_HD.png",
-    stats: { AD: 40, MR: 40, OMNIVAMP: 10 },
+    stats: { AD: 45, MR: 40, OMNIVAMP: 10 },
     passives: [
       { title: "Quicksilver", desc: "Active: removes all crowd control effects from your champion." },
     ],
@@ -842,9 +878,9 @@ const ITEMS = [
   {
     title: "Shurelya's Battlesong",
     category: "ACTIVE",
-    gold: 2200,
+    gold: 2600,
     image: "img/Shurelya's_Battlesong_item_Unused_HD.png",
-    stats: { AP: 55, CD: 15, MANA_REGEN: 125, SPEED_PERCENTAGE: 8 },
+    stats: { AP: 50, CD: 20, MANA_REGEN: 50, SPEED_PERCENTAGE: 5 },
     passives: [
       { title: "Inspiring Speech", desc: "UNIQUE Active: You and nearby allies gain 30% bonus Move Speed for 4 seconds." },
     ],
@@ -982,9 +1018,9 @@ const ITEMS = [
   {
     title: "Zhonya's Hourglass",
     category: "ACTIVE",
-    gold: 3000,
+    gold: 3300,
     image: "img/Zhonya's_Hourglass_item_HD.webp",
-    stats: { AP: 65, ARMOR: 45, CD: 10 },
+    stats: { AP: 110, ARMOR: 40 },
     passives: [
       { title: "Stasis", desc: "Unique Active: Become invulnerable and untargetable for 2.5 seconds, but unable to act (90s cooldown)." },
     ],
@@ -1037,4 +1073,234 @@ const ITEMS = [
     stats: { SPEED: 45, MP_PERCENTAGE: 18 },
     passives: [],
   },
+  {
+    title: "Magnetic Blaster",
+    category: "PHYSICAL",
+    gold: 3000,
+    image: "img/Magnetic_Blaster_WR_item.webp",
+    stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 15, SPEED_PERCENTAGE: 5 },
+    passives: [
+      { title: "Power Fight", desc: "Your movement and basic attacks will generate stacks of Energy, stacking up to 100. At maximum stacks, your next basic attack will consume them all to activate all Energized effects" },
+    ],
+  },
+  {
+  title: "Serpent's Fang",
+    category: "PHYSICAL",
+    gold: 2800,
+    image: "img/Serpent's_Fang_item.webp",
+    stats: { AD: 50, CD: 10 },
+    passives: [
+      { title: "Stab", desc: "+15 armor pen", stats: { ARMOR_PEN: 15} },
+    ],
+  },
+  {
+    title: "Terminus",
+    category: "PHYSICAL",
+    gold: 3300,
+    image: "img/Terminus_item.webp",
+    stats: { AD: 40, ATTACK_SPEED: 30 },
+    passives: [
+      {title: "Shadow", desc: "Basic attack deal 35 bonus magic damage on-hit"},
+      { title: "Juxtaposition", desc: "Basic attacks On-hit icon on-hit against champions alternate between Light and Dark hits, each granting a bonus for 5 seconds that stacks up to 3 times. Light hits grant 5 − 8 (based on level) bonus armor and bonus magic resist while Dark hits grant 11% armor penetration and magic penetration, for a total of 15 − 24 (based on level) bonus resistances and 33% penetration at maximum stacks of each." },
+    ],
+  },
+  {
+    title: "Soul transfer",
+    category: "PHYSICAL",
+    gold: 3200,
+    image: "img/Soul_Transfer.png",
+    stats: { AD: 25, ATTACK_SPEED: 30, CRIT: 25 },
+    passives: [
+      {title: "Shadow dance", desc: "Critical strikes against a champion champion or an epic monster monster will conjure a Shadow for 4 seconds to attack nearby enemies. It inherits 20% AD and additionally gains 30% of your critical rate as attack speed. Up to two Shadows can be deployed. Shadows more than 600-range away will expire."},
+    ],
+  },
+  {
+    title: "Road of ages",
+    category: "MAGIC",
+    gold: 2800,
+    image: "img/ROA.png",
+    stats: { HP: 250, AP: 60, MP_PERCENTAGE: 7, MAX_MANA: 300 },
+    passives: [
+      {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
+      {title: "Veterancy", desc: "This item gains 25 bonus health, 10 bonus mana and 6 ability power every 40 seconds, stacking up to 10 times for a maximum of 250 bonus health, 100 bonus mana and 60 ability power."},
+    ],
+  },
+  {
+    title: "Oceanic's Trydent",
+    category: "MAGIC",
+    gold: 2600,
+    image: "img/Oceanid_Tridents.png",
+    stats: { HP: 200, AP: 70, CD: 20 },
+    passives: [
+      {title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict 40% (+ 5% per 100 AP) reduction, capped at 60%. Area-of-effect abilities inflict 25% (+ 5% per 100 AP) reduction, capped at 45%."},
+    ],
+  },
+  {
+    title: "Warmog's Armor",
+    category: "DEFENSE",
+    gold: 2850,
+    image: "img/Warmog.png",
+    stats: { HP: 700, HP_REGEN: 100, CD: 20 },
+    passives: [
+      {title: "Warmog's Heart", desc: "If you have at least 950 bonus health, after 6 seconds without taking damage, you regenerate 5% maximum health every second."},
+      {Title: "Bendition", desc: " Increases healing, shielding, health regeneration, and drain effects on yourself by 30%."}
+    ],
+  },
+  {
+    title: "Yordle Trap",
+    category: "SUPPORT",
+    gold: 2500,
+    image: "img/Yordle_Trap.webp",
+    stats: { HP: 350, ARMOR: 40, CD: 15 },
+    passives: [
+      {title: "Catcher", desc: "After using abilities to displace an enemy gain 10% for 3 seconds and mark their targets reducing their Armor and Magic Resist by 5-12 for 8s. If the target dies while marked their death grants 100-120 bonus gold that will be shared evenly among you and your nearby allies."},
+    ],
+  },
+  {
+    title: "Thormail",
+    category: "DEFENSE",
+    gold: 2700,
+    image: "img/Thornmail_item.webp",
+    stats: { HP: 200, ARMOR: 75 },
+    passives: [
+      {title: "Thorns", desc: "When struck by a basic attack on-hit, deal 20 (+ 6% bonus armor) (+ 2% bonus health) magic damage to the attacker, and inflict 60% Grievous Wounds for 3 seconds against champions."},
+    ],
+  },
+  {
+    title: "Harmonic Echo",
+    category: "SUPPORT",
+    gold: 2600,
+    image: "img/Harmonic_Echo.png",
+    stats: { HP: 100, AP: 50, MAX_MANA: 300, MANA_REGEN: 50, CD: 10, HEAL: 8},
+    passives: [
+      {title: "Harmonic Echo", desc: "Moving and casting abilities builds Harmony. At 100 Harmony, your next healing or shielding ability cast on an ally restores more health scaling with 20% AP, if the target has less than 30% HP the effect is increased to 150%"},
+    ],
+  },
+  {
+    title: "Randuin's Omen",
+    category: "DEFENSE",
+    gold: 2800,
+    image: "img/Randuins.webp",
+    stats: { HP: 400, ARMOR: 75 },
+    passives: [
+      {title: "Countercurrent", desc: "Gain 1 stack of Countercurrent when Critically Strike by AD. Each stack grants %5 Movement speed and 5% Slow resist. Max 4 stacks"},
+      {title: "Resilence", desc: "Critical Strikes deal 30% less physical damage to you"},
+    ],
+  },
+  {
+    title: "Dawnshroud",
+    category: "DEFENSE",
+    gold: 2700,
+    image: "img/Dawnshroud.png",
+    stats: { HP: 250, ARMOR: 50, MR: 30 },
+    passives: [
+      {title: "Dawnbringer", desc: "If you are within 400 units of an enemy champion when you immobilize an enemy champion or are immobilized by enemy champions, you deal 80 (+ 5% bonus health) magic damage to nearby enemy champions and reveal them for 3 seconds (3 second cooldown)."},
+    ],
+  },
+  {
+    title: "Amaranth's Twinguard",
+    category: "DEFENSE",
+    gold: 3100,
+    image: "img/Twinguard.webp",
+    stats: { ARMOR: 60, MR: 60 },
+    passives: [
+      {title: "Endurance", desc: "Generates a stack of Endurance every second in combat with champions, which expires out of combat and stacks up to 5 times. At max stacks, you gain 30% size, 20% tenacity, and 30% bonus armor and magic resistance."},
+    ],
+  },
+  {
+    title: "Mantle of the Twelfth Hour",
+    category: "DEFENSE",
+    gold: 2850,
+    image: "img/Mantle.webp",
+    stats: { HP: 200 , ARMOR: 40, MR: 40 },
+    passives: [
+      {title: "Lifeline", desc: "If you take damage that would reduce you below 35% maximum health, you gain base health equal to 200 (+ 50% bonus health) over 3 seconds, as well as 50% slow resistance and 30% bonus move speed (90 second cooldown)."},
+    ],
+  },
+  {
+    title: "Searing Crown",
+    category: "DEFENSE",
+    gold: 2700,
+    image: "img/Searing_Crown.webp",
+    stats: { HP: 300 , ARMOR: 50 },
+    passives: [
+      {title: "Lifeline", desc: "Your basic attacks and ability hits inflict a burn that deals magic damage equal to (Melee 1.4% / Ranged 0.7%) target's maximum health per second over 3 seconds. This deals 150% damage against minions and monsters, up to 125 damage against monsters."},
+    ],
+  },
 ];
+
+/*
+#define EMPTY 0
+#define AP 1
+#define CD 2
+#define MAX_MANA 3
+#define MANA_REGEN 4
+#define MP 5
+#define MP_PERCENTAGE 6
+#define HP 7
+#define HP_REGEN 8
+#define SPEED 9
+#define SPEED_PERCENTAGE 10
+#define ATTACK_SPEED 11
+#define AD 12
+#define ARMOR_PEN 13
+#define ARMOR_PEN_PERCENTAGE 14
+#define CRIT 15
+#define ARMOR 16
+#define MR 17
+#define HEAL 18
+#define OMNIVAMP 19
+#define AP_PERCENTAGE 20
+#define AD_PERCENTAGE 21
+
+#define PHYSICAL 30
+#define MAGIC 31
+#define DEFENSE 32
+#define SUPPORT 33
+#define ACTIVE 34
+#define BOOTS 35
+*/
+
+/*
+
+
+PHYSICAL:
+    RUNANS x
+    MAGNETIC BLASTER x
+    SERPENT FANG x
+    TERMINUS x
+    SOUL TRANSFER
+
+MAGIC:
+  ROA
+  OCEANIDS TRIDENT
+
+
+DEFENSE:
+  WARMOG
+  THORNMAIL
+  RANDUIN
+  DAWNSHROUD
+  AMARANTH TWINGUARD
+  MANTLE OF THE TWELFTH HOUR
+  SEARING CROWN
+  
+SUPPORT:
+  YORDLE TRAP
+  ARMONIC ECHO
+
+BOOTS:
+  GLUTTENOUS GREAVES
+  BOOTS OF DYNAMISM
+
+  LETHALITY !
+  ATTACK SPEED !
+  AP !
+
+
+
+ACTIVE:
+  STRIDEBREAKER
+  REDEMPTION
+
+*/

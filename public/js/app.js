@@ -157,6 +157,7 @@ async function calculate() {
     type: ITEM_TYPES[item.category],
     title: item.title,
     stats: statsToTypeArray(item.stats),
+    passives: passivesToJson(item.passives),
   }));
 
   const res = await fetch("/api/attributes", {

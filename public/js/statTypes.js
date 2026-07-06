@@ -43,3 +43,23 @@ function statsToTypeArray(readableStats) {
     return { type, value };
   });
 }
+
+// The backend's Passive class carries at most one bonus Stat, so only the
+// first entry of a passive's readable `stats` object (if any) is used.
+function passivesToJson(passives) {
+  return (passives || []).map((passive) => {
+    const entries = Object.entries(passive.stats || {});
+    const json = { title: passive.title, desc: passive.desc };
+
+    if (entries.length > 0) {
+      const [name, value] = entries[0];
+      const type = STAT_TYPES[name];
+      if (type === undefined) {
+        throw new Error(`Unknown stat name "${name}"`);
+      }
+      json.stat = { type, value };
+    }
+
+    return json;
+  });
+}

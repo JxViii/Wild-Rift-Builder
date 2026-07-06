@@ -11,6 +11,18 @@ double lol::Object::getAttribute(int type)
       total += stat.getValue();
     }
   }
+
+  if (!getPassives().empty())
+  {
+    for (Passive &passive : getPassives())
+    {
+      if (passive.getStat().getValue() != 0 && passive.getStat().getType() == type)
+      {
+        total += passive.getStat().getValue();
+      }
+    }
+  }
+
   return total;
 }
 
@@ -24,7 +36,8 @@ lol::Set::Set(std::vector<lol::Object> set)
   int activeCount = 0;
   for (lol::Object &obj : set)
   {
-    if (obj.getType() == ACTIVE) activeCount++;
+    if (obj.getType() == ACTIVE)
+      activeCount++;
   }
   if (activeCount > 1)
   {
@@ -52,7 +65,8 @@ void lol::Set::addObject(lol::Object obj)
   }
 
   _set.push_back(obj);
-  if(isActive) _hasActive = true;
+  if (isActive)
+    _hasActive = true;
   _capacity--;
 }
 void lol::Set::deleteObject(size_t pos)
@@ -72,7 +86,8 @@ void lol::Set::deleteObject(size_t pos)
   bool isActive = obj.getType() == ACTIVE;
 
   _set.erase(_set.begin() + pos);
-  if(isActive) _hasActive = false;
+  if (isActive)
+    _hasActive = false;
   _capacity++;
 }
 
@@ -122,8 +137,8 @@ nlohmann::ordered_json lol::Set::print()
   double apPercentage = getAttribute(AP_PERCENTAGE);
   double adPercentage = getAttribute(AD_PERCENTAGE);
 
-  ap *= (apPercentage != 0) ? (apPercentage / 100) : 1;
-  ad *= (adPercentage != 0) ? (adPercentage / 100) : 1;
+  ap *= (apPercentage != 0) ? (1 + apPercentage / 100) : 1;
+  ad *= (adPercentage != 0) ? (1 + adPercentage / 100) : 1;
 
   nlohmann::ordered_json result = nlohmann::ordered_json::object();
 
