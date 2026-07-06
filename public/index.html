@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wild Rift : Build Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=BBH+Bartle&family=BBH+Bogle&family=BBH+Hegarty&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <header>
+    <span>What should I <B>BUILD</B>?</span>
+    <h1><span>Wild Rift </span>: Build Calculator</h1>
+    <span>Get your SET <b>stats</b>, <b>passives</b> and <b>gold</b></span>
+    <span>Powered to you by <b>COACHINOS</b></span>
+  </header>
+
+  <main class="builder">
+    <section class="slots" id="slots"></section>
+
+    <div class="builder__actions">
+      <button id="calculate">Calculate</button>
+      <button id="clear">Clear</button>
+    </div>
+
+    <p class="notice" id="notice" hidden></p>
+
+    <section class="results" id="results" hidden></section>
+
+    <section class="gallery" id="gallery"></section>
+  </main>
+
+  <script src="js/statTypes.js"></script>
+  <script src="js/items.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
