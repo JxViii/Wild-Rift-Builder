@@ -70,6 +70,7 @@ namespace lol
 
     private:
       bool _hasActive = false;
+      bool _hasBoots = false;
       std::vector<lol::Object> _set;
       std::size_t _capacity;
 

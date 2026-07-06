@@ -102,6 +102,11 @@ function addItem(item) {
     return;
   }
 
+  if (item.category === "BOOTS" && slots.some((s) => s && s.category === "BOOTS")) {
+    showNotice("You can only have ONE boots item at a time!");
+    return;
+  }
+
   const emptyIndex = slots.indexOf(null);
   if (emptyIndex === -1) {
     showNotice("Set is full — remove an item first.");

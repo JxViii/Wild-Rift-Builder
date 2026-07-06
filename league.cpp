@@ -34,18 +34,26 @@ lol::Set::Set(std::vector<lol::Object> set)
   }
 
   int activeCount = 0;
+  int bootCount = 0;
   for (lol::Object &obj : set)
   {
     if (obj.getType() == ACTIVE)
       activeCount++;
+    else if (obj.getType() == BOOTS)
+      bootCount++;
   }
   if (activeCount > 1)
   {
     throw std::invalid_argument("You can only have ONE active item at a time!");
   }
+  if (bootCount > 1)
+  {
+    throw std::invalid_argument("You can only have ONE boots item at a time!");
+  }
 
   _set = set;
   _hasActive = activeCount == 1;
+  _hasBoots = bootCount == 1;
   _capacity = getSize() - set.size();
 }
 
@@ -58,15 +66,21 @@ void lol::Set::addObject(lol::Object obj)
   }
 
   bool isActive = obj.getType() == ACTIVE;
+  bool isBoots = obj.getType() == BOOTS;
 
   if (_hasActive == true && isActive)
   {
     throw std::invalid_argument("You can only have ONE active item at a time!");
   }
 
+  if (_hasBoots == true && isBoots)
+  {
+    throw std::invalid_argument("You can only have ONE boots item at a time!");
+  }
+
   _set.push_back(obj);
-  if (isActive)
-    _hasActive = true;
+  if (isActive) _hasActive = true;
+  if (isBoots) _hasBoots = true;
   _capacity--;
 }
 void lol::Set::deleteObject(size_t pos)
@@ -84,10 +98,11 @@ void lol::Set::deleteObject(size_t pos)
 
   Object obj = _set.at(pos);
   bool isActive = obj.getType() == ACTIVE;
+  bool isBoots = obj.getType() == BOOTS;
 
   _set.erase(_set.begin() + pos);
-  if (isActive)
-    _hasActive = false;
+  if (isActive) _hasActive = false;
+  if (isBoots) _hasBoots = false;
   _capacity++;
 }
 
