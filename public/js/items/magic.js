@@ -1,0 +1,274 @@
+// Magic items — part of the ITEMS catalog (see items.js).
+const MAGIC_ITEMS = [
+  {
+    title: "Rabadon's Deathcap",
+    category: "MAGIC",
+    gold: 3400,
+    image: "img/Rabadon's_Deathcap_item_HD.png",
+    stats: { AP: 100, MP_PERCENTAGE: 7 },
+    passives: [
+      { title: "Magical Opus", desc: "Increases Ability Power by 20-45%. (We emulate 45%)", stats: { AP_PERCENTAGE: 45 } },
+    ],
+  },
+  {
+    title: "Luden's Tempest",
+    category: "MAGIC",
+    gold: 2900,
+    image: "img/Luden's_Tempest_item_HD.png",
+    stats: { AP: 85, MAX_MANA: 300, CD: 20, MP_PERCENTAGE: 7},
+    passives: [
+      { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP." },
+    ],
+  },
+  {
+    title: "Liandry's Torment",
+    category: "MAGIC",
+    gold: 3000,
+    image: "img/Liandry's_Torment_item_HD.png",
+    stats: { AP: 75, HP: 250, MP_PERCENTAGE: 7 },
+    passives: [
+      { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time 0.6% - 3.0% of the targets max HP as bonus magic damage per second for 3 seconds" },
+    ],
+  },
+  {
+    title: "Nashor's Tooth",
+    category: "MAGIC",
+    gold: 2800,
+    image: "img/Nashor's_Tooth_item_HD.png",
+    stats: { ATTACK_SPEED: 45, CD: 20 },
+    passives: [
+      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP" , stats: { ADAPTATIVE : 50 }},
+      { title: "Icathian Bite", desc: "Basic attacks deal bonus magic damage on-hit (15 AP + 20% Bonus AD + 30% Bonus AP)." },
+    ],
+  },
+  // NOTE: Actualizer is an AAA ARAM-exclusive item; stats/gold uncertain, verify in-game.
+  // {
+  //   title: "Actualizer",
+  //   category: "MAGIC",
+  //   gold: 2200,
+  //   image: "img/Actualizer_item_HD.png",
+  //   stats: { AP: 60, MAX_MANA: 300, CD: 10 },
+  //   passives: [
+  //     { title: "Mana Burst", desc: "AAA ARAM exclusive item that grants a burst window for mages built around mana and ability usage." },
+  //   ],
+  // },
+  {
+    title: "Archangel's Staff",
+    category: "MAGIC",
+    gold: 2950,
+    image: "img/Archangel's_Staff_item_HD.png",
+    bannedSet: ["LIFELINE","MANAFLOW"],
+    stats: { AP: 35, MAX_MANA: 500, CD: 20, MP_PERCENTAGE: 7 },
+    passives: [
+      { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent." },
+      { title: "Mana Charge", desc: "Increases max Mana by 18 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
+    ],
+  },
+  {
+    title: "Banshee's Veil",
+    category: "MAGIC",
+    gold: 3000,
+    image: "img/Banshee's_Veil_item_HD.png",
+    stats: { AP: 70, MR: 40, CD: 10 },
+    passives: [
+      { title: "Annul", desc: "Grants a spell shield that blocks the next enemy ability." },
+    ],
+  },
+  // NOTE: Blackfire Torch is an AAA ARAM-exclusive item; exact stats/gold uncertain, verify in-game.
+  {
+    title: "Blackfire Torch",
+    category: "MAGIC",
+    gold: 2900,
+    image: "img/Blackfire_Torch_item_HD.png",
+    stats: { AP: 70, CD: 15 },
+    passives: [
+      { title: "Ignite", desc: "AAA ARAM exclusive item — damaging abilities apply a burning effect that spreads to nearby enemies." },
+    ],
+  },
+  // NOTE: Bloodletter's Curse stats taken from PC League of Legends data; Wild Rift numbers may differ slightly, verify.
+  {
+    title: "Bloodletter's Curse",
+    category: "MAGIC",
+    gold: 2900,
+    image: "img/Bloodletter's_Curse_item_HD.png",
+    bannedSet: ["BLIGHT"],
+    stats: { AP: 65, HP: 400, CD: 15 },
+    passives: [
+      { title: "Vile Decay", desc: "Dealing magic damage to champions with abilities reduces their Magic Resist by 7.5% for 6 seconds, stacking up to 4 times." },
+    ],
+  },
+  {
+    title: "Cosmic Drive",
+    category: "MAGIC",
+    gold: 2800,
+    image: "img/Cosmic_Drive_item_HD.png",
+    stats: { AP: 70, CD: 30, HP: 300, MP_PERCENTAGE: 7 },
+    passives: [
+      { title: "Spelldance", desc: "Dealing damage with abilities grants bonus Move Speed (scaling with Ability Haste) for 4 seconds." },
+    ],
+  },
+  // {
+  //   title: "Crown of the Shattered Queen",
+  //   category: "MAGIC",
+  //   gold: 3000,
+  //   image: "img/Crown_of_the_Shattered_Queen_item_HD.png",
+  //   stats: { AP: 60, MAX_MANA: 200, CD: 20, MP_PERCENTAGE: 7 },
+  //   passives: [
+  //     { title: "Safeguard", desc: "Grants a spell shield that blocks the next hostile ability." },
+  //     { title: "Poise", desc: "While Safeguard is not on cooldown, gain 20 Ability Power; damaging active abilities against champions reduce Safeguard's remaining cooldown." },
+  //   ],
+  // },
+  {
+    title: "Cryptbloom",
+    category: "MAGIC",
+    gold: 3000,
+    image: "img/Cryptbloom_item_HD.png",
+    bannedSet: ["BLIGHT"],
+    stats: { AP: 75, CD: 20, MP_PERCENTAGE: 30 },
+    passives: [
+      { title: "Blooming", desc: "When an enemy dies within 3 seconds of you damaging them, a healing nova spawns at their location for your team (60 second cooldown)." },
+    ],
+  },
+  // NOTE: gold/stats sourced from PC League of Legends data — could not confirm this item exists in Wild Rift under current patches; verify before relying on it.
+  {
+    title: "Dusk and Dawn",
+    category: "MAGIC",
+    gold: 3100,
+    image: "img/Dusk_and_Dawn_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
+    stats: { HP: 300, AP: 70, CD: 20, ATTACK_SPEED: 25 },
+    passives: [
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit and applies on-hit effects twice (1.5s cooldown)." },
+    ],
+  },
+  {
+    title: "Horizon Focus",
+    category: "MAGIC",
+    gold: 3100,
+    image: "img/Horizon_Focus_item_HD.png",
+    stats: { AP: 90, CD: 20 },
+    passives: [
+      { title: "Hypershot", desc: "Damaging an enemy champion with an ability from far away reveals them for 6 seconds and increases damage dealt to them by 12%." },
+      { title: "Focus", desc: "When Hypershot triggers, it reveals all enemy champions near the target for 2 seconds (15s cooldown)." },
+    ],
+  },
+  {
+    title: "Lich Bane",
+    category: "MAGIC",
+    gold: 2950,
+    image: "img/Lich_Bane_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
+    stats: { AP: 80, CD: 10 },
+    passives: [
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit (scales with AD and AP)." },
+    ],
+  },
+  {
+    title: "Malignance",
+    category: "MAGIC",
+    gold: 2900,
+    image: "img/Malignance_item_HD.png",
+    stats: { AP: 95, MAX_MANA: 600, CD: 25 },
+    passives: [
+      { title: "Hatefog", desc: "Ultimate ability damage against champions scorches the ground, burning enemies within for magic damage over time and reducing their magic resist." },
+    ],
+  },
+  {
+    title: "Mejai's Soulstealer",
+    category: "MAGIC",
+    gold: 1800,
+    image: "img/Mejai's_Soulstealer_item_HD.png",
+    stats: { AP: 30, HP: 100 },
+    passives: [
+      { title: "Glory", desc: "Generate stacks for champion kills and assists, up to 30. Lose stacks on death." },
+      { title: "Fear", desc: "Gain bonus AP per stack of Glory, and bonus move speed at 10+ stacks." },
+    ],
+  },
+  {
+    title: "Morellonomicon",
+    category: "MAGIC",
+    gold: 3000,
+    image: "img/Morellonomicon_item_HD.png",
+    stats: { AP: 65, HP: 150 },
+    passives: [
+      { title: "Affliction", desc: "Dealing magic damage to enemy champions inflicts Grievous Wounds, reducing incoming healing." },
+    ],
+  },
+  {
+    title: "Riftmaker",
+    category: "MAGIC",
+    gold: 3300,
+    image: "img/Riftmaker_item_Unused_HD.png",
+    stats: { HP: 150, AP: 90, CD: 15, OMNIVAMP: 12, MP_PERCENTAGE: 15 },
+    passives: [
+      { title: "Assimilation", desc: "Grants +12% Omnivamp." },
+      { title: "Void Corruption", desc: "Gain a stack of Corruption every second in combat with champions, increasing damage dealt; at max stacks the bonus damage becomes true damage." },
+    ],
+  },
+  {
+    title: "Rylai's Crystal Scepter",
+    category: "MAGIC",
+    gold: 2700,
+    image: "img/Rylai's_Crystal_Scepter_item_Unused_HD.png",
+    stats: { HP: 350, AP: 70 },
+    passives: [
+      { title: "Icy", desc: "Damaging abilities and empowered attacks slow enemies by 20% for 1 second." },
+    ],
+  },
+  // NOTE: Void Staff has reportedly been removed from Wild Rift (legacy icon, "old2" suffix) — included with its last known stats for reference.
+  {
+    title: "Void Staff",
+    category: "MAGIC",
+    gold: 2800,
+    image: "img/Void_Staff_item_old2_HD.png",
+    bannedSet: ["BLIGHT"],
+    stats: { AP: 70, MP_PERCENTAGE: 40 },
+    passives: [
+      { title: "Dissolve", desc: "Grants +40% Magic Penetration." },
+    ],
+  },
+  // NOTE: PC League of Legends data (no confirmed Wild Rift version). Magic Pen scales 10-20 with target's missing health; 15 used as a flat approximation.
+  {
+    title: "Shadowflame",
+    category: "MAGIC",
+    gold: 3000,
+    image: "img/Shadowflame_item_HD.webp",
+    stats: { AP: 100, HP: 200, MP: 15 },
+    passives: [
+      { title: "Cinderbloom", desc: "Magic damage and true damage critically strike (dealing 120-130% damage) enemies below 35% max health. Limited to 1 per player." },
+    ],
+  },
+  // NOTE: PC League of Legends data (no confirmed Wild Rift version).
+  {
+    title: "Stormsurge",
+    category: "MAGIC",
+    gold: 3000,
+    image: "img/Stormsurge_item_HD.webp",
+    stats: { AP: 100, SPEED_PERCENTAGE: 5, MP: 10 },
+    passives: [
+      { title: "Stormraider", desc: "Dealing damage equal to 35% of an enemy champion's max health within 2.5 seconds inflicts Squall and grants 25% bonus Move Speed for 2 seconds (30s cooldown)." },
+      { title: "Squall", desc: "After 2 seconds, strike the Squall target with lightning for bonus magic damage; if they die first, the lightning instead shocks all nearby enemy champions and grants gold." },
+    ],
+  },
+  {
+    title: "Road of ages",
+    category: "MAGIC",
+    gold: 2800,
+    image: "img/ROA.png",
+    stats: { HP: 250, AP: 60, MP_PERCENTAGE: 7, MAX_MANA: 300 },
+    passives: [
+      {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
+      {title: "Veterancy", desc: "This item gains 25 bonus health, 10 bonus mana and 6 ability power every 40 seconds, stacking up to 10 times for a maximum of 250 bonus health, 100 bonus mana and 60 ability power."},
+    ],
+  },
+  {
+    title: "Oceanic's Trydent",
+    category: "MAGIC",
+    gold: 2600,
+    image: "img/Oceanid_Tridents.png",
+    stats: { HP: 200, AP: 70, CD: 20 },
+    passives: [
+      {title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict 40% (+ 5% per 100 AP) reduction, capped at 60%. Area-of-effect abilities inflict 25% (+ 5% per 100 AP) reduction, capped at 45%."},
+    ],
+  },
+];
