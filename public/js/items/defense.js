@@ -20,16 +20,16 @@ const DEFENSE_ITEMS = [
     stats: { MR: 60, HP: 350 },
     passives: [
       { title: "Storm", desc: "+ 5% Movement Speed.", stats: { SPEED_PERCENTAGE: 5 }},
-      { title: "Absorb", desc: "Taking magic damage from enemy championsgrants 1 stack for 7 seconds, max 4 stacks. Dealing damage to an enemy Champion will refresh the duration of the stacks. At maximum stacks, gain 10% Movement Speed and reduce all incoming magic damage by 25%." },
+      { title: "Absorb", desc: "Taking magic damage from enemy championsgrants 1 stack for 7 seconds, max 4 stacks. Dealing damage to an enemy Champion will refresh the duration of the stacks. At maximum stacks, gain 10% Movement Speed and reduce all incoming magic damage by 20%." },
     ],
   },
   // Patch 7.1
   {
     title: "Frozen Heart",
     category: "DEFENSE",
-    gold: 2700,
+    gold: 2650,
     image: "img/Frozen_Heart_item_HD.png",
-    stats: { ARMOR: 80, MAX_MANA: 200, CD: 25 },
+    stats: { ARMOR: 80, MAX_MANA: 250, CD: 20 },
     passives: [
       { title: "Winter's Caress", desc: "Against champions, basic attacks and magic damage you deal or take will inflict a stack of Chill to the enemy champion for 3 seconds. Each stack of Chill slows enemy atk speed by 9% up to a maximum of 4 stacks or 36% attack speed reduction. Each individual ability has a 3 second cd on applying Chill stacks." },
     ],
@@ -161,7 +161,7 @@ const DEFENSE_ITEMS = [
     bannedSet: ["BURN"],
     stats: { HP: 425, ARMOR: 20, CD: 15 },
     passives: [
-      { title: "Immolate", desc: "While in combat, deal magic dmg equal to 16-25 (+0.8% of your bonus hp) per second. Damaging champs or epic monsters with Immolate increases the dmg they take by 11% for 5 segs. stacking up to 4 times." },
+      { title: "Immolate", desc: "While in combat, deal magic dmg equal to 16-25 (+0.8% of your bonus hp) per second. Damaging champs or epic monsters with Immolate increases the dmg they take by 5% for 5 seconds. stacking up to 6 times." },
       { title: "Flametouch", desc: " At max Immolate stacks, attacks burn enemies around you for 50% of Immolate's dmg over 3 segs. Immolate deals 130% dmg to monsters and 175-250% to minions."}
     ],
   },
@@ -185,7 +185,7 @@ const DEFENSE_ITEMS = [
     image: "img/Thornmail_item.webp",
     stats: { HP: 200, ARMOR: 75 },
     passives: [
-      {title: "Thorns", desc: "When struck by a basic attack on-hit, deal 20 (+ 6% bonus armor) (+ 2% bonus hp) magic dmg to the attacker."},
+      {title: "Thorns", desc: "When struck by a basic attack on-hit, deal 20 (+ 6% bonus armor) (+ 1% bonus hp) magic dmg to the attacker."},
       {title: "Entwine", desc: " Apply 50% Grievous Wounds to enemy champions for 3 seconds when struck by their attacks or dealing dmg to them."}
     ],
   },
@@ -232,7 +232,7 @@ const DEFENSE_ITEMS = [
     bannedSet: ["LIFELINE"],
     stats: { HP: 200 , ARMOR: 40, MR: 40 },
     passives: [
-      {title: "Lifeline", desc: "If you take damage that would reduce you below 35% maximum health, you gain bonus max health equal to 180 (+ 45% bonus health) for 3 seconds, as well as 50% slow resistance and 30% bonus move speed (90 second cooldown)."},
+      {title: "Lifeline", desc: "If you take damage that would reduce you below 35% maximum health, you gain bonus max health equal to 180 (+ 45% bonus health) for 3 seconds, as well as 50% slow resistance and 30% bonus move speed (70 second cooldown)."},
     ],
   },
   // Patch 7.1

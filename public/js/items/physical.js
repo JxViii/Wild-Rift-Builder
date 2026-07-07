@@ -70,9 +70,9 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3200,
     image: "img/Blade_of_the_Ruined_King_item_HD.png",
-    stats: { AD: 30, ATTACK_SPEED: 30, OMNIVAMP: 10 },
+    stats: { AD: 40, ATTACK_SPEED: 30, OMNIVAMP: 10 },
     passives: [
-      { title: "Ruined Strikes", desc: "Basic attacks deal 9% of target's current Health as bonus physical damage (minimum 15, capped at 60 vs. monsters)." },
+      { title: "Ruined Strikes", desc: "Basic attacks deal 7% of target's current Health as bonus physical damage (minimum 15, capped at 60 vs. monsters)." },
       { title: "Drain", desc: "Hitting a champion with 3 basic attacks or abilities deals bonus magic damage and steals 25% of their Move Speed for 3 seconds (60 second cooldown)." },
     ],
   },
@@ -134,7 +134,7 @@ const PHYSICAL_ITEMS = [
   {
     title: "Edge of Night",
     category: "PHYSICAL",
-    gold: 3150,
+    gold: 3000,
     image: "img/Edge_of_Night_item_HD.png",
     bannedSet: ["SPELLSHIELD"],
     stats: { AD: 50, HP: 250, ARMOR_PEN: 8 },
@@ -146,13 +146,13 @@ const PHYSICAL_ITEMS = [
   {
     title: "Essence Reaver",
     category: "PHYSICAL",
-    gold: 3050,
+    gold: 3000,
     image: "img/Essence_Reaver_item_HD.png",
     bannedSet: ["SPELLBLADE"],
     stats: { AD: 40, CRIT: 25, CD: 20 },
     passives: [
-      { title: "Essence Flare", desc: "Damaging active abilities deal bonus physical damage scaled by Critical Strike Chance. Each ability can only trigger this once per target." },
-      { title: "Mana Siphon", desc: "Attacks restore missing Mana on-hit." },
+      { title: "Spellblade", desc: "Casting ability generates Spellblade charge (max 2 charges) that lasts up to 10 seconds.Hitting an enemy with an attack consumes a charge, dealing 70% base AD as physical damage and granting 40 Movement Speed for 2 seconds. This bonus damage can Critically Strike. Each ability generates only one charge per 2 seconds." },
+      { title: "Mana Siphon", desc: "Attacks restore 3% missing Mana on-hit." },
     ],
   },
   // NOTE: gold/stats sourced from PC League of Legends data — could not confirm exact Wild Rift numbers; verify before relying on it.
@@ -240,7 +240,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["LIFELINE"],
     stats: { AD: 45, MR: 35, CD: 10 },
     passives: [
-      { title: "Lifeline", desc: "If magic damage would reduce you below 35% max health, gain a shield that absorbs magic damage (90s cooldown)." },
+      { title: "Lifeline", desc: "If magic damage would reduce you below 35% max health, gain a shield that absorbs magic damage (70s cooldown)." },
       { title: "Lifegrip", desc: "Triggering Lifeline grants bonus attack damage, Physical Vamp, and Magic Vamp until out of combat." },
     ],
   },
@@ -304,13 +304,14 @@ const PHYSICAL_ITEMS = [
   {
     title: "Serylda's Grudge",
     category: "PHYSICAL",
-    gold: 3100,
+    gold: 3300,
     image: "img/Serylda's_Grudge_item_old_HD.png",
     bannedSet: ["FATALITY"],
     stats: { AD: 40, CD: 15, ARMOR_PEN_PERCENTAGE: 30 },
     passives: [
-      { title: "Last Whisper", desc: "Damaging active abilities and empowered attacks slow enemies by 30% for 1 second." },
-      { title: "Icy", desc: "Grants 16-30% Armor Penetration (scales with level)." },
+      { title: "Last Whisper", desc: "Gain 33% Armor Pen.", stats: { ARMOR_PEN_PERCENTAGE: 33 } },
+      { title: "Icy", desc: "Damaging active abilities and empowered attacks slow enemies by 30% for 1s" },
+      { title: "Frostbite", desc: "Apply Frostbite to enemies slowed by Icy for 6s. At 3 stacks, all stacks are consumed to apply Bleed, dealing: (5 + 1-15 (based on level) + 15% bonus AD) physical damage over 2s. Also applies 50% Grievous Wounds for 3s (5s cooldown per target)" },
     ],
   },
   {
@@ -386,7 +387,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["LIFELINE"],
     stats: { AD: 45, HP: 350 },
     passives: [
-      { title: "Lifeline", desc: "Taking damage that would leave you below 30% max Health grants a decaying shield and bonus Attack Damage for a few seconds (90s cooldown)." },
+      { title: "Lifeline", desc: "Taking damage that would leave you below 30% max Health grants a decaying shield and bonus Attack Damage for a few seconds (70s cooldown)." },
     ],
   },
   {

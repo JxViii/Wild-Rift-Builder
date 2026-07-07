@@ -8,7 +8,7 @@ const SUPPORT_ITEMS = [
     stats: { AP: 45, HP: 250, CD: 10, MANA_REGEN: 50, HEAL: 5 },
     passives: [
       { title: "Ardent", desc: "Grants +5% Move Speed." , stats: { SPEED_PERCENTAGE: 5 }},
-      { title: "Censer", desc: "Healing or shielding an allied champion (excluding yourself) they gain bonus Attack Speed 15% - 40% and their basic attacks deal bonus magic damage  16-30 for 6 seconds. This damage can critically strike" },
+      { title: "Censer", desc: "Healing or shielding an allied champion (excluding yourself) they gain bonus Attack Speed 15% - 34% and their basic attacks deal bonus magic damage  16-22 for 6 seconds. This damage can critically strike" },
     ],
   },
   {

@@ -17,7 +17,7 @@ const MAGIC_ITEMS = [
     image: "img/Luden's_Tempest_item_HD.png",
     stats: { AP: 100, MAX_MANA: 500, CD: 10 },
     passives: [
-      { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP. (10s cooldown)" },
+      { title: "Discordic Echo", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP. (10s cooldown)" },
     ],
   },
   {
@@ -25,11 +25,11 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Liandry's_Torment_item_HD.png",
-    stats: { AP: 75, HP: 300 },
+    stats: { AP: 70, HP: 300 },
     passives: [
       { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time 2% of the targets max HP as bonus magic damage per second for 3 seconds" },
       {
-        title: "Suffering", desc: "While in combat with enemy champions, deal 2% increased damage every second, up to 6%"
+        title: "Madness", desc: "While in combat with enemy champions, deal 2% increased damage every second, up to 6%"
       },
     ],
   },
@@ -61,7 +61,7 @@ const MAGIC_ITEMS = [
     gold: 3000,
     image: "img/Archangel's_Staff_item_HD.png",
     bannedSet: ["LIFELINE", "MANAFLOW"],
-    stats: { AP: 60, MAX_MANA: 500, CD: 25, MP_PERCENTAGE: 7 },
+    stats: { AP: 60, MAX_MANA: 500, CD: 25 },
     passives: [
       { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent.", stats: { MANA_AP: 1 } },
       { title: "Mana Charge", desc: "Increases max Mana by 14 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
@@ -76,9 +76,10 @@ const MAGIC_ITEMS = [
     stats: { AP: 60, MAX_MANA: 1200, CD: 25 },
     passives: [
       { title: "Awe", desc: "Grants Ability Power equal to 2% of max Mana and refunds 25% of all Mana spent.", stats: { MANA_AP: 2 } },
-      { title: "Mana Charge", desc: "Damage that puts you under 35% HP consumes 20% of your current Mana to grant a shield equal to that amount +100 for 2s. (70s cooldown)" },
+      { title: "Mana Charge", desc: "Damage that puts you under 35% HP consumes 20% of your current Mana to grant a shield equal to that amount + 100 for 2s. (70s cooldown)" },
     ],
   },
+  //! Verdant Barrier TODO
   {
     title: "Banshee's Veil",
     category: "MAGIC",
@@ -87,7 +88,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["SPELLSHIELD"],
     stats: { AP: 105, MR: 40 },
     passives: [
-      { title: "Void out", desc: "Grants a spell shield that blocks the next enemy ability. (30s cooldown)" },
+      { title: "Annul", desc: "Grants a spell shield that blocks the next enemy ability. (30s cooldown)" },
     ],
   },
   // NOTE: Blackfire Torch is an AAA ARAM-exclusive item; exact stats/gold uncertain, verify in-game.
@@ -98,7 +99,7 @@ const MAGIC_ITEMS = [
     image: "img/Blackfire_Torch_item_HD.png",
     stats: { AP: 80, CD: 20, MAX_MANA: 500 },
     passives: [
-      { title: "Balefire", desc: "Damaging abilities deal 20+2% AP bonus magic damage per second for 3s. Deals 40+2%AP magic damage per second to monsters." },
+      { title: "Baleful Blaze", desc: "Damaging abilities deal an additional 20 + 2% Ability Power magic damage per second for 3 seconds. Against monsters, they deal 40 + 2% Ability Power magic damage per second." },
       { title: "Blackfire", desc: "Each enemy champion, epic monster, and large monster affected by your Balefire grants 4% AP." }
     ],
   },
@@ -111,7 +112,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["BLIGHT"],
     stats: { AP: 65, HP: 350, CD: 15 },
     passives: [
-      { title: "Withering Decay", desc: "Dealing magic damage to champions with abilities reduces their Magic Resist by 7.5% for 6 seconds, stacking up to 30% times." },
+      { title: "Vile Decay", desc: "When abilities or passives deal magic damage to champions, reduce their Magic Resist by 7.5% for 6 seconds, stacking up to 30%." },
     ],
   },
   {
@@ -121,7 +122,7 @@ const MAGIC_ITEMS = [
     image: "img/Cosmic_Drive_item_HD.png",
     stats: { AP: 70, CD: 25, HP: 300 },
     passives: [
-      { title: "Spelldance", desc: "Dealing damage with abilities grants bonus +30 Movement Speed for 4 seconds." },
+      { title: "Spellweaving", desc: "Dealing damage with abilities grants bonus +30 Movement Speed for 4 seconds." },
     ],
   },
   // {
@@ -143,7 +144,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["BLIGHT"],
     stats: { AP: 75, CD: 20, MP_PERCENTAGE: 30 },
     passives: [
-      { title: "Blooming", desc: "When an enemy dies within 3 seconds of you damaging them, a nova at their location that heals nearby allies for 100+20% AP Health (60 second cooldown)." },
+      { title: "Life from Death", desc: "Whenever an enemy champion dies within 3 seconds of taking damage from you, create a nova at their location that heals allied champions for 100 + 20% Ability Power Health. (60-second cooldown)" },
     ],
   },
   // NOTE: gold/stats sourced from PC League of Legends data — could not confirm this item exists in Wild Rift under current patches; verify before relying on it.
@@ -155,7 +156,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["SPELLBLADE"],
     stats: { HP: 350, AP: 70, CD: 20, ATTACK_SPEED: 25 },
     passives: [
-      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals 75% base AD + 10% AP bonus magic damage on-hit and applies on-hit effects twice (1.5s cooldown)." },
+      { title: "Spellblade", desc: "After casting an ability, your next attack deals an additional on-hit effect equal to 75% base Attack Damage + 10% Ability Power as magic damage and applies one extra on-hit effect to the target. (1.5-second cooldown)" },
     ],
   },
   {
@@ -240,10 +241,8 @@ const MAGIC_ITEMS = [
     gold: 3000,
     image: "img/Void_Staff_item_old2_HD.png",
     bannedSet: ["BLIGHT"],
-    stats: { AP: 95 },
-    passives: [
-      { title: "Dissolve", desc: "Grants +40% Magic Penetration.", stats: { MP_PERCENTAGE: 40 } },
-    ],
+    stats: { AP: 95, MP_PERCENTAGE: 40 },
+    passives: [],
   },
   // NOTE: PC League of Legends data (no confirmed Wild Rift version). Magic Pen scales 10-20 with target's missing health; 15 used as a flat approximation.
   // {
@@ -264,8 +263,8 @@ const MAGIC_ITEMS = [
     image: "img/Stormsurge_item_HD.webp",
     stats: { AP: 90, SPEED_PERCENTAGE: 6, MP: 15 },
     passives: [
-      { title: "Storm Raider", desc: "Dealing damage equal to 25% of an enemy champion's max health within 2.5 seconds inflicts Windhowl and grants 25% bonus Move Speed for 2.5 seconds (25s cooldown)." },
-      { title: "Windhowl", desc: "After 2 seconds, deal 125+10% AP magic damage. If the target dies before Windhowl triggers, it deals the same damage to nearby enemies and grants 25 Gold" },
+      { title: "Stormraider", desc: "When you deal damage equal to 25% of a champion's max Health within 2.5 seconds, inflict Squall on them and gain 25% Movement Speed for 2.5 seconds. (25-second cooldown)" },
+      { title: "Squall", desc: "After 2 seconds, deal 125 + 10% Ability Power magic damage. If the target dies before Squall triggers, it instead deals the same amount of damage to nearby enemies and grants 25 gold." },
     ],
   },
   {
