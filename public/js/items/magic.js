@@ -5,9 +5,9 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3400,
     image: "img/Rabadon's_Deathcap_item_HD.png",
-    stats: { AP: 100, MP_PERCENTAGE: 7 },
+    stats: { AP: 130 },
     passives: [
-      { title: "Magical Opus", desc: "Increases Ability Power by 20-45%. (We emulate 45%)", stats: { AP_PERCENTAGE: 45 } },
+      { title: "Magical Opus", desc: "Increases Ability Power by 30%", stats: { AP_PERCENTAGE: 30 } },
     ],
   },
   {
@@ -55,25 +55,25 @@ const MAGIC_ITEMS = [
   {
     title: "Archangel's Staff",
     category: "MAGIC",
-    gold: 2950,
+    gold: 3000,
     image: "img/Archangel's_Staff_item_HD.png",
     bannedSet: ["LIFELINE","MANAFLOW"],
-    stats: { AP: 35, MAX_MANA: 500, CD: 20, MP_PERCENTAGE: 7 },
+    stats: { AP: 60, MAX_MANA: 500, CD: 25, MP_PERCENTAGE: 7 },
     passives: [
-      { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent." },
-      { title: "Mana Charge", desc: "Increases max Mana by 18 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
+      { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent.", stats: { MANA_AP: 1 } },
+      { title: "Mana Charge", desc: "Increases max Mana by 14 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
     ],
   },
   {
     title: "Seraph's Embrace",
     category: "MAGIC",
-    gold: 2950,
+    gold: 3000,
     image: "img/Seraph's_Embrace_item.webp",
     bannedSet: ["LIFELINE","MANAFLOW"],
-    stats: { AP: 35, MAX_MANA: 500, CD: 20, MP_PERCENTAGE: 7 },
+    stats: { AP: 60, MAX_MANA: 1200, CD: 25 },
     passives: [
-      { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent." },
-      { title: "Mana Charge", desc: "Increases max Mana by 18 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
+      { title: "Awe", desc: "Grants Ability Power equal to 2% of max Mana and refunds 25% of all Mana spent.", stats: { MANA_AP: 2 } },
+      { title: "Mana Charge", desc: "Damage that puts you under 35% HP consumes 20% of your current Mana to grant a shield equal to that amount +100 for 2s. (70s cooldown)" },
     ],
   },
   {
@@ -267,13 +267,13 @@ const MAGIC_ITEMS = [
   {
     title: "Rod of ages BASIC",
     category: "MAGIC",
-    gold: 2800,
+    gold: 2700,
     image: "img/ROA.webp",
     bannedSet: ["ROA"],
-    stats: { HP: 250, AP: 60, MP_PERCENTAGE: 7, MAX_MANA: 300 },
+    stats: { HP: 350, AP: 50, MAX_MANA: 400 },
     passives: [
       {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
-      {title: "Veterancy", desc: "This item gains 25 bonus health, 10 bonus mana and 6 ability power every 40 seconds, stacking up to 10 times for a maximum of 250 bonus health, 100 bonus mana and 60 ability power."},
+      {title: "Veterancy", desc: "This item gains 15 bonus health, 30 bonus mana and 4 ability power every 40 seconds, stacking up to 10 times."},
     ],
   },
   {
@@ -282,10 +282,9 @@ const MAGIC_ITEMS = [
     gold: 2800,
     image: "img/Rod_of_Ages_item.webp",
     bannedSet: ["ROA"],
-    stats: { HP: 250, AP: 60, MP_PERCENTAGE: 7, MAX_MANA: 300 },
+    stats: { HP: 500, AP: 90, MAX_MANA: 700 },
     passives: [
       {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
-      {title: "Veterancy", desc: "This item gains 25 bonus health, 10 bonus mana and 6 ability power every 40 seconds, stacking up to 10 times for a maximum of 250 bonus health, 100 bonus mana and 60 ability power."},
     ],
   },
   {
@@ -296,6 +295,16 @@ const MAGIC_ITEMS = [
     stats: { HP: 200, AP: 70, CD: 20 },
     passives: [
       {title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict 40% (+ 5% per 100 AP) reduction, capped at 60%. Area-of-effect abilities inflict 25% (+ 5% per 100 AP) reduction, capped at 45%."},
+    ],
+  },
+  {
+    title: "Infinity Orb",
+    category: "MAGIC",
+    gold: 3100,
+    image: "img/Infinity_Orb.webp",
+    stats: { AP: 110 },
+    passives: [
+      {title: "Inevitable Demise", desc: "Abilities and empowered attacks will critically strike for 20% bonus damage against enemies below 35% HP"},
     ],
   },
 ];

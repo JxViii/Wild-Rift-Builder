@@ -197,11 +197,6 @@ nlohmann::ordered_json lol::Set::print()
   double mana_ap = getAttribute(MANA_AP);
   double mana_hp = getAttribute(MANA_HP);
 
-  //! Porcentajes de %AP y %AD sobre el total ( ej. RABADON )
-
-  ap *= (apPercentage != 0) ? (1 + apPercentage / 100) : 1;
-  ad *= (adPercentage != 0) ? (1 + adPercentage / 100) : 1;
-
   //! Fuerza Adaptable 1AP / 0.5AD ( ej. Nashor )
 
   if (adaptative != 0)
@@ -214,15 +209,20 @@ nlohmann::ordered_json lol::Set::print()
 
   //! Estadísticas que escalan por MANA MAX
 
-  ap += maxMana * mana_ap;
-  ad += maxMana * mana_ad;
-  hp += maxMana * mana_hp;
+  ap += maxMana * mana_ap/100;
+  ad += maxMana * mana_ad/100;
+  hp += maxMana * mana_hp/100;
+
+  //! Porcentajes de %AP y %AD sobre el total ( ej. RABADON )
+
+  ap *= (apPercentage != 0) ? (1 + apPercentage / 100) : 1;
+  ad *= (adPercentage != 0) ? (1 + adPercentage / 100) : 1;
 
   nlohmann::ordered_json result = nlohmann::ordered_json::object();
 
   result["Gold"] = gold;
   if (ap != 0)
-    result["AP"] = ap;
+    result["AP"] = (int) ap;
   if (cd != 0)
     result["CD"] = cd;
   if (maxMana != 0)
@@ -244,7 +244,7 @@ nlohmann::ordered_json lol::Set::print()
   if (attackSpeed != 0)
     result["Attack Speed"] = attackSpeed;
   if (ad != 0)
-    result["AD"] = ad;
+    result["AD"] = (int) ad;
   if (armorPen != 0)
     result["Armor Pen"] = armorPen;
   if (armorPenPercentage != 0)
@@ -259,10 +259,6 @@ nlohmann::ordered_json lol::Set::print()
     result["Heal"] = heal;
   if (omnivamp != 0)
     result["Omnivamp"] = omnivamp;
-  if (apPercentage != 0)
-    result["AP%"] = apPercentage;
-  if (adPercentage != 0)
-    result["AD%"] = adPercentage;
 
   return result;
 }
