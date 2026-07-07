@@ -282,7 +282,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 2800,
     image: "img/Cosmic_Drive_item_HD.png",
-    stats: { AP: 70, CD: 30, MP_PERCENTAGE: 7 },
+    stats: { AP: 70, CD: 30, HP: 300, MP_PERCENTAGE: 7 },
     passives: [
       { title: "Spelldance", desc: "Dealing damage with abilities grants bonus Move Speed (scaling with Ability Haste) for 4 seconds." },
     ],
