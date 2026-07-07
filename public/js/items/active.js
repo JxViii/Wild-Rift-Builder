@@ -26,7 +26,7 @@ const ACTIVE_ITEMS = [
     category: "ACTIVE",
     gold: 2600,
     image: "img/Redemption_item.webp",
-    stats: { AP: 45, HEAL: 5, MANA_REGEN: 50, HP: 150, CD: 20 },
+    stats: { AP: 50, HEAL: 5, MANA_REGEN: 50, HP: 150, CD: 15 },
     passives: [
       { title: "Redemption", desc: "Select a big area and after 2.5s it summons a lighting that heals allies and damages enemy champions" },
     ],
@@ -86,12 +86,11 @@ const ACTIVE_ITEMS = [
   {
     title: "Mikael's Blessing",
     category: "ACTIVE",
-    gold: 2300,
+    gold: 2500,
     image: "img/Mikael's_Blessing_item_HD.png",
-    stats: { HP: 400, MANA_REGEN: 100, HEAL: 15, CD: 15 },
+    stats: { HP: 300, MANA_REGEN: 50, HEAL: 10, CD: 10 },
     passives: [
-      { title: "Harmony", desc: "Gain bonus base health regen for every additional base mana regen." },
-      { title: "Purify", desc: "Active: removes all crowd control debuffs from an ally champion and restores health." },
+      { title: "Purify", desc: "Active: removes all crowd control debuffs from an ally champion and grants inmunity to all crowd control effects for 0.2 seconds. Also restores 150-250 health to the target. (90s cooldown)" },
     ],
   },
   // NOTE: Quicksilver Sash does not appear in the current Wild Rift item list (WR uses "Quicksilver Enchant" on boots instead) — stats below are PC LoL data, uncertain for WR.
@@ -114,6 +113,16 @@ const ACTIVE_ITEMS = [
     stats: { AP: 50, CD: 20, MANA_REGEN: 50, SPEED_PERCENTAGE: 5 },
     passives: [
       { title: "Inspiring Speech", desc: "UNIQUE Active: You and nearby allies gain 30% bonus Move Speed for 4 seconds." },
+    ],
+  },
+  {
+    title: "Seeker's Armguard",
+    category: "ACTIVE",
+    gold: 1400,
+    image: "img/Seeker's_Armguard_item.webp",
+    stats: { AP: 35, ARMOR: 20 },
+    passives: [
+      { title: "Stasis", desc: "Unique Active: Become invulnerable and untargetable for 2.5 seconds, but unable to act (120s cooldown)." },
     ],
   },
   {
