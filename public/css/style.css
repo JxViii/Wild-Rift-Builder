@@ -5,7 +5,7 @@
   --sub: #9d9d9d;
   --ll-grey: #d2d2d2;
   --accent: #5d663a;
-  --item: #c8ff00;
+  --item: #00ff95;
   --white: #ececec;
   --border-bg: rgba(255, 255, 255, 0.05);
   --dark-black: #151515;
@@ -23,7 +23,7 @@
   --light-light-blue: #cfd8ff;
   --dark_white: #eeeeee;
   --date-tag-bg: #45b264;
-  --light-yellow: #fefead;
+  --light-cyan: #adfef0;
   --red: #fd6868;
   --vs-blue: #8364a4;
 }
@@ -38,6 +38,7 @@
 
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+  font-size: 17px;
   font-style: normal;
 
 }
@@ -85,20 +86,25 @@ header{
 header h1{
   font-family: "Poppins", sans-serif;
   font-weight: bold;
+  font-size: 2rem;
 }
 
 header h1 span{
-  font-family: "BBH Bartle", sans-serif;
-  letter-spacing: 1px;
   font-weight: bold;
 }
 
 header span{
   color: var(--ll-grey);
+  font-weight: 400;
 }
 
 header b{
-  font-weight: bold;
+  font-weight: 800;
+  color: var(--item);
+}
+
+header .wr-logo{
+  height: 200px;
 }
 
 .comparisons{
@@ -313,37 +319,6 @@ header b{
 
 }
 
-.builder__actions button{
-
-  font-weight: bold;
-  color: var(--white);
-
-  padding: 10px 20px;
-
-  border-radius: 15px;
-  border: 1px solid var(--sub);
-
-  background: linear-gradient(
-    120deg,
-    var(--accent) 20%,
-    var(--bg_ctl),
-    var(--bg)
-  );
-  background-size: 200% 100%;
-  background-position: right;
-
-  transition: background-position .5s ease, scale .2s ease;
-  cursor: pointer;
-
-}
-
-.builder__actions button:hover{
-
-  background-position: center;
-  scale: 1.02;
-
-}
-
 .results{
 
   width: 700px;
@@ -503,7 +478,7 @@ header b{
 }
 
 .blog-footer:hover{
-  background: var(--light-yellow);
+  background: var(--light-cyan);
   color: var(--black);
   
   &>a{
@@ -514,4 +489,125 @@ header b{
     height: 32px;
     filter: none;
   }
+}
+
+
+
+/* ? BUTTON DESIGN */
+
+.builder__actions button{
+
+  font-weight: bold;
+  color: var(--item);
+  background: transparent;
+  padding: 8px 18px;
+  font-size: 18px;
+  border: 2px solid var(--white);
+  border-radius: 20px;
+  cursor: pointer;
+
+  background: transparent;
+
+  transition: background-position .5s ease, scale .2s ease;
+  cursor: pointer;
+
+}
+
+.builder__actions button:hover{
+
+  background-position: center;
+
+}
+
+ button#clear{
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: transform .3s ease, border .15s ease;
+  overflow: hidden;
+
+  &>*{
+    transition: translate .6s ease, color .4s ease;
+  }
+}
+
+ button#clear::before{
+  position: absolute;
+  content: "";
+  inset: 0 0 0 0;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  padding: 5px;
+  background-color: var(--light-light-grey);
+  translate: 136px 0;
+  transition: translate .4s ease;
+  pointer-events: none;
+}
+
+ button#clear:hover{
+
+  border-color: transparent;
+
+  &>.button-title{
+    translate: 0px 0px;
+    color: var(--black);
+  }
+
+  &::before{
+    translate: 0px 0px;
+  }
+
+}
+
+ button#clear .button-title{
+  color: var(--item);
+  font-weight: 700;
+  translate: 0px 0;
+}
+
+
+ button#calculate{
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: transform .3s ease, border .15s ease;
+  overflow: hidden;
+
+  &>*{
+    transition: translate .6s ease, color .4s ease;
+  }
+}
+
+ button#calculate::before{
+  position: absolute;
+  content: "";
+  inset: 0 0 0 0;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  padding: 5px;
+  background-color: var(--light-light-grey);
+  translate: -136px 0;
+  transition: translate .4s ease;
+  pointer-events: none;
+}
+
+ button#calculate:hover{
+
+  border-color: transparent;
+
+  &>.button-title{
+    translate: 0px 0px;
+    color: var(--black);
+  }
+
+  &::before{
+    translate: 0px 0px;
+  }
+
+}
+
+ button#calculate .button-title{
+  color: var(--item);
+  font-weight: 700;
+  translate: 0px 0;
 }

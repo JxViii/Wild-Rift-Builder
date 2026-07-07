@@ -15,7 +15,8 @@
   
   <header>
     <span>What should I <B>BUILD</B>?</span>
-    <h1><span>Wild Rift </span>: Build Calculator</h1>
+    <img class="wr-logo" src="img/wr_logo.avif" alt="League of Legends Wild Rift">
+    <h1>Build Calculator</h1>
     <span>Get your SET <b>stats</b>, <b>passives</b> and <b>gold</b></span>
     <span>Powered to you by <b>COACHINOS</b></span>
   </header>
@@ -24,8 +25,19 @@
     <section class="slots" id="slots"></section>
 
     <div class="builder__actions">
-      <button id="calculate">Calculate</button>
-      <button id="clear">Clear</button>
+
+      <button type="button" id="calculate">
+        <div class="button-title">
+          Calculate
+        </div>
+        <div class="button-hover"></div>
+      </button>
+      <button type="button" id="clear">
+        <div class="button-hover"></div>
+        <div class="button-title">
+          Clear
+        </div>
+      </button>
     </div>
 
     <p class="notice" id="notice" hidden></p>
