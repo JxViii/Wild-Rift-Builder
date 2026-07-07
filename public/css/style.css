@@ -2,7 +2,7 @@
   --bg: #1a1a1a;
   --bg_ctl: #2f2f2f;
   --border: #3b3b3b;
-  --sub: #9d9d9d;
+  --sub: #b3b3b3;
   --ll-grey: #d2d2d2;
   --accent: #5d663a;
   --item: #00ff95;
@@ -397,7 +397,15 @@ header .wr-logo{
 
 }
 
+.results__passives p{
+
+  font-weight: 400;
+}
+
 .results__passives b{
+
+  font-weight: 700;
+  margin-right: 5px;
 
   color: var(--white);
 
