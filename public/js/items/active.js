@@ -60,7 +60,7 @@ const ACTIVE_ITEMS = [
     image: "img/Hextech_Rocketbelt_item_HD.png",
     stats: { AP: 70, HP: 250, CD: 20 },
     passives: [
-      { title: "Supersonic", desc: "Unique Active: Dash a short distance in the target direction, unleashing an arc of rockets that deal magic damage to enemies hit, then gain bonus Move Speed while facing nearby enemy champions (40s cooldown)." },
+      { title: "Rocket Salvo", desc: "Unique Active: Dash a short distance in the target direction, unleashing an arc of rockets that deal 100 + 10%AP magic damage to enemies hit, if a champion or monster is hit by more than one rocket, additional rockets deal only 10% damage (30s cooldown)." },
     ],
   },
   {

@@ -30,6 +30,8 @@
 #define HP_AP 26
 #define HP_AD 27
 #define TENACITY 28
+#define PHYSICAL_VAMP 29
+#define MAGIC_VAMP 101
 
 #define PHYSICAL 30
 #define MAGIC 31

@@ -28,6 +28,8 @@ const STAT_TYPES = {
   HP_AP: 26,
   HP_AD: 27,
   TENACITY: 28,
+  PHYSICAL_VAMP: 29,
+  MAGIC_VAMP: 101,
 };
 
 // Mirrors token.hpp's item category #defines.

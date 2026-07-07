@@ -13,11 +13,11 @@ const MAGIC_ITEMS = [
   {
     title: "Luden's Tempest",
     category: "MAGIC",
-    gold: 2900,
+    gold: 2800,
     image: "img/Luden's_Tempest_item_HD.png",
-    stats: { AP: 85, MAX_MANA: 300, CD: 20, MP_PERCENTAGE: 7 },
+    stats: { AP: 100, MAX_MANA: 500, CD: 10 },
     passives: [
-      { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP." },
+      { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP. (10s cooldown)" },
     ],
   },
   {
@@ -161,54 +161,55 @@ const MAGIC_ITEMS = [
   {
     title: "Horizon Focus",
     category: "MAGIC",
-    gold: 3100,
+    gold: 2700,
     image: "img/Horizon_Focus_item_HD.png",
-    stats: { AP: 90, CD: 20 },
+    stats: { AP: 80, CD: 25 },
     passives: [
-      { title: "Hypershot", desc: "Damaging an enemy champion with an ability from far away reveals them for 6 seconds and increases damage dealt to them by 12%." },
-      { title: "Focus", desc: "When Hypershot triggers, it reveals all enemy champions near the target for 2 seconds (15s cooldown)." },
+      { title: "Hypershot", desc: "Damaging an enemy champion with an ability from 600 units reveals them for 8 seconds and increases damage dealt to them by 10%." },
+      { title: "Focus", desc: "When Hypershot triggers, it reveals all enemy champions within 1200 units of the target for 3 seconds (12s cooldown)." },
     ],
   },
   {
     title: "Lich Bane",
     category: "MAGIC",
-    gold: 2950,
+    gold: 2800,
     image: "img/Lich_Bane_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { AP: 80, CD: 10 },
+    stats: { AP: 100, CD: 10 },
     passives: [
-      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit (scales with AD and AP)." },
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit 75% Base AD + 45% AP." },
     ],
   },
   {
     title: "Malignance",
     category: "MAGIC",
-    gold: 2900,
+    gold: 2700,
     image: "img/Malignance_item_HD.png",
-    stats: { AP: 95, MAX_MANA: 600, CD: 25 },
+    stats: { AP: 90, MAX_MANA: 500, CD: 15 },
     passives: [
-      { title: "Hatefog", desc: "Ultimate ability damage against champions scorches the ground, burning enemies within for magic damage over time and reducing their magic resist." },
+      { title: "Scorn", desc: "Your Ultimate abilities gain 20 CD" },
+      { title: "Hatefog", desc: "Ultimate ability damage against champions scorches the ground, burning enemies within for magic damage 60 + 5%AP over time and reducing their magic resist by 10." },
     ],
   },
-  {
-    title: "Mejai's Soulstealer",
-    category: "MAGIC",
-    gold: 1800,
-    image: "img/Mejai's_Soulstealer_item_HD.png",
-    stats: { AP: 30, HP: 100 },
-    passives: [
-      { title: "Glory", desc: "Generate stacks for champion kills and assists, up to 30. Lose stacks on death." },
-      { title: "Fear", desc: "Gain bonus AP per stack of Glory, and bonus move speed at 10+ stacks." },
-    ],
-  },
+  // {
+  //   title: "Mejai's Soulstealer",
+  //   category: "MAGIC",
+  //   gold: 1800,
+  //   image: "img/Mejai's_Soulstealer_item_HD.png",
+  //   stats: { AP: 25, HP: 70 },
+  //   passives: [
+  //     { title: "Glory", desc: "Generate stacks for champion kills and assists, up to 30. Lose stacks on death." },
+  //     { title: "Fear", desc: "Gain bonus AP per stack of Glory, and bonus move speed at 10+ stacks." },
+  //   ],
+  // },
   {
     title: "Morellonomicon",
     category: "MAGIC",
-    gold: 3000,
+    gold: 2650,
     image: "img/Morellonomicon_item_HD.png",
-    stats: { AP: 65, HP: 150 },
+    stats: { AP: 75, HP: 300, CD: 15 },
     passives: [
-      { title: "Affliction", desc: "Dealing magic damage to enemy champions inflicts Grievous Wounds, reducing incoming healing." },
+      { title: "Affliction", desc: "Dealing magic damage to enemy champions inflicts 50% Grievous Wounds for 3s." },
     ],
   },
   {
@@ -218,7 +219,6 @@ const MAGIC_ITEMS = [
     image: "img/Riftmaker_item_Unused_HD.png",
     stats: { HP: 350, AP: 70, CD: 15 },
     passives: [
-      { title: "Assimilation", desc: "Grants +12% Omnivamp." },
       { title: "Void Corruption", desc: "While in combat with enemy champions, gain 2% increased damage every second, up to 8%. At maximum stacks gain (10% Melee / 6% ranged) Omnivamp" },
       { title: "Void Infusion", desc: "Gain AP equal to 2% of your bonus HP", stats: { HP_AP : 2 } },
     ],
@@ -228,9 +228,9 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 2700,
     image: "img/Rylai's_Crystal_Scepter_item_Unused_HD.png",
-    stats: { HP: 350, AP: 70 },
+    stats: { HP: 350, AP: 65 },
     passives: [
-      { title: "Icy", desc: "Damaging abilities and empowered attacks slow enemies by 20% for 1 second." },
+      { title: "Icy", desc: "Damaging abilities and empowered attacks slow enemies by 30% for 0.75 seconds." },
     ],
   },
   // NOTE: Void Staff has reportedly been removed from Wild Rift (legacy icon, "old2" suffix) — included with its last known stats for reference.
@@ -246,16 +246,16 @@ const MAGIC_ITEMS = [
     ],
   },
   // NOTE: PC League of Legends data (no confirmed Wild Rift version). Magic Pen scales 10-20 with target's missing health; 15 used as a flat approximation.
-  {
-    title: "Shadowflame",
-    category: "MAGIC",
-    gold: 3000,
-    image: "img/Shadowflame_item_HD.webp",
-    stats: { AP: 100, HP: 200, MP: 15 },
-    passives: [
-      { title: "Cinderbloom", desc: "Magic damage and true damage critically strike (dealing 120-130% damage) enemies below 35% max health. Limited to 1 per player." },
-    ],
-  },
+  // {
+  //   title: "Shadowflame",
+  //   category: "MAGIC",
+  //   gold: 3000,
+  //   image: "img/Shadowflame_item_HD.webp",
+  //   stats: { AP: 100, HP: 200, MP: 15 },
+  //   passives: [
+  //     { title: "Cinderbloom", desc: "Magic damage and true damage critically strike (dealing 120-130% damage) enemies below 35% max health. Limited to 1 per player." },
+  //   ],
+  // },
   // NOTE: PC League of Legends data (no confirmed Wild Rift version).
   {
     title: "Stormsurge",
@@ -283,7 +283,7 @@ const MAGIC_ITEMS = [
   {
     title: "Rod of ages CHARGED",
     category: "MAGIC",
-    gold: 2800,
+    gold: 2700,
     image: "img/Rod_of_Ages_item.webp",
     bannedSet: ["ROA"],
     stats: { HP: 500, AP: 90, MAX_MANA: 700 },
@@ -308,6 +308,7 @@ const MAGIC_ITEMS = [
     image: "img/Infinity_Orb.webp",
     stats: { AP: 110 },
     passives: [
+      { title: "Balance", desc: "Gain +15 of Magic Penetration", stats: { MP: 15 }},
       { title: "Inevitable Demise", desc: "Abilities and empowered attacks will critically strike for 20% bonus damage against enemies below 35% HP" },
     ],
   },

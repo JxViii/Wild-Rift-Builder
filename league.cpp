@@ -190,6 +190,8 @@ nlohmann::ordered_json lol::Set::print()
   double mr = getAttribute(MR);
   double heal = getAttribute(HEAL);
   double omnivamp = getAttribute(OMNIVAMP);
+  double magicVamp = getAttribute(MAGIC_VAMP);
+  double physicalVamp = getAttribute(PHYSICAL_VAMP);
   double apPercentage = getAttribute(AP_PERCENTAGE);
   double adPercentage = getAttribute(AD_PERCENTAGE);
   double adaptative = getAttribute(ADAPTATIVE);
@@ -267,6 +269,10 @@ nlohmann::ordered_json lol::Set::print()
     result["Heal"] = heal;
   if (omnivamp != 0)
     result["Omnivamp"] = omnivamp;
+  if (magicVamp != 0)
+    result["Magic Vamp"] = magicVamp;
+  if (physicalVamp != 0)
+    result["Physical Vamp"] = physicalVamp;
   if (tenacity != 0)
     result["Tenacity"] = tenacity;
 
