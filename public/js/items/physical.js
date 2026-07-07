@@ -136,6 +136,7 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3150,
     image: "img/Edge_of_Night_item_HD.png",
+    bannedSet: ["SPELLSHIELD"],
     stats: { AD: 50, HP: 250, ARMOR_PEN: 8 },
     passives: [
       { title: "Gouge", desc: "+8 Armor Penetration." },

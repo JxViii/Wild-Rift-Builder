@@ -69,20 +69,22 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Banshee's_Veil_item_HD.png",
-    stats: { AP: 70, MR: 40, CD: 10 },
+    bannedSet: ["SPELLSHIELD"],
+    stats: { AP: 105, MR: 40 },
     passives: [
-      { title: "Annul", desc: "Grants a spell shield that blocks the next enemy ability." },
+      { title: "Void out", desc: "Grants a spell shield that blocks the next enemy ability." },
     ],
   },
   // NOTE: Blackfire Torch is an AAA ARAM-exclusive item; exact stats/gold uncertain, verify in-game.
   {
     title: "Blackfire Torch",
     category: "MAGIC",
-    gold: 2900,
+    gold: 2800,
     image: "img/Blackfire_Torch_item_HD.png",
-    stats: { AP: 70, CD: 15 },
+    stats: { AP: 80, CD: 20, MAX_MANA: 500 },
     passives: [
-      { title: "Ignite", desc: "AAA ARAM exclusive item — damaging abilities apply a burning effect that spreads to nearby enemies." },
+      { title: "Balefire", desc: "Damaging abilities deal 20+2% AP bonus magic damage per second for 3s. Deals 40+2%AP magic damage per second to monsters."  },
+      { title: "Blackfire", desc: "Each enemy champion, epic monster, and large monster affected by your Balefire grants 4% AP."}
     ],
   },
   // NOTE: Bloodletter's Curse stats taken from PC League of Legends data; Wild Rift numbers may differ slightly, verify.
@@ -92,9 +94,9 @@ const MAGIC_ITEMS = [
     gold: 2900,
     image: "img/Bloodletter's_Curse_item_HD.png",
     bannedSet: ["BLIGHT"],
-    stats: { AP: 65, HP: 400, CD: 15 },
+    stats: { AP: 65, HP: 350, CD: 15 },
     passives: [
-      { title: "Vile Decay", desc: "Dealing magic damage to champions with abilities reduces their Magic Resist by 7.5% for 6 seconds, stacking up to 4 times." },
+      { title: "Withering Decay", desc: "Dealing magic damage to champions with abilities reduces their Magic Resist by 7.5% for 6 seconds, stacking up to 30% times." },
     ],
   },
   {
@@ -126,7 +128,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["BLIGHT"],
     stats: { AP: 75, CD: 20, MP_PERCENTAGE: 30 },
     passives: [
-      { title: "Blooming", desc: "When an enemy dies within 3 seconds of you damaging them, a healing nova spawns at their location for your team (60 second cooldown)." },
+      { title: "Blooming", desc: "When an enemy dies within 3 seconds of you damaging them, a nova at their location that heals nearby allies for 100+20% AP Health (60 second cooldown)." },
     ],
   },
   // NOTE: gold/stats sourced from PC League of Legends data — could not confirm this item exists in Wild Rift under current patches; verify before relying on it.
@@ -136,9 +138,9 @@ const MAGIC_ITEMS = [
     gold: 3100,
     image: "img/Dusk_and_Dawn_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { HP: 300, AP: 70, CD: 20, ATTACK_SPEED: 25 },
+    stats: { HP: 350, AP: 70, CD: 20, ATTACK_SPEED: 25 },
     passives: [
-      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit and applies on-hit effects twice (1.5s cooldown)." },
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals 75% base AD + 10% AP bonus magic damage on-hit and applies on-hit effects twice (1.5s cooldown)." },
     ],
   },
   {
@@ -219,12 +221,12 @@ const MAGIC_ITEMS = [
   {
     title: "Void Staff",
     category: "MAGIC",
-    gold: 2800,
+    gold: 3000,
     image: "img/Void_Staff_item_old2_HD.png",
     bannedSet: ["BLIGHT"],
-    stats: { AP: 70, MP_PERCENTAGE: 40 },
+    stats: { AP: 95 },
     passives: [
-      { title: "Dissolve", desc: "Grants +40% Magic Penetration." },
+      { title: "Dissolve", desc: "Grants +40% Magic Penetration.", stats: { MP_PERCENTAGE: 40 } },
     ],
   },
   // NOTE: PC League of Legends data (no confirmed Wild Rift version). Magic Pen scales 10-20 with target's missing health; 15 used as a flat approximation.
@@ -242,12 +244,12 @@ const MAGIC_ITEMS = [
   {
     title: "Stormsurge",
     category: "MAGIC",
-    gold: 3000,
+    gold: 2900,
     image: "img/Stormsurge_item_HD.webp",
-    stats: { AP: 100, SPEED_PERCENTAGE: 5, MP: 10 },
+    stats: { AP: 90, SPEED_PERCENTAGE: 6, MP: 15 },
     passives: [
-      { title: "Stormraider", desc: "Dealing damage equal to 35% of an enemy champion's max health within 2.5 seconds inflicts Squall and grants 25% bonus Move Speed for 2 seconds (30s cooldown)." },
-      { title: "Squall", desc: "After 2 seconds, strike the Squall target with lightning for bonus magic damage; if they die first, the lightning instead shocks all nearby enemy champions and grants gold." },
+      { title: "Storm Raider", desc: "Dealing damage equal to 25% of an enemy champion's max health within 2.5 seconds inflicts Windhowl and grants 25% bonus Move Speed for 2.5 seconds (25s cooldown)." },
+      { title: "Windhowl", desc: "After 2 seconds, deal 125+10% AP magic damage. If the target dies before Windhowl triggers, it deals the same damage to nearby enemies and grants 25 Gold" },
     ],
   },
   {

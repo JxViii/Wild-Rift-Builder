@@ -37,6 +37,7 @@
 #define LIFELINE 42
 #define MANAFLOW 43
 #define BLIGHT 44
+#define SPELLSHIELD 45
 
 
 #endif

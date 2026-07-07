@@ -42,6 +42,7 @@ const BANNED_SET_TYPES = {
   LIFELINE: 42,
   MANAFLOW: 43,
   BLIGHT: 44,
+  SPELLSHIELD: 45,
 };
 
 // Turns ["SPELLBLADE", "LIFELINE"] into [40, 42]; defaults to [0] (no tags).

@@ -199,7 +199,7 @@ nlohmann::ordered_json lol::Set::print()
 
   if (adaptative != 0)
   {
-    if (ap > ad)
+    if (ap > ad + 0.5*adaptative )
       ap += adaptative;
     else
       ad += adaptative * 0.5;
