@@ -15,7 +15,7 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 2900,
     image: "img/Luden's_Tempest_item_HD.png",
-    stats: { AP: 85, MAX_MANA: 300, CD: 20, MP_PERCENTAGE: 7},
+    stats: { AP: 85, MAX_MANA: 300, CD: 20, MP_PERCENTAGE: 7 },
     passives: [
       { title: "Energy Charge", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP." },
     ],
@@ -25,9 +25,12 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Liandry's_Torment_item_HD.png",
-    stats: { AP: 75, HP: 250, MP_PERCENTAGE: 7 },
+    stats: { AP: 75, HP: 300 },
     passives: [
-      { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time 0.6% - 3.0% of the targets max HP as bonus magic damage per second for 3 seconds" },
+      { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time 2% of the targets max HP as bonus magic damage per second for 3 seconds" },
+      {
+        title: "Suffering", desc: "While in combat with enemy champions, deal 2% increased damage every second, up to 6%"
+      },
     ],
   },
   {
@@ -37,7 +40,7 @@ const MAGIC_ITEMS = [
     image: "img/Nashor's_Tooth_item_HD.png",
     stats: { ATTACK_SPEED: 45, CD: 20 },
     passives: [
-      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP" , stats: { ADAPTATIVE : 50 }},
+      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP", stats: { ADAPTATIVE: 50 } },
       { title: "Icathian Bite", desc: "Basic attacks deal bonus magic damage on-hit (15 AP + 20% Bonus AD + 30% Bonus AP)." },
     ],
   },
@@ -57,7 +60,7 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Archangel's_Staff_item_HD.png",
-    bannedSet: ["LIFELINE","MANAFLOW"],
+    bannedSet: ["LIFELINE", "MANAFLOW"],
     stats: { AP: 60, MAX_MANA: 500, CD: 25, MP_PERCENTAGE: 7 },
     passives: [
       { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent.", stats: { MANA_AP: 1 } },
@@ -69,7 +72,7 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Seraph's_Embrace_item.webp",
-    bannedSet: ["LIFELINE","MANAFLOW"],
+    bannedSet: ["LIFELINE", "MANAFLOW"],
     stats: { AP: 60, MAX_MANA: 1200, CD: 25 },
     passives: [
       { title: "Awe", desc: "Grants Ability Power equal to 2% of max Mana and refunds 25% of all Mana spent.", stats: { MANA_AP: 2 } },
@@ -95,8 +98,8 @@ const MAGIC_ITEMS = [
     image: "img/Blackfire_Torch_item_HD.png",
     stats: { AP: 80, CD: 20, MAX_MANA: 500 },
     passives: [
-      { title: "Balefire", desc: "Damaging abilities deal 20+2% AP bonus magic damage per second for 3s. Deals 40+2%AP magic damage per second to monsters."  },
-      { title: "Blackfire", desc: "Each enemy champion, epic monster, and large monster affected by your Balefire grants 4% AP."}
+      { title: "Balefire", desc: "Damaging abilities deal 20+2% AP bonus magic damage per second for 3s. Deals 40+2%AP magic damage per second to monsters." },
+      { title: "Blackfire", desc: "Each enemy champion, epic monster, and large monster affected by your Balefire grants 4% AP." }
     ],
   },
   // NOTE: Bloodletter's Curse stats taken from PC League of Legends data; Wild Rift numbers may differ slightly, verify.
@@ -114,11 +117,11 @@ const MAGIC_ITEMS = [
   {
     title: "Cosmic Drive",
     category: "MAGIC",
-    gold: 2800,
+    gold: 3000,
     image: "img/Cosmic_Drive_item_HD.png",
-    stats: { AP: 70, CD: 30, HP: 300, MP_PERCENTAGE: 7 },
+    stats: { AP: 70, CD: 25, HP: 300 },
     passives: [
-      { title: "Spelldance", desc: "Dealing damage with abilities grants bonus Move Speed (scaling with Ability Haste) for 4 seconds." },
+      { title: "Spelldance", desc: "Dealing damage with abilities grants bonus +30 Movement Speed for 4 seconds." },
     ],
   },
   // {
@@ -211,12 +214,13 @@ const MAGIC_ITEMS = [
   {
     title: "Riftmaker",
     category: "MAGIC",
-    gold: 3300,
+    gold: 3100,
     image: "img/Riftmaker_item_Unused_HD.png",
-    stats: { HP: 150, AP: 90, CD: 15, OMNIVAMP: 12, MP_PERCENTAGE: 15 },
+    stats: { HP: 350, AP: 70, CD: 15 },
     passives: [
       { title: "Assimilation", desc: "Grants +12% Omnivamp." },
-      { title: "Void Corruption", desc: "Gain a stack of Corruption every second in combat with champions, increasing damage dealt; at max stacks the bonus damage becomes true damage." },
+      { title: "Void Corruption", desc: "While in combat with enemy champions, gain 2% increased damage every second, up to 8%. At maximum stacks gain (10% Melee / 6% ranged) Omnivamp" },
+      { title: "Void Infusion", desc: "Gain AP equal to 2% of your bonus HP", stats: { HP_AP : 2 } },
     ],
   },
   {
@@ -272,8 +276,8 @@ const MAGIC_ITEMS = [
     bannedSet: ["ROA"],
     stats: { HP: 350, AP: 50, MAX_MANA: 400 },
     passives: [
-      {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
-      {title: "Veterancy", desc: "This item gains 15 bonus health, 30 bonus mana and 4 ability power every 40 seconds, stacking up to 10 times."},
+      { title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second." },
+      { title: "Veterancy", desc: "This item gains 15 bonus health, 30 bonus mana and 4 ability power every 40 seconds, stacking up to 10 times." },
     ],
   },
   {
@@ -284,7 +288,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["ROA"],
     stats: { HP: 500, AP: 90, MAX_MANA: 700 },
     passives: [
-      {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
+      { title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second." },
     ],
   },
   {
@@ -294,7 +298,7 @@ const MAGIC_ITEMS = [
     image: "img/Oceanid_Tridents.png",
     stats: { HP: 200, AP: 70, CD: 20 },
     passives: [
-      {title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict 40% (+ 5% per 100 AP) reduction, capped at 60%. Area-of-effect abilities inflict 25% (+ 5% per 100 AP) reduction, capped at 45%."},
+      { title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict 40% (+ 5% per 100 AP) reduction, capped at 60%. Area-of-effect abilities inflict 25% (+ 5% per 100 AP) reduction, capped at 45%." },
     ],
   },
   {
@@ -304,7 +308,7 @@ const MAGIC_ITEMS = [
     image: "img/Infinity_Orb.webp",
     stats: { AP: 110 },
     passives: [
-      {title: "Inevitable Demise", desc: "Abilities and empowered attacks will critically strike for 20% bonus damage against enemies below 35% HP"},
+      { title: "Inevitable Demise", desc: "Abilities and empowered attacks will critically strike for 20% bonus damage against enemies below 35% HP" },
     ],
   },
 ];

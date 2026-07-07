@@ -27,6 +27,8 @@
 #define MANA_AD 23
 #define MANA_AP 24
 #define MANA_HP 25
+#define HP_AP 26
+#define HP_AD 27
 
 #define PHYSICAL 30
 #define MAGIC 31

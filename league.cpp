@@ -196,6 +196,8 @@ nlohmann::ordered_json lol::Set::print()
   double mana_ad = getAttribute(MANA_AD);
   double mana_ap = getAttribute(MANA_AP);
   double mana_hp = getAttribute(MANA_HP);
+  double hp_ap = getAttribute(HP_AP);
+  double hp_ad = getAttribute(HP_AD);
 
   //! Fuerza Adaptable 1AP / 0.5AD ( ej. Nashor )
 
@@ -212,6 +214,11 @@ nlohmann::ordered_json lol::Set::print()
   ap += maxMana * mana_ap/100;
   ad += maxMana * mana_ad/100;
   hp += maxMana * mana_hp/100;
+
+  //! Estadísticas que escalan por HP
+
+  ap += hp * hp_ap/100;
+  ad += hp * hp_ad/100;
 
   //! Porcentajes de %AP y %AD sobre el total ( ej. RABADON )
 
