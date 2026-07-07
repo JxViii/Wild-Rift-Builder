@@ -651,3 +651,29 @@ header .wr-logo{
   font-weight: 700;
   translate: 0px 0;
 }
+
+
+/* ? PATCH DESIGN */
+
+
+.patch{
+
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+
+  border-radius: 10px;
+  border: 2px solid var(--item);
+  padding: 10px 15px;
+  background: #353535;
+
+}
+
+.patch span{
+
+  color: var(--white);
+  font-weight: 800;
+}
