@@ -65,6 +65,18 @@ const MAGIC_ITEMS = [
     ],
   },
   {
+    title: "Seraph's Embrace",
+    category: "MAGIC",
+    gold: 2950,
+    image: "img/Seraph's_Embrace_item.webp",
+    bannedSet: ["LIFELINE","MANAFLOW"],
+    stats: { AP: 35, MAX_MANA: 500, CD: 20, MP_PERCENTAGE: 7 },
+    passives: [
+      { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent." },
+      { title: "Mana Charge", desc: "Increases max Mana by 18 every time Mana is spent, up to 3 times every 10 seconds. Caps at 700 bonus Mana, transforming the item into Seraph's Embrace." },
+    ],
+  },
+  {
     title: "Banshee's Veil",
     category: "MAGIC",
     gold: 3000,
@@ -72,7 +84,7 @@ const MAGIC_ITEMS = [
     bannedSet: ["SPELLSHIELD"],
     stats: { AP: 105, MR: 40 },
     passives: [
-      { title: "Void out", desc: "Grants a spell shield that blocks the next enemy ability." },
+      { title: "Void out", desc: "Grants a spell shield that blocks the next enemy ability. (30s cooldown)" },
     ],
   },
   // NOTE: Blackfire Torch is an AAA ARAM-exclusive item; exact stats/gold uncertain, verify in-game.
@@ -253,10 +265,23 @@ const MAGIC_ITEMS = [
     ],
   },
   {
-    title: "Road of ages",
+    title: "Rod of ages BASIC",
     category: "MAGIC",
     gold: 2800,
-    image: "img/ROA.png",
+    image: "img/ROA.webp",
+    bannedSet: ["ROA"],
+    stats: { HP: 250, AP: 60, MP_PERCENTAGE: 7, MAX_MANA: 300 },
+    passives: [
+      {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},
+      {title: "Veterancy", desc: "This item gains 25 bonus health, 10 bonus mana and 6 ability power every 40 seconds, stacking up to 10 times for a maximum of 250 bonus health, 100 bonus mana and 60 ability power."},
+    ],
+  },
+  {
+    title: "Rod of ages CHARGED",
+    category: "MAGIC",
+    gold: 2800,
+    image: "img/Rod_of_Ages_item.webp",
+    bannedSet: ["ROA"],
     stats: { HP: 250, AP: 60, MP_PERCENTAGE: 7, MAX_MANA: 300 },
     passives: [
       {title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second."},

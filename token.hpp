@@ -21,9 +21,12 @@
 #define MR 17
 #define HEAL 18
 #define OMNIVAMP 19
-#define AP_PERCENTAGE 20 //! 30% AP
+#define AP_PERCENTAGE 20
 #define AD_PERCENTAGE 21
 #define ADAPTATIVE 22
+#define MANA_AD 23
+#define MANA_AP 24
+#define MANA_HP 25
 
 #define PHYSICAL 30
 #define MAGIC 31
@@ -38,6 +41,11 @@
 #define MANAFLOW 43
 #define BLIGHT 44
 #define SPELLSHIELD 45
+
+#define ROA 50
+#define SERAPH 51
+#define MANAMUNE 52
+#define WINTER 53
 
 
 #endif

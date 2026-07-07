@@ -22,6 +22,9 @@ const STAT_TYPES = {
   AP_PERCENTAGE: 20,
   AD_PERCENTAGE: 21,
   ADAPTATIVE: 22,
+  MANA_AD: 23,
+  MANA_AP: 24,
+  MANA_HP: 25,
 };
 
 // Mirrors token.hpp's item category #defines.
@@ -43,6 +46,10 @@ const BANNED_SET_TYPES = {
   MANAFLOW: 43,
   BLIGHT: 44,
   SPELLSHIELD: 45,
+  ROA: 50,
+  SERAPH: 51,
+  MANAMUNE: 52,
+  WINTER: 53,
 };
 
 // Turns ["SPELLBLADE", "LIFELINE"] into [40, 42]; defaults to [0] (no tags).

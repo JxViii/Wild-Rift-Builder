@@ -193,9 +193,16 @@ nlohmann::ordered_json lol::Set::print()
   double apPercentage = getAttribute(AP_PERCENTAGE);
   double adPercentage = getAttribute(AD_PERCENTAGE);
   double adaptative = getAttribute(ADAPTATIVE);
+  double mana_ad = getAttribute(MANA_AD);
+  double mana_ap = getAttribute(MANA_AP);
+  double mana_hp = getAttribute(MANA_HP);
+
+  //! Porcentajes de %AP y %AD sobre el total ( ej. RABADON )
 
   ap *= (apPercentage != 0) ? (1 + apPercentage / 100) : 1;
   ad *= (adPercentage != 0) ? (1 + adPercentage / 100) : 1;
+
+  //! Fuerza Adaptable 1AP / 0.5AD ( ej. Nashor )
 
   if (adaptative != 0)
   {
@@ -204,6 +211,12 @@ nlohmann::ordered_json lol::Set::print()
     else
       ad += adaptative * 0.5;
   }
+
+  //! Estadísticas que escalan por MANA MAX
+
+  ap += maxMana * mana_ap;
+  ad += maxMana * mana_ad;
+  hp += maxMana * mana_hp;
 
   nlohmann::ordered_json result = nlohmann::ordered_json::object();
 
