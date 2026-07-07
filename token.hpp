@@ -33,7 +33,10 @@
 #define BOOTS 35
 
 #define SPELLBLADE 40
-#define ARMOR_REDUCTION 41
+#define FATALITY 41
+#define LIFELINE 42
+#define MANAFLOW 43
+#define BLIGHT 44
 
 
 #endif

@@ -67,6 +67,7 @@ void lol::Set::addObject(lol::Object obj)
 
   bool isActive = obj.getType() == ACTIVE;
   bool isBoots = obj.getType() == BOOTS;
+  std::vector<int> ban = obj.getBannedSet();
 
   if (_hasActive == true && isActive)
   {
@@ -78,16 +79,17 @@ void lol::Set::addObject(lol::Object obj)
     throw std::invalid_argument("You can only have ONE boots item at a time!");
   }
 
-  int ban = obj.getBannedSet();
-  if (ban != 0)
+  if (ban[0] != 0)
   {
-    if (isBanned(ban))
-    {
-      throw std::invalid_argument("You can only have ONE of this items at a time! Token: " + ban);
-    }
-    else
-    {
-      _banned_set.push_back(ban);
+    for( std::size_t i{}; i < ban.size(); ++i){
+      if (isBanned(ban[i]) != -1)
+      {
+        throw std::invalid_argument("You can only have ONE of this items at a time! Token: " + ban[i]);
+      }
+      else
+      {
+        _banned_set.push_back(ban[i]);
+      }
     }
   }
 
@@ -114,6 +116,15 @@ void lol::Set::deleteObject(size_t pos)
   Object obj = _set.at(pos);
   bool isActive = obj.getType() == ACTIVE;
   bool isBoots = obj.getType() == BOOTS;
+  std::vector<int> ban = obj.getBannedSet();
+
+  if (ban[0] != 0)
+  {
+    for( std::size_t i{}; i < ban.size(); ++i){
+      int del = isBanned(ban[i]);
+      _banned_set.erase(_banned_set.begin() + del);
+    }
+  }
 
   _set.erase(_set.begin() + pos);
   if (isActive)
@@ -143,15 +154,17 @@ int lol::Set::getGold()
   return total;
 }
 
-bool lol::Set::isBanned(int ban)
-{
 
-  for (const int &val : getBannedSet())
+int lol::Set::isBanned(int ban)
+{
+  for (std::size_t i{}; i < getBannedSet().size(); ++i)
   {
-    if (val == ban)
-      return true;
+    if (_banned_set[i] == ban)
+    {
+      return i;
+    }
   }
-  return false;
+  return -1;
 }
 
 nlohmann::ordered_json lol::Set::print()

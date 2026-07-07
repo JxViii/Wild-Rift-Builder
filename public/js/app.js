@@ -107,6 +107,14 @@ function addItem(item) {
     return;
   }
 
+  const conflictTag = (item.bannedSet || []).find((tag) =>
+    slots.some((s) => s && s !== item && (s.bannedSet || []).includes(tag))
+  );
+  if (conflictTag) {
+    showNotice(`You can only have ONE item with the "${conflictTag}" tag at a time!`);
+    return;
+  }
+
   const emptyIndex = slots.indexOf(null);
   if (emptyIndex === -1) {
     showNotice("Set is full — remove an item first.");
@@ -161,6 +169,7 @@ async function calculate() {
     gold: item.gold,
     type: ITEM_TYPES[item.category],
     title: item.title,
+    banned_set: bannedSetToTypeArray(item.bannedSet),
     stats: statsToTypeArray(item.stats),
     passives: passivesToJson(item.passives),
   }));

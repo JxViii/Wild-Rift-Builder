@@ -34,6 +34,32 @@ const ITEM_TYPES = {
   BOOTS: 35,
 };
 
+// Mirrors token.hpp's restriction-tag #defines. Items sharing one of these
+// tags can't coexist in the same set (enforced by lol::Set on the backend).
+const BANNED_SET_TYPES = {
+  SPELLBLADE: 40,
+  FATALITY: 41,
+  LIFELINE: 42,
+  MANAFLOW: 43,
+  BLIGHT: 44,
+};
+
+// Turns ["SPELLBLADE", "LIFELINE"] into [40, 42]; defaults to [0] (no tags).
+function bannedSetToTypeArray(readableBannedSet) {
+  if (!readableBannedSet || readableBannedSet.length === 0) {
+    return [0];
+  }
+
+  return readableBannedSet.map((name) => {
+    const type = BANNED_SET_TYPES[name];
+    if (type === undefined) {
+      throw new Error(`Unknown banned set tag "${name}"`);
+    }
+
+    return type;
+  });
+}
+
 // Turns { AD: 60, AP: 40 } into [{ type: 12, value: 60 }, { type: 1, value: 40 }]
 function statsToTypeArray(readableStats) {
   return Object.entries(readableStats).map(([name, value]) => {

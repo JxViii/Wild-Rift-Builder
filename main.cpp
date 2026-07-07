@@ -25,6 +25,8 @@ static lol::Object objectFromJson(const json &j)
   int type = j.at("type").get<int>();
   std::string title = j.at("title").get<std::string>();
 
+  std::vector<int> bannedSet = j.value("banned_set", std::vector<int>{0});
+
   std::vector<lol::Stat> stats;
   for (const auto &s : j.value("stats", json::array()))
   {
@@ -37,7 +39,7 @@ static lol::Object objectFromJson(const json &j)
     passives.push_back(passiveFromJson(p));
   }
 
-  return lol::Object(gold, type, title, stats, passives);
+  return lol::Object(bannedSet, gold, type, title, stats, passives);
 }
 
 int main()

@@ -39,14 +39,13 @@ ACTIVE:
   STRIDEBREAKER
   REDEMPTION
 
-
 LETHAL INCOMPATIBLE ITEMS:
   Lord dominiks
   Mortal remainder
   Seryldas grudge
   TERMINUS
   Black Reaver
-  
+
 SPELLBLADE
   TRINITY
   LICHE

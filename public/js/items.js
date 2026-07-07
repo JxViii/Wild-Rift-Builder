@@ -153,6 +153,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 2950,
     image: "img/Archangel's_Staff_item_HD.png",
+    bannedSet: ["LIFELINE","MANAFLOW"],
     stats: { AP: 35, MAX_MANA: 500, CD: 20, MP_PERCENTAGE: 7 },
     passives: [
       { title: "Awe", desc: "Grants Ability Power equal to 1% of max Mana and refunds 25% of all Mana spent." },
@@ -214,6 +215,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Black_Cleaver_item_HD.png",
+    bannedSet: ["FATALITY"],
     stats: { AD: 40, HP: 400, CD: 20 },
     passives: [
       { title: "Sunder", desc: "Dealing physical damage to a champion reduces their Armor by 6% for 6 seconds, stacking 5 times for 30% reduction total." },
@@ -248,6 +250,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 2900,
     image: "img/Bloodletter's_Curse_item_HD.png",
+    bannedSet: ["BLIGHT"],
     stats: { AP: 65, HP: 400, CD: 15 },
     passives: [
       { title: "Vile Decay", desc: "Dealing magic damage to champions with abilities reduces their Magic Resist by 7.5% for 6 seconds, stacking up to 4 times." },
@@ -312,6 +315,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Cryptbloom_item_HD.png",
+    bannedSet: ["BLIGHT"],
     stats: { AP: 75, CD: 20, MP_PERCENTAGE: 30 },
     passives: [
       { title: "Blooming", desc: "When an enemy dies within 3 seconds of you damaging them, a healing nova spawns at their location for your team (60 second cooldown)." },
@@ -346,6 +350,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3450,
     image: "img/Divine_Sunderer_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
     stats: { HP: 400, AD: 25, CD: 25 },
     passives: [
       { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus physical damage on-hit equal to a percent of the target's maximum health (higher % vs. minions/monsters), with a minimum equal to 125% base AD. Against champions, also heals you for a percent of the target's maximum health." },
@@ -357,6 +362,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 3100,
     image: "img/Dusk_and_Dawn_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
     stats: { HP: 300, AP: 70, CD: 20, ATTACK_SPEED: 25 },
     passives: [
       { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit and applies on-hit effects twice (1.5s cooldown)." },
@@ -399,6 +405,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3050,
     image: "img/Essence_Reaver_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
     stats: { AD: 40, CRIT: 25, CD: 20 },
     passives: [
       { title: "Essence Flare", desc: "Damaging active abilities deal bonus physical damage scaled by Critical Strike Chance. Each ability can only trigger this once per target." },
@@ -422,6 +429,7 @@ const ITEMS = [
     category: "DEFENSE",
     gold: 2600,
     image: "img/Fimbulwinter_item_HD.png",
+    bannedSet: ["MANAFLOW"],
     stats: { HP: 350, MAX_MANA: 1200, CD: 15 },
     passives: [
       { title: "Awe", desc: "Grants bonus Health equal to 8% of max Mana and refunds 15% of all Mana spent." },
@@ -583,6 +591,7 @@ const ITEMS = [
     category: "DEFENSE",
     gold: 3100,
     image: "img/Iceborn_Gauntlet_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
     stats: { HP: 250, MAX_MANA: 250, ARMOR: 50, CD: 25 },
     passives: [
       { title: "Spellblade", desc: "After using an ability, your next basic attack deals bonus physical damage on-hit to surrounding enemies and creates an icy zone that slows them." },
@@ -656,6 +665,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 2950,
     image: "img/Lich_Bane_item_HD.png",
+    bannedSet: ["SPELLBLADE"],
     stats: { AP: 80, CD: 10 },
     passives: [
       { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit (scales with AD and AP)." },
@@ -676,6 +686,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3300,
     image: "img/Lord_Dominik's_Regards_item_HD.png",
+    bannedSet: ["FATALITY"],
     stats: { AD: 25, CRIT: 25, ARMOR_PEN_PERCENTAGE: 36 },
     passives: [
       { title: "Giant Slayer", desc: "Deal increased damage against champions based on their bonus health." },
@@ -707,6 +718,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 2500,
     image: "img/Maw_of_Malmortius_item_HD.png",
+    bannedSet: ["LIFELINE"],
     stats: { AD: 45, MR: 35, CD: 10 },
     passives: [
       { title: "Lifeline", desc: "If magic damage would reduce you below 35% max health, gain a shield that absorbs magic damage (90s cooldown)." },
@@ -760,6 +772,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3300,
     image: "img/Mortal_Reminder_item_HD.png",
+    bannedSet: ["FATALITY"],
     stats: { AD: 30, CRIT: 25, ARMOR_PEN_PERCENTAGE: 30 },
     passives: [
       { title: "Last Whisper", desc: "Grants 16-30% Armor Penetration (scales with level)." },
@@ -771,6 +784,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 2700,
     image: "img/Muramana_item_HD.png",
+    bannedSet: ["MANAFLOW"],
     stats: { AD: 25, MAX_MANA: 1000, CD: 20 },
     passives: [
       { title: "Awe", desc: "Grants Attack Damage equal to 1.5% of max Mana and refunds 15% of all Mana spent." },
@@ -868,6 +882,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3100,
     image: "img/Serylda's_Grudge_item_old_HD.png",
+    bannedSet: ["FATALITY"],
     stats: { AD: 40, CD: 15, ARMOR_PEN_PERCENTAGE: 30 },
     passives: [
       { title: "Last Whisper", desc: "Damaging active abilities and empowered attacks slow enemies by 30% for 1 second." },
@@ -934,6 +949,7 @@ const ITEMS = [
     category: "MAGIC",
     gold: 2800,
     image: "img/Void_Staff_item_old2_HD.png",
+    bannedSet: ["BLIGHT"],
     stats: { AP: 70, MP_PERCENTAGE: 40 },
     passives: [
       { title: "Dissolve", desc: "Grants +40% Magic Penetration." },
@@ -999,6 +1015,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3333,
     image: "img/Trinity_Force_item_HD.webp",
+    bannedSet: ["SPELLBLADE"],
     stats: { AD: 25, HP: 250, CD: 15, ATTACK_SPEED: 30, SPEED_PERCENTAGE: 8 },
     passives: [
       { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus physical damage on-hit (2s cooldown)." },
@@ -1050,6 +1067,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 2700,
     image: "img/Sterak's_Gage_item_HD.webp",
+    bannedSet: ["LIFELINE"],
     stats: { AD: 45, HP: 350 },
     passives: [
       { title: "Lifeline", desc: "Taking damage that would leave you below 30% max Health grants a decaying shield and bonus Attack Damage for a few seconds (90s cooldown)." },
@@ -1098,6 +1116,7 @@ const ITEMS = [
     category: "PHYSICAL",
     gold: 3300,
     image: "img/Terminus_item.webp",
+    bannedSet: ["FATALITY", "BLIGHT"],
     stats: { AD: 40, ATTACK_SPEED: 30 },
     passives: [
       {title: "Shadow", desc: "Basic attack deal 35 bonus magic damage on-hit"},
