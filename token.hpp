@@ -46,6 +46,7 @@
 #define MANAFLOW 43
 #define BLIGHT 44
 #define SPELLSHIELD 45
+#define BURN 46
 
 #define ROA 50
 #define SERAPH 51

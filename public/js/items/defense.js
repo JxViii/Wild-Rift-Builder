@@ -1,15 +1,17 @@
 // Defense items — part of the ITEMS catalog (see items.js).
 const DEFENSE_ITEMS = [
+  // Patch 7.1
   {
     title: "Guardian Angel",
     category: "DEFENSE",
-    gold: 3400,
+    gold: 3200,
     image: "img/Guardian_Angel_item_HD.png",
-    stats: { AD: 40, ARMOR: 40 },
+    stats: { AD: 45, ARMOR: 40 },
     passives: [
-      { title: "Resurrect", desc: "Upon taking lethal damage, restore 50% base HP and 30% MAX MANA after 4 seconds of extasis." },
+      { title: "Resurrect", desc: "Upon taking lethal damage, restore 50% base HP and 100% MAX MANA after 4 seconds of extasis. (180s cooldown)" },
     ],
   },
+  // Patch 7.1
   {
     title: "Force of Nature",
     category: "DEFENSE",
@@ -21,6 +23,7 @@ const DEFENSE_ITEMS = [
       { title: "Absorb", desc: "Taking magic damage grants 1 stack for 7 seconds, max 4 stacks. Dealing damage to an enemy Champion will refresh the duration of the stacks. At maximum stacks, gain 10% Movement Speed and reduce all incoming magic damage by 25%" },
     ],
   },
+  // Patch 7.1
   {
     title: "Frozen Heart",
     category: "DEFENSE",
@@ -31,6 +34,7 @@ const DEFENSE_ITEMS = [
       { title: "Winter's Caress", desc: "Against champions, basic attacks and magic damage you deal or take will inflict a stack of Chill lasting 3 seconds, refreshing on subsequent hits and stacking up to 4 times (1 second cooldown per ability per target). Each stack cripples the target's attack speed by 9%, stacking up to 36% reduction." },
     ],
   },
+  // Patch 7.1
   {
     title: "Abyssal Mask",
     category: "DEFENSE",
@@ -41,6 +45,7 @@ const DEFENSE_ITEMS = [
       { title: "Unmake", desc: "Curses enemy champions within 600 units, reducing MR by 5 plus 1.2% Bonus HP, up to 25 MR. For each champion cursed, gain 9 bonus MR." },
     ],
   },
+  // Patch 7.1
   {
     title: "Dead Man's Plate",
     category: "DEFENSE",
@@ -52,6 +57,7 @@ const DEFENSE_ITEMS = [
       { title: "Crushing Blow", desc: "Basic attacks that expend maximum Momentum also slow the target by 50% for 1 second." },
     ],
   },
+  // Patch 7.1
   {
     title: "Fimbulwinter",
     category: "DEFENSE",
@@ -64,6 +70,7 @@ const DEFENSE_ITEMS = [
       { title: "Frozen Colossus", desc: "Immobilizing or slowing an enemy champion consumes current Mana to grant a shield, increased if multiple enemy champions are nearby (8s cooldown)." },
     ],
   },
+  // Patch 7.1
   {
     title: "Heartsteel",
     category: "DEFENSE",
@@ -74,18 +81,20 @@ const DEFENSE_ITEMS = [
       { title: "Colossal Consumption", desc: "Enemy champions within range generate stacks over time, up to 6. Your next basic attack against a maximum-stack target consumes them to deal bonus physical damage on-hit and grants permanent bonus Health equal to a portion of that damage (30s cooldown per target)." },
     ],
   },
-  // NOTE: gold/stats sourced from PC League of Legends data — could not confirm exact Wild Rift numbers; verify before relying on it.
+  // Patch 7.1
   {
     title: "Hollow Radiance",
     category: "DEFENSE",
-    gold: 2700,
+    gold: 2800,
     image: "img/Hollow_Radiance_item_HD.png",
+    bannedSet: ["BURN"],
     stats: { CD: 15, HP: 400, MR: 40 },
     passives: [
-      { title: "Immolate", desc: "Taking or dealing damage burns nearby enemies for magic damage each second for 3 seconds, increased against minions (executes low-health minions)." },
-      { title: "Desolate", desc: "Killing a non-champion unit erupts damage around it; scoring a champion takedown shortly after damaging them causes a larger eruption." },
+      { title: "Immolate", desc: "While in combat, deal magic damage equal to 20-30 + 1% of your bonus hp per second for 5 segs to nearby enemies. Deals 125% dmg against monsters and 200% dmg against minions." },
+      { title: "Desolate", desc: "Killing a neutral monster or enemy champion deals magic damage equals to 30 + 2% of bonus hp in and area around them." },
     ],
   },
+  // Patch 7.1
   {
     title: "Iceborn Gauntlet",
     category: "DEFENSE",
@@ -97,6 +106,7 @@ const DEFENSE_ITEMS = [
       { title: "Spellblade", desc: "After using an ability, your next basic attack deals bonus physical damage on-hit to surrounding enemies and creates an icy zone that slows them." },
     ],
   },
+  // Patch 7.1
   {
     title: "Kaenic Rookern",
     category: "DEFENSE",
@@ -117,27 +127,31 @@ const DEFENSE_ITEMS = [
       { title: "Blessed", desc: "Increases all healing, regen, shields, and drain effects on yourself by 30%." },
     ],
   },
-  // NOTE: PC League of Legends data (no confirmed Wild Rift version).
+  // Patch 7.1
   {
     title: "Unending Despair",
     category: "DEFENSE",
-    gold: 2800,
+    gold: 3000,
     image: "img/Unending_Despair_item_HD.webp",
-    stats: { HP: 400, ARMOR: 50, CD: 15 },
+    stats: { HP: 200, ARMOR: 45, MR: 45 },
     passives: [
-      { title: "Anguish", desc: "Every 4 seconds in combat with champions, deal magic damage to nearby enemy champions equal to 3% of your bonus Health and heal for 250% of the post-mitigation damage dealt. Limited to 1 per champion." },
+      { title: "Anguish", desc: "Every 4 seconds while in combat with champions, deal magic damage to nearby enemy champions equal to 3% of your max Health as magic damage and heal for 250% of the damage dealt. Unaffected by Item Ability Haste" },
     ],
   },
+  // Patch 7.1
   {
     title: "Sunfire Aegis",
     category: "DEFENSE",
-    gold: 2800,
+    gold: 2900,
     image: "img/Sunfire_Aegis_item_HD.webp",
-    stats: { HP: 350, ARMOR: 40, CD: 10 },
+    bannedSet: ["BURN"],
+    stats: { HP: 425, ARMOR: 20, CD: 15 },
     passives: [
-      { title: "Immolate", desc: "Taking or dealing damage burns nearby enemies for magic damage each second, increased against minions (executes low-health minions)." },
+      { title: "Immolate", desc: "While in combat, deal magic dmg equal to 16-25 + 0.8% of your bonus hp per second. Damaging champs or epic monsters with Immolate increases the dmg they take by 11% for 5 segs. stacking up to 4 times." },
+      { title: "Flametouch", desc: " At max Immolate stacks, attacks burn enemies around you for 50% of Immolate's dmg over 3 segs. Immolate deals 130% dmg to monsters and 175-250% to minions."}
     ],
   },
+  // Patch 7.1
   {
     title: "Warmog's Armor",
     category: "DEFENSE",
@@ -146,9 +160,10 @@ const DEFENSE_ITEMS = [
     stats: { HP: 700, HP_REGEN: 100, CD: 20 },
     passives: [
       {title: "Warmog's Heart", desc: "If you have at least 950 bonus health, after 6 seconds without taking damage, you regenerate 5% maximum health every second."},
-      {Title: "Bendition", desc: " Increases healing, shielding, health regeneration, and drain effects on yourself by 30%."}
+      {title: "Bendition", desc: " Increases healing, shielding, health regeneration, and drain effects on yourself by 30%."}
     ],
   },
+  // Patch 7.1
   {
     title: "Thormail",
     category: "DEFENSE",
@@ -159,6 +174,7 @@ const DEFENSE_ITEMS = [
       {title: "Thorns", desc: "When struck by a basic attack on-hit, deal 20 (+ 6% bonus armor) (+ 2% bonus health) magic damage to the attacker, and inflict 60% Grievous Wounds for 3 seconds against champions."},
     ],
   },
+  // Patch 7.1
   {
     title: "Randuin's Omen",
     category: "DEFENSE",
@@ -170,6 +186,7 @@ const DEFENSE_ITEMS = [
       {title: "Resilence", desc: "Critical Strikes deal 30% less physical damage to you"},
     ],
   },
+  // Patch 7.1
   {
     title: "Dawnshroud",
     category: "DEFENSE",
@@ -180,6 +197,7 @@ const DEFENSE_ITEMS = [
       {title: "Dawnbringer", desc: "If you are within 400 units of an enemy champion when you immobilize an enemy champion or are immobilized by enemy champions, you deal 80 (+ 5% bonus health) magic damage to nearby enemy champions and reveal them for 3 seconds (3 second cooldown)."},
     ],
   },
+  // Patch 7.1
   {
     title: "Amaranth's Twinguard",
     category: "DEFENSE",
@@ -190,6 +208,7 @@ const DEFENSE_ITEMS = [
       {title: "Endurance", desc: "Generates a stack of Endurance every second in combat with champions, which expires out of combat and stacks up to 5 times. At max stacks, you gain 30% size, 20% tenacity, and 30% bonus armor and magic resistance."},
     ],
   },
+  // Patch 7.1
   {
     title: "Mantle of the Twelfth Hour",
     category: "DEFENSE",
@@ -200,6 +219,7 @@ const DEFENSE_ITEMS = [
       {title: "Lifeline", desc: "If you take damage that would reduce you below 35% maximum health, you gain base health equal to 200 (+ 50% bonus health) over 3 seconds, as well as 50% slow resistance and 30% bonus move speed (90 second cooldown)."},
     ],
   },
+  // Patch 7.1
   {
     title: "Searing Crown",
     category: "DEFENSE",
