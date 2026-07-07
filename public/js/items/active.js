@@ -104,17 +104,6 @@ const ACTIVE_ITEMS = [
       { title: "Cleanse", desc: "Active: Remove all crowd control effects from the target champion and make them immune to all crowd control except suppression and airborne effects for 0.2s. Also heals the target for 150-250 Health. (90s cooldown)" },
     ],
   },
-  // NOTE: Quicksilver Sash does not appear in the current Wild Rift item list (WR uses "Quicksilver Enchant" on boots instead) — stats below are PC LoL data, uncertain for WR.
-  {
-    title: "Quicksilver Sash",
-    category: "ACTIVE",
-    gold: 1300,
-    image: "img/Quicksilver_Sash_item_HD.png",
-    stats: { MR: 30 },
-    passives: [
-      { title: "Quicksilver", desc: "UNIQUE Active: Removes all crowd control debuffs (except Airborne) from your champion." },
-    ],
-  },
   // NOTE: gold cost uncertain for the Wild Rift version — value below is carried over from PC LoL's Shurelya's Battlesong recipe cost, verify in-game.
   {
     title: "Shurelya's Battlesong",
