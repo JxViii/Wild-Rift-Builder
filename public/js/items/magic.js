@@ -292,13 +292,13 @@ const MAGIC_ITEMS = [
     ],
   },
   {
-    title: "Oceanic's Trydent",
+    title: "Oceanic's Trident",
     category: "MAGIC",
     gold: 2600,
     image: "img/Oceanid_Tridents.png",
-    stats: { HP: 200, AP: 70, CD: 20 },
+    stats: { HP: 200, AP: 80, CD: 10 },
     passives: [
-      { title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict 40% (+ 5% per 100 AP) reduction, capped at 60%. Area-of-effect abilities inflict 25% (+ 5% per 100 AP) reduction, capped at 45%." },
+      { title: "Lethal Weapon", desc: "Dealing ability damage to an enemy champion afflicts them for 3 seconds, reducing their active shields as well as any others they gain. Single-target abilities inflict (5% AP + 40)% reduction, capped at 60%. Area-of-effect abilities inflict (25+ 5% AP) reduction, capped at 45%." },
     ],
   },
   {

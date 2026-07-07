@@ -29,6 +29,7 @@
 #define MANA_HP 25
 #define HP_AP 26
 #define HP_AD 27
+#define TENACITY 28
 
 #define PHYSICAL 30
 #define MAGIC 31

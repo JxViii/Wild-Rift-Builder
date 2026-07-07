@@ -27,6 +27,7 @@ const STAT_TYPES = {
   MANA_HP: 25,
   HP_AP: 26,
   HP_AD: 27,
+  TENACITY: 28,
 };
 
 // Mirrors token.hpp's item category #defines.

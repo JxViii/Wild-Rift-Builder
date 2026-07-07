@@ -198,6 +198,7 @@ nlohmann::ordered_json lol::Set::print()
   double mana_hp = getAttribute(MANA_HP);
   double hp_ap = getAttribute(HP_AP);
   double hp_ad = getAttribute(HP_AD);
+  double tenacity = getAttribute(TENACITY);
 
   //! Fuerza Adaptable 1AP / 0.5AD ( ej. Nashor )
 
@@ -266,6 +267,8 @@ nlohmann::ordered_json lol::Set::print()
     result["Heal"] = heal;
   if (omnivamp != 0)
     result["Omnivamp"] = omnivamp;
+  if (tenacity != 0)
+    result["Tenacity"] = tenacity;
 
   return result;
 }
