@@ -461,7 +461,7 @@ const ITEMS = [
     title: "Redemption",
     category: "ACTIVE",
     gold: 2600,
-    image: "img/Gargoyle_Stoneplate_item_HD.png",
+    image: "img/Redemption_item.webp",
     stats: { AP: 45, HEAL: 5, MANA_REGEN: 50, HP: 150, CD: 20 },
     passives: [
       { title: "Redemption", desc: "Select a big area and after 2.5s it summons a lighting that heals allies and damages enemy champions" },
@@ -482,7 +482,7 @@ const ITEMS = [
     title: "Stridebreaker",
     category: "ACTIVE",
     gold: 3100,
-    image: "img/Goredrinker_item_HD.png",
+    image: "img/Stridebreaker.webp",
     stats: { AD: 40, HP: 400, ATTACK_SPEED: 15 },
     passives: [
       { title: "Thirsting Slash", desc: "Unique Active: Deal physical damage to nearby enemies and heal for a percent of missing Health, increased for each enemy champion hit (15s cooldown)." },
