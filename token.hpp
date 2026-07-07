@@ -21,7 +21,7 @@
 #define MR 17
 #define HEAL 18
 #define OMNIVAMP 19
-#define AP_PERCENTAGE 20
+#define AP_PERCENTAGE 20 //! 30% AP
 #define AD_PERCENTAGE 21
 #define ADAPTATIVE 22
 
