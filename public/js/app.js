@@ -14,6 +14,8 @@ const CATEGORY_LABELS = {
 const slotsEl = document.getElementById("slots");
 const galleryEl = document.getElementById("gallery");
 const resultsEl = document.getElementById("results");
+const resultsBodyEl = document.getElementById("resultsBody");
+// const resultsCloseEl = document.getElementById("resultsClose");
 const noticeEl = document.getElementById("notice");
 const calculateBtn = document.getElementById("calculate");
 const clearBtn = document.getElementById("clear");
@@ -134,7 +136,7 @@ function removeItem(index) {
 }
 
 function renderResults(data) {
-  resultsEl.innerHTML = "";
+  resultsBodyEl.innerHTML = "";
   resultsEl.hidden = false;
 
   const statsList = document.createElement("div");
@@ -142,10 +144,10 @@ function renderResults(data) {
   for (const [key, value] of Object.entries(data)) {
     const row = document.createElement("span");
     row.className = "results__stat";
-    row.textContent = `${key}: ${value}`;
+    row.innerHTML = `${key}: <val>${value}</val>`;
     statsList.appendChild(row);
   }
-  resultsEl.appendChild(statsList);
+  resultsBodyEl.appendChild(statsList);
 
   const passives = slots.filter(Boolean).flatMap((item) => item.passives || []);
   if (passives.length > 0) {
@@ -153,11 +155,15 @@ function renderResults(data) {
     passivesList.className = "results__passives";
     passives.forEach((p) => {
       const entry = document.createElement("p");
-      entry.innerHTML = `<b>${p.title}:</b> ${p.desc}`;
+      entry.innerHTML = `<val><b>${p.title}:</b></val> ${p.desc}`;
       passivesList.appendChild(entry);
     });
-    resultsEl.appendChild(passivesList);
+    resultsBodyEl.appendChild(passivesList);
   }
+}
+
+function hideResults() {
+  resultsEl.hidden = true;
 }
 
 async function calculate() {
@@ -200,6 +206,7 @@ function clearSet() {
 
 calculateBtn.addEventListener("click", calculate);
 clearBtn.addEventListener("click", clearSet);
+// resultsCloseEl.addEventListener("click", hideResults);
 
 renderSlots();
 renderGallery();

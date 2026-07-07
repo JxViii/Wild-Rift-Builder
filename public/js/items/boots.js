@@ -141,7 +141,7 @@ const BOOTS_ITEMS = [
     title: "(AP2) Spellslinger's Shoes",
     category: "BOOTS",
     gold: 2200,
-    image: "img/Spellslinger's_Shoes_Item.webp",
+    image: "img/Spellslinger's_Shoes_item.webp",
     stats: { SPEED: 50, AP: 40, MANA_REGEN: 100, MP: 18, MP_PERCENTAGE: 8 },
     passives: [
       { title: "Noxus Endurance", desc: "autoattacks and active skills deal 22 extra true damage to minions" },
