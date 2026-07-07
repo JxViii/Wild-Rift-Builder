@@ -26,6 +26,29 @@ double lol::Object::getAttribute(int type)
   return total;
 }
 
+std::vector<lol::Stat> lol::Object::getAttributeStats(int type)
+{
+  std::vector<lol::Stat> result;
+
+  for (Stat &stat : getStats())
+  {
+    if (stat.getType() == type)
+    {
+      result.push_back(stat);
+    }
+  }
+
+  for (Passive &passive : getPassives())
+  {
+    if (passive.getStat().getValue() != 0 && passive.getStat().getType() == type)
+    {
+      result.push_back(passive.getStat());
+    }
+  }
+
+  return result;
+}
+
 lol::Set::Set(std::vector<lol::Object> set)
 {
   if (set.size() > 6)
@@ -144,6 +167,17 @@ double lol::Set::getAttribute(int type)
   return total;
 }
 
+std::vector<lol::Stat> lol::Set::getAttributeStats(int type)
+{
+  std::vector<lol::Stat> result;
+  for (lol::Object &obj : getSet())
+  {
+    std::vector<lol::Stat> objStats = obj.getAttributeStats(type);
+    result.insert(result.end(), objStats.begin(), objStats.end());
+  }
+  return result;
+}
+
 int lol::Set::getGold()
 {
   int total = 0;
@@ -194,7 +228,7 @@ nlohmann::ordered_json lol::Set::print()
   double physicalVamp = getAttribute(PHYSICAL_VAMP);
   double apPercentage = getAttribute(AP_PERCENTAGE);
   double adPercentage = getAttribute(AD_PERCENTAGE);
-  double adaptative = getAttribute(ADAPTATIVE);
+  std::vector<lol::Stat> adaptativeStats = getAttributeStats(ADAPTATIVE);
   double mana_ad = getAttribute(MANA_AD);
   double mana_ap = getAttribute(MANA_AP);
   double mana_hp = getAttribute(MANA_HP);
@@ -202,14 +236,17 @@ nlohmann::ordered_json lol::Set::print()
   double hp_ad = getAttribute(HP_AD);
   double tenacity = getAttribute(TENACITY);
 
-  //! Fuerza Adaptable 1AP / 0.5AD ( ej. Nashor )
+  //! Fuerza Adaptable: cada fuente se resuelve con su propio ratio AD ( ej. Nashor 50/0.5, otros 20/0.6 ),
+  //! pero todas usan la MISMA comparación AP vs AD (los totales antes de sumar Fuerza Adaptable).
 
-  if (adaptative != 0)
+  double baseAp = ap;
+  double baseAd = ad;
+  for (lol::Stat &stat : adaptativeStats)
   {
-    if (ap > ad + 0.5*adaptative )
-      ap += adaptative;
+    if (baseAp > baseAd)
+      ap += stat.getValue();
     else
-      ad += adaptative * 0.5;
+      ad += stat.getValue() * stat.getAdaptativeRatio();
   }
 
   //! Estadísticas que escalan por MANA MAX

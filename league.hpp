@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include "third_party/json.hpp"
+#include "token.hpp"
 
 namespace lol
 {
@@ -12,15 +13,32 @@ namespace lol
   {
 
   private:
+
+    //! In case an stat is adaptative we stored the ratio between AD -> AP. Ex. 12 AD / 20 AD is a 0.6 RATIO
+
     int _type;
     double _value;
+    double _adaptative;
 
   public:
-    Stat() : _type(0), _value(0) {}
-    Stat(int type, double value) : _type(type), _value(value) {}
+    Stat() : _type(0), _value(0), _adaptative(0.5) {}
+    Stat(int type, double value) : _type(type), _value(value), _adaptative(0.5) {}
+    Stat(int type, double value, double adaptative) {
+
+      if (type != ADAPTATIVE){
+        throw std::invalid_argument("You can't have an adaptative ratio without being the ADAPTATIVE stat, token: " + type);
+      }
+
+      _type = type;
+      _value = value;
+      _adaptative = adaptative;
+
+
+    }
 
     const int getType() const { return _type; }
     double getValue() { return _value; }
+    double getAdaptativeRatio() { return _adaptative; }
   };
 
   class Passive
@@ -67,6 +85,7 @@ namespace lol
     std::vector<lol::Passive> getPassives() { return _passives; };
 
     double getAttribute( int type );
+    std::vector<lol::Stat> getAttributeStats( int type );
   };
 
   class Set
@@ -92,6 +111,7 @@ namespace lol
       void addObject( lol::Object obj );
       void deleteObject( size_t pos );
       double getAttribute( int type );
+      std::vector<lol::Stat> getAttributeStats( int type );
       int getGold();
       nlohmann::ordered_json print();
 

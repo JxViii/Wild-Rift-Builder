@@ -74,31 +74,45 @@ function bannedSetToTypeArray(readableBannedSet) {
   });
 }
 
+/*
+  ? HOW DO WE COMPUTE ADAPTATIVE VALUES:
+    ! WILD RIFT FUNCTIONING:
+      * BONUS AP > BONUS AD : +AP (full value)
+      * VICEVERSA            : +AD (value * ratio)
+
+  Most ADAPTATIVE sources use the default 0.5 AD ratio (e.g. Nashor's Tooth:
+  50 -> 25 AD or 50 AP), so plain `{ ADAPTATIVE: 50 }` is enough. Some items
+  use a different ratio (e.g. "12 AD or 20 AP" is a 0.6 ratio) — for those,
+  write the value as `{ ADAPTATIVE: { value: 20, ratio: 0.6 } }`.
+*/
+
+// Turns a readable stat value into a { type, value[, adaptative] } entry.
+// `value` is either a plain number, or (for a custom Adaptive Force ratio)
+// an object shaped like { value, ratio }.
+function toStatEntry(name, value) {
+  const type = STAT_TYPES[name];
+  if (type === undefined) {
+    throw new Error(`Unknown stat name "${name}"`);
+  }
+
+  if (value !== null && typeof value === "object") {
+    const entry = { type, value: value.value };
+    if (value.ratio !== undefined) {
+      entry.adaptative = value.ratio;
+    }
+    return entry;
+  }
+
+  return { type, value };
+}
+
 // Turns { AD: 60, AP: 40 } into [{ type: 12, value: 60 }, { type: 1, value: 40 }]
 function statsToTypeArray(readableStats) {
-  return Object.entries(readableStats).map(([name, value]) => {
-    const type = STAT_TYPES[name];
-    if (type === undefined) {
-      throw new Error(`Unknown stat name "${name}"`);
-    }
-
-    return { type, value };
-  });
+  return Object.entries(readableStats).map(([name, value]) => toStatEntry(name, value));
 }
 
 // The backend's Passive class carries at most one bonus Stat, so only the
 // first entry of a passive's readable `stats` object (if any) is used.
-
-
-/*
-  ? HOW DO WE COMPUTE ADAPTATIVE VALUES:
-    ! WILD RIFT FUNCTIONING:
-      * BONUS AP > BONUS AD : +AP
-      * VICEVERSA
-*/
-
-
-
 function passivesToJson(passives) {
   return (passives || []).map((passive) => {
     const entries = Object.entries(passive.stats || {});
@@ -106,11 +120,7 @@ function passivesToJson(passives) {
 
     if (entries.length > 0) {
       const [name, value] = entries[0];
-      const type = STAT_TYPES[name];
-      if (type === undefined) {
-        throw new Error(`Unknown stat name "${name}"`);
-      }
-      json.stat = { type, value };
+      json.stat = toStatEntry(name, value);
     }
 
     return json;

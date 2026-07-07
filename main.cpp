@@ -6,7 +6,15 @@ using json = nlohmann::json;
 
 static lol::Stat statFromJson(const json &j)
 {
-  return lol::Stat(j.at("type").get<int>(), j.at("value").get<double>());
+  int type = j.at("type").get<int>();
+  double value = j.at("value").get<double>();
+
+  if (j.contains("adaptative"))
+  {
+    return lol::Stat(type, value, j.at("adaptative").get<double>());
+  }
+
+  return lol::Stat(type, value);
 }
 
 static lol::Passive passiveFromJson(const json &j)

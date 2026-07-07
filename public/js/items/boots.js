@@ -53,7 +53,6 @@ const BOOTS_ITEMS = [
     ],
   },
   // NOTE: OMNIVAMP
-  //! TODO ADAPTATIVE 0.6AD / 1AP
   {
     title: "(Omnivamp1) Gluttonous Greaves",
     category: "BOOTS",
@@ -61,7 +60,7 @@ const BOOTS_ITEMS = [
     image: "img/Gluttonous_Greaves_WR_item.webp",
     stats: { SPEED: 45 },
     passives: [
-      { title: "Balanced of Power", desc: "Gain 12 Attack Damage or 20 Ability Power."},
+      { title: "Balanced of Power", desc: "Gain 12 Attack Damage or 20 Ability Power.", stats: { ADAPTATIVE: { value: 20, ratio: 0.6 } } },
       { title: "Convertion", desc: "Gain 5% Omnivamp + 0.5% Omnivamp for each takedown participation, up to an additional 5% and a maximum of 10% Omnivamp." },
     ],
   },
