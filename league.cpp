@@ -78,9 +78,24 @@ void lol::Set::addObject(lol::Object obj)
     throw std::invalid_argument("You can only have ONE boots item at a time!");
   }
 
+  int ban = obj.getBannedSet();
+  if (ban != 0)
+  {
+    if (isBanned(ban))
+    {
+      throw std::invalid_argument("You can only have ONE of this items at a time! Token: " + ban);
+    }
+    else
+    {
+      _banned_set.push_back(ban);
+    }
+  }
+
   _set.push_back(obj);
-  if (isActive) _hasActive = true;
-  if (isBoots) _hasBoots = true;
+  if (isActive)
+    _hasActive = true;
+  if (isBoots)
+    _hasBoots = true;
   _capacity--;
 }
 void lol::Set::deleteObject(size_t pos)
@@ -101,8 +116,10 @@ void lol::Set::deleteObject(size_t pos)
   bool isBoots = obj.getType() == BOOTS;
 
   _set.erase(_set.begin() + pos);
-  if (isActive) _hasActive = false;
-  if (isBoots) _hasBoots = false;
+  if (isActive)
+    _hasActive = false;
+  if (isBoots)
+    _hasBoots = false;
   _capacity++;
 }
 
@@ -124,6 +141,17 @@ int lol::Set::getGold()
     total += obj.getGold();
   }
   return total;
+}
+
+bool lol::Set::isBanned(int ban)
+{
+
+  for (const int &val : getBannedSet())
+  {
+    if (val == ban)
+      return true;
+  }
+  return false;
 }
 
 nlohmann::ordered_json lol::Set::print()
@@ -151,9 +179,18 @@ nlohmann::ordered_json lol::Set::print()
   double omnivamp = getAttribute(OMNIVAMP);
   double apPercentage = getAttribute(AP_PERCENTAGE);
   double adPercentage = getAttribute(AD_PERCENTAGE);
+  double adaptative = getAttribute(ADAPTATIVE);
 
   ap *= (apPercentage != 0) ? (1 + apPercentage / 100) : 1;
   ad *= (adPercentage != 0) ? (1 + adPercentage / 100) : 1;
+
+  if (adaptative != 0)
+  {
+    if (ap >= ad)
+      ap += adaptative;
+    else
+      ad += adaptative * 0.5;
+  }
 
   nlohmann::ordered_json result = nlohmann::ordered_json::object();
 

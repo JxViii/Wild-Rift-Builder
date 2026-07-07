@@ -23,6 +23,7 @@
 #define OMNIVAMP 19
 #define AP_PERCENTAGE 20
 #define AD_PERCENTAGE 21
+#define ADAPTATIVE 22
 
 #define PHYSICAL 30
 #define MAGIC 31
@@ -30,6 +31,9 @@
 #define SUPPORT 33
 #define ACTIVE 34
 #define BOOTS 35
+
+#define SPELLBLADE 40
+#define ARMOR_REDUCTION 41
 
 
 #endif

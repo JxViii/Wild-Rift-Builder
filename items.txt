@@ -40,5 +40,21 @@ ACTIVE:
   REDEMPTION
 
 
+LETHAL INCOMPATIBLE ITEMS:
+  Lord dominiks
+  Mortal remainder
+  Seryldas grudge
+  TERMINUS
+  Black Reaver
+  
+SPELLBLADE
+  TRINITY
+  LICHE
+  ICEBORN GAUNTLET
+  DUSK & DAWN
+  DIVINE SUNDERER
+
+
+
 CONTINUE:
   BLACKFIRE TORCH

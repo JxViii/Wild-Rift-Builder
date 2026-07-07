@@ -113,7 +113,7 @@ const ITEMS = [
     image: "img/Nashor's_Tooth_item_HD.png",
     stats: { ATTACK_SPEED: 45, CD: 20 },
     passives: [
-      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP (NOT INCLUDED IN OUR CALCULATIONS)" },
+      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP" , stats: { ADAPTATIVE : 50 }},
       { title: "Icathian Bite", desc: "Basic attacks deal bonus magic damage on-hit (15 AP + 20% Bonus AD + 30% Bonus AP)." },
     ],
   },

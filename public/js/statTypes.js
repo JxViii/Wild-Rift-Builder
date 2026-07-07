@@ -21,6 +21,7 @@ const STAT_TYPES = {
   OMNIVAMP: 19,
   AP_PERCENTAGE: 20,
   AD_PERCENTAGE: 21,
+  ADAPTATIVE: 22,
 };
 
 // Mirrors token.hpp's item category #defines.
@@ -40,12 +41,24 @@ function statsToTypeArray(readableStats) {
     if (type === undefined) {
       throw new Error(`Unknown stat name "${name}"`);
     }
+
     return { type, value };
   });
 }
 
 // The backend's Passive class carries at most one bonus Stat, so only the
 // first entry of a passive's readable `stats` object (if any) is used.
+
+
+/*
+  ? HOW DO WE COMPUTE ADAPTATIVE VALUES:
+    ! WILD RIFT FUNCTIONING:
+      * BONUS AP > BONUS AD : +AP
+      * VICEVERSA
+*/
+
+
+
 function passivesToJson(passives) {
   return (passives || []).map((passive) => {
     const entries = Object.entries(passive.stats || {});
