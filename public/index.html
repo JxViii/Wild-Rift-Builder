@@ -22,25 +22,27 @@
   </header>
 
   <main class="builder">
-    <section class="slots" id="slots"></section>
+    <div class="builder__sticky">
+      <section class="slots" id="slots"></section>
 
-    <div class="builder__actions">
+      <div class="builder__actions">
 
-      <button type="button" id="calculate">
-        <div class="button-title">
-          Calculate
-        </div>
-        <div class="button-hover"></div>
-      </button>
-      <button type="button" id="clear">
-        <div class="button-hover"></div>
-        <div class="button-title">
-          Clear
-        </div>
-      </button>
+        <button type="button" id="calculate">
+          <div class="button-title">
+            Calculate
+          </div>
+          <div class="button-hover"></div>
+        </button>
+        <button type="button" id="clear">
+          <div class="button-hover"></div>
+          <div class="button-title">
+            Clear
+          </div>
+        </button>
+      </div>
+
+      <p class="notice" id="notice" hidden></p>
     </div>
-
-    <p class="notice" id="notice" hidden></p>
 
     <section class="results" id="results" hidden></section>
 
