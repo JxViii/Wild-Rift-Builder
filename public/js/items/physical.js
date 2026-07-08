@@ -70,10 +70,10 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3200,
     image: "img/Blade_of_the_Ruined_King_item_HD.png",
-    stats: { AD: 40, ATTACK_SPEED: 30, OMNIVAMP: 10 },
+    stats: { AD: 40, ATTACK_SPEED: 35, OMNIVAMP: 10 },
     passives: [
-      { title: "Ruined Strikes", desc: "Basic attacks deal 7% of target's current Health as bonus physical damage (minimum 15, capped at 60 vs. monsters)." },
-      { title: "Drain", desc: "Hitting a champion with 3 basic attacks or abilities deals bonus magic damage and steals 25% of their Move Speed for 3 seconds (60 second cooldown)." },
+      { title: "Ruined Strikes", desc: "Basic attacks deal 8,5% of target's current Health as bonus physical damage (minimum 15, capped at 60 vs. monsters)." },
+      { title: "Drain", desc: "Hitting a champion with 3 basic attacks or abilities deals 30-100 bonus magic damage and steals 25% of their Move Speed for 3 seconds (60 second cooldown)." },
     ],
   },
   {
@@ -81,7 +81,7 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 2800,
     image: "img/Chempunk_Chainsword_item_HD.png",
-    stats: { AD: 40, HP: 250 },
+    stats: { AD: 45, HP: 250, CD: 15 },
     passives: [
       { title: "Sepsis", desc: "Dealing physical damage to enemy champions inflicts 50% Grievous Wounds for 3 seconds." },
     ],
@@ -93,7 +93,7 @@ const PHYSICAL_ITEMS = [
     image: "img/Runans.png",
     stats: { CRIT: 25, ATTACK_SPEED: 35 },
     passives: [
-      { title: "Wind's fury", desc: "Attacks strike 2 additional nearby enemies, each dealing 55%AD, these attack trigger on hit effects" },
+      { title: "Wind's fury", desc: "Attacks strike 2 additional nearby enemies, each dealing 55% AD, these attack trigger on hit effects" },
       {
         title: "Wind Blade", desc:"Attacks deal 15 bonus AD on-hit"
       },
@@ -102,12 +102,12 @@ const PHYSICAL_ITEMS = [
   {
     title: "Divine Sunderer",
     category: "PHYSICAL",
-    gold: 3450,
+    gold: 3400,
     image: "img/Divine_Sunderer_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { HP: 400, AD: 25, CD: 25 },
+    stats: { HP: 425, AD: 25, CD: 25 },
     passives: [
-      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus physical damage on-hit equal to a percent of the target's maximum health (higher % vs. minions/monsters), with a minimum equal to 125% base AD. Against champions, also heals you for a percent of the target's maximum health." },
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus physical damage on-hit equal to (Melee 10% / Ranged 7%) target's maximum health, with a minimum damage equal to 125% base AD and a maximum damage against monsters equal to 225% base AD (1.5 (post-effect) second cooldown). Against champions, you also heal for (Melee 7% / Ranged 3%) target's maximum health, with a minimum heal equal to (Melee 90% / Ranged 50%) base AD." },
     ],
   },
   {
@@ -115,10 +115,10 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Duskblade_of_Draktharr_item_HD.png",
-    stats: { AD: 55, CD: 10, ARMOR_PEN: 18 },
+    stats: { AD: 55, CD: 10},
     passives: [
-      { title: "Razor", desc: "+18 Armor Penetration." },
-      { title: "Nightstalker", desc: "Your next basic attack against an enemy champion deals bonus physical damage and slows them heavily for a short duration (10s cooldown). Scoring a takedown resets the cooldown." },
+      { title: "Razor", desc: "+18 Armor Penetration.", stats: {ARMOR_PEN: 18}},
+      { title: "Nightstalker", desc: "Your next basic attack against an enemy champion deals 60-160 bonus physical damage and slows them heavily for 0,35s (10s cooldown). Scoring a takedown resets the cooldown." },
     ],
   },
   {
@@ -128,30 +128,30 @@ const PHYSICAL_ITEMS = [
     image: "img/Eclipse_item_HD.png",
     stats: { AD: 65, CD: 20 },
     passives: [
-      { title: "Ever Rising Moon", desc: "Hitting an enemy champion inflicts a stack (max one per attack/cast per champion, lasting 1.8s). At 2 stacks, they're consumed to deal bonus physical damage equal to a percent of the target's max health and grant you a shield scaling with bonus AD (6s cooldown)." },
+      { title: "Ever Rising Moon", desc: "Hitting an enemy champion inflicts a stack (max one per attack/cast per champion, lasting 1.8s). At 2 stacks, they're consumed to deal bonus physical damage equal to 7% of the target's max health (3,5% for rangeds) and grant you a shield equal to (Melee 160 / Ranged 80) (+ (Melee 40% / Ranged 20%) bonus AD) lasting 2 seconds (6 second cooldown)." },
     ],
   },
   {
     title: "Edge of Night",
     category: "PHYSICAL",
-    gold: 3000,
+    gold: 3150,
     image: "img/Edge_of_Night_item_HD.png",
     bannedSet: ["SPELLSHIELD"],
-    stats: { AD: 50, HP: 250, ARMOR_PEN: 8 },
+    stats: { AD: 50, HP: 250 },
     passives: [
-      { title: "Gouge", desc: "+8 Armor Penetration." },
-      { title: "Annul", desc: "Grants a spell shield that blocks the next enemy ability." },
+      { title: "Gouge", desc: "+8 Armor Penetration.", stats: {ARMOR_PEN: 8} },
+      { title: "Annul", desc: "Grants a spell shield that blocks the next enemy ability (35s de enfriamiento)."},
     ],
   },
   {
     title: "Essence Reaver",
     category: "PHYSICAL",
-    gold: 3000,
-    image: "img/Essence_Reaver_item_HD.png",
+    gold: 3050,
+    image: "img/Essence_Reaver_WR_item.webp",
     bannedSet: ["SPELLBLADE"],
     stats: { AD: 40, CRIT: 25, CD: 20 },
     passives: [
-      { title: "Spellblade", desc: "Casting ability generates Spellblade charge (max 2 charges) that lasts up to 10 seconds.Hitting an enemy with an attack consumes a charge, dealing 70% base AD as physical damage and granting 40 Movement Speed for 2 seconds. This bonus damage can Critically Strike. Each ability generates only one charge per 2 seconds." },
+      { title: "Essence Flare", desc: "Casting an ability generates a Spellblade charge (max 2 charges) that lasts up to 10s. Hitting an enemy with an attack consumes a charge, dealing 70% base Attack Damage as physical damage and granting 40 Movement Speed for 2s, This Bonus damage can Critically Strike. Each ability generates only one charge per 2s." },
       { title: "Mana Siphon", desc: "Attacks restore 3% missing Mana on-hit." },
     ],
   },
@@ -163,19 +163,21 @@ const PHYSICAL_ITEMS = [
     image: "img/Experimental_Hexplate_item_HD.png",
     stats: { AD: 35, ATTACK_SPEED: 20, HP: 400 },
     passives: [
-      { title: "Hexcharged", desc: "Grants bonus Ultimate Haste." },
-      { title: "Overdrive", desc: "Casting your ultimate ability grants bonus Attack Speed and Move Speed for 8 seconds (30s cooldown)." },
+      { title: "Hexcharged", desc: "Grants bonus 20 Ultimate Haste." },
+      { title: "Overdrive", desc: "Upon casting your ultimate ability, enter Overdrive to gain (Melee 40% /Ranged 20%) bonus attack speed and (Melee 20% /Ranged 10%) bonus movement speed for 8 seconds (30 second cooldown, starts on ultimate cast)." },
     ],
   },
   // NOTE: gold/stats sourced from PC League of Legends data — could not confirm exact Wild Rift numbers; verify before relying on it.
   {
     title: "Guinsoo's Rageblade",
     category: "PHYSICAL",
-    gold: 3000,
+    gold: 3100,
     image: "img/Guinsoo's_Rageblade_item_HD.png",
-    stats: { AD: 25, AP: 40, ATTACK_SPEED: 35 },
+    stats: { ATTACK_SPEED: 30 },
     passives: [
-      { title: "Wrath", desc: "Attacks deal bonus magic damage on-hit." },
+      {title: "Tension", desc: "+5% movement speed", stats: {SPEED_PERCENTAGE: 5}},
+      { title: "Chaos", desc: "Obtain 25 AD or 50 AP", stats: { ADAPTATIVE: 50 }},
+      { title: "Wrath", desc: "Attacks deal 30 bonus magic damage on-hit." },
       { title: "Seething Strike", desc: "Basic attacks grant stacking bonus Attack Speed (up to 4 stacks). While fully stacked, every third attack applies on-hit effects twice." },
     ],
   },
@@ -195,9 +197,11 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3100,
     image: "img/Hullbreaker_item_HD.png",
-    stats: { AD: 40, HP: 350, SPEED: 45 },
+    stats: { AD: 40, HP: 400 },
     passives: [
-      { title: "Boarding Party", desc: "While no allied champions are nearby, gain bonus armor and magic resist and deal bonus damage to structures. Limited to 1 Hullbreaker." },
+      {title: "Set Sail", desc: "+5% movement speed", stats: {SPEED_PERCENTAGE: 5}},
+      { title: "Boarding Party", desc: "Nearby allied siege and super minions gain 20~130 Armor and 10~120 Magic Resist (25% if you are a ranged champion)" },
+      { title: "Skipper", desc: "Every 4th attack against champions and epic monsters deals bonus physical damage equal to 160% base Attack Damage + 5% max Health (ranged champions deal 40% of the damage), increased to 240% Attack Damage + 9% Max Health Bonus as Physical Damage against structures (ranged champions deal 40% of the damage)." },
     ],
   },
   // {
@@ -218,30 +222,29 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["FATALITY"],
     stats: { AD: 25, CRIT: 25, ARMOR_PEN_PERCENTAGE: 36 },
     passives: [
-      { title: "Giant Slayer", desc: "Deal increased damage against champions based on their bonus health." },
+      { title: "Giant Slayer", desc: "Deal increased damage against champions based on their bonus health, max 12% bonus damage when enemy chmapion has 1200 bonus health." },
     ],
   },
   {
-    title: "(mana1) Manamune",
+    title: "(Mana1) Manamune",
     category: "PHYSICAL",
-    gold: 2500,
+    gold: 2700,
     image: "img/Manamune_item_HD.png",
-    stats: { AD: 25, MAX_MANA: 300, CD: 10 },
+    stats: { AD: 25, MAX_MANA: 300, CD: 20 },
     passives: [
-      { title: "Awe", desc: "Grants bonus attack damage equal to a percent of max mana and refunds a portion of mana spent." },
-      { title: "Mana Charge", desc: "Basic attacks and mana expenditure build charges that convert into bonus mana, up to transforming into Muramana." },
+      { title: "Awe", desc: "Grants bonus attack damage equal to 1,5% of max mana and refunds 15% of mana spent." },
+      { title: "Mana Charge", desc: "Each basic attack on-hit or mana expenditure consumes a charge and grants +18 mana, up to a maximum of 700 mana, it activates until 3 times each 10s." },
     ],
   },
   {
     title: "Maw of Malmortius",
     category: "PHYSICAL",
-    gold: 2500,
+    gold: 3000,
     image: "img/Maw_of_Malmortius_item_HD.png",
     bannedSet: ["LIFELINE"],
-    stats: { AD: 45, MR: 35, CD: 10 },
+    stats: { AD: 55, MR: 45, CD: 10 },
     passives: [
-      { title: "Lifeline", desc: "If magic damage would reduce you below 35% max health, gain a shield that absorbs magic damage (70s cooldown)." },
-      { title: "Lifegrip", desc: "Triggering Lifeline grants bonus attack damage, Physical Vamp, and Magic Vamp until out of combat." },
+      { title: "Lifeline", desc: "If magic damage would reduce you below 35% max health, gain a shield that absorbs 220-530 magic damage (90s cooldown)." },
     ],
   },
   {
@@ -250,31 +253,31 @@ const PHYSICAL_ITEMS = [
     gold: 3300,
     image: "img/Mortal_Reminder_item_HD.png",
     bannedSet: ["FATALITY"],
-    stats: { AD: 30, CRIT: 25, ARMOR_PEN_PERCENTAGE: 30 },
+    stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 15 },
     passives: [
-      { title: "Last Whisper", desc: "Grants 16-30% Armor Penetration (scales with level)." },
+      { title: "Last Whisper", desc: "Grants 30% Armor Penetration, critical attacks gain 6% bonus Armo Penetration." },
       { title: "Sepsis", desc: "Dealing physical damage to enemy champions inflicts 50% Grievous Wounds for 3 seconds." },
     ],
   },
   {
-    title: "(mana2) Muramana",
+    title: "(Mana2) Muramana",
     category: "PHYSICAL",
     gold: 2700,
     image: "img/Muramana_item_HD.png",
     bannedSet: ["MANAFLOW"],
     stats: { AD: 25, MAX_MANA: 1000, CD: 20 },
     passives: [
-      { title: "Awe", desc: "Grants Attack Damage equal to 1.5% of max Mana and refunds 15% of all Mana spent." },
-      { title: "Shock", desc: "Attacks against champions consume 3% of current Mana to deal double that amount as bonus physical damage. Only active while above 20% max Mana." },
+      { title: "Awe", desc: "Grants Attack Damage equal to 2% of max Mana and refunds 15% of all Mana spent." },
+      { title: "Shock", desc: "Attacks against champions consume 2.5% of current Mana to deal that amount as bonus physical damage. Skills against champions consume 4% of current Mana to deal that amount as bonus physical damage + 6% Attack Damage. Only active while above 20% max Mana." },
     ],
   },
   // NOTE: Wild Rift's actual item is "Navori Quickblades" — "Navori Flickerblade" is the PC LoL name; stats below are PC-based and uncertain for WR.
   {
     title: "Navori Flickerblade",
     category: "PHYSICAL",
-    gold: 2650,
-    image: "img/Navori_Flickerblade_item_HD.png",
-    stats: { ATTACK_SPEED: 40, CRIT: 25, SPEED_PERCENTAGE: 7 },
+    gold: 2800,
+    image: "img/Navori_Quickblades_WR_item.webp",
+    stats: { ATTACK_SPEED: 40, CRIT: 25, SPEED_PERCENTAGE: 5 },
     passives: [
       { title: "Transcendence", desc: "Basic attacks on-attack reduce the remaining cooldowns of your basic abilities by 15%." },
     ],
@@ -286,8 +289,8 @@ const PHYSICAL_ITEMS = [
     image: "img/Overlord's_Bloodmail_item_HD.png",
     stats: { AD: 30, HP: 450 },
     passives: [
-      { title: "Tyranny", desc: "Gain bonus Attack Damage equal to 2.5% of bonus Health.", stats: { HP_AD: 2.5 } },
-      { title: "Retribution", desc: "Gain increased Attack Damage the more missing health you have, up to 9%. Maximum Retribution bonus while below 30% health." },
+      { title: "Tyranny", desc: "Gain bonus Attack Damage equal to 2.5% of bonus Health.", STATS: {HP_AD: 2.5}},
+      { title: "Retribution", desc: "Gain increased Attack Damage the more missing health you have, up to 9%. Max retribution reached at 30% Health" },
     ],
   },
   {
@@ -297,8 +300,8 @@ const PHYSICAL_ITEMS = [
     image: "img/Phantom_Dancer_item_HD.png",
     stats: { AD: 20, CRIT: 25, ATTACK_SPEED: 40 },
     passives: [
-      { title: "Swift-Foooted", desc: "Grants +5% bonus Move Speed.", stats: { SPEED_PERCENTAGE: 5 } },
-      { title: "Spectral Waltz", desc: "Basic attacks grant 7% bonus Move Speed and 25% Attack Speed for 6s. Bonuses do not stack (10s cooldown, reduced by 1s when your attack hits an enemy." },
+      { title: "Shadowalk", desc: "Grants +5% bonus Move Speed.", STATS: {SPEED_PERCENTAGE: 5} },
+      { title: "Spectral Waltz", desc: "Basic attacks grant 7% bonus Move Speed and 25% bonus Attack Speed for 6s. It doesnt stack (10s cooldown, attacking an enemy champion reduces it 1s)" },
     ],
   },
   {
@@ -307,11 +310,11 @@ const PHYSICAL_ITEMS = [
     gold: 3300,
     image: "img/Serylda's_Grudge_item_old_HD.png",
     bannedSet: ["FATALITY"],
-    stats: { AD: 40, CD: 15, ARMOR_PEN_PERCENTAGE: 30 },
+    stats: { AD: 40, CD: 15, },
     passives: [
-      { title: "Last Whisper", desc: "Gain 33% Armor Pen.", stats: { ARMOR_PEN_PERCENTAGE: 33 } },
-      { title: "Icy", desc: "Damaging active abilities and empowered attacks slow enemies by 30% for 1s" },
-      { title: "Frostbite", desc: "Apply Frostbite to enemies slowed by Icy for 6s. At 3 stacks, all stacks are consumed to apply Bleed, dealing: (5 + 1-15 (based on level) + 15% bonus AD) physical damage over 2s. Also applies 50% Grievous Wounds for 3s (5s cooldown per target)" },
+      { title: "Icy", desc: "Damaging active abilities and empowered attacks slow enemies by 30% for 1 second." },
+      { title: "Last Whisper", desc: "Grants 33% Armor Penetration", STATS: {ARMOR_PEN_PERCENTAGE: 33} },
+      { title: "Frostbite", desc: "Apply Frostbite to enemies slowed by Icy for 6s, at 3 Frostbite stacks, all stacks are consumed to apply bleed on target, dealing (5 + 1-15 + 15% bonus Attack Damage) over 2s, also applies Grievous Wounds for 3s. (5s Cooldown)"}
     ],
   },
   {
@@ -321,8 +324,8 @@ const PHYSICAL_ITEMS = [
     image: "img/The_Collector_item_old_HD.png",
     stats: { AD: 45, CRIT: 25 },
     passives: [
-      { title: "Killer", desc: "Grants +10 Armor Penetration.", stats: { ARMOR_PEN: 10 } },
-      { title: "Death and Taxes", desc: "Damage that would leave an enemy champion below ( 4% + 2% CRIT ) of their max Health executes them instead; permanently increasing the max Health percentage execution threshold by 0.1% and grants 25 bonus gold." },
+      { title: "Killer", desc: "Grants +10 Armor Penetration.", STATS: {ARMOR_PEN: 10} },
+      { title: "Death and Taxes", desc: "Damage that would leave an enemy champion below (4% + 2% Crit rate) max Health executes them instead, execute treshold increase 0,1% per kill; champion kills grant an additional 25 gold." },
     ],
   },
   // NOTE: Titanic Hydra does not appear in the current Wild Rift item list (legacy icon suggests it may have been removed) — gold cost and stats below are best-effort from its last documented version.
@@ -333,7 +336,7 @@ const PHYSICAL_ITEMS = [
     image: "img/Titanic_Hydra_item_old_HD.png",
     stats: { AD: 40, HP: 450 },
     passives: [
-      { title: "Cleave", desc: "Every 1.75 seconds, your next attack deals bonus physical damage equal to 25 plus 3% bonus Health and sends out a shockwave dealing physical damage equal to 80 plus 10% bonus Health to enemies behind the target. Ranged champions do 75% damage." },
+      { title: "Cleave", desc: "Every 1.75 seconds, your next attack deals bonus physical damage equal to 25 + 3% Bonus Health (Also applies to towers) and sends out a shockwave dealing physical damage equal to 80 + 10% Bonus Health to enemies behind the target. (75% for rangeds)." },
     ],
   },
   {
@@ -352,51 +355,57 @@ const PHYSICAL_ITEMS = [
     gold: 3333,
     image: "img/Trinity_Force_item_HD.webp",
     bannedSet: ["SPELLBLADE"],
-    stats: { AD: 25, HP: 250, CD: 15, ATTACK_SPEED: 30, SPEED_PERCENTAGE: 8 },
+    stats: { AD: 30, HP: 333, CD: 20, ATTACK_SPEED: 30 },
     passives: [
-      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus physical damage on-hit (2s cooldown)." },
-      { title: "Quicken", desc: "Basic attacks grant a stack of bonus Move Speed for a few seconds, stacking up to 4 times." },
+      { title: "Fervor", desc: "+ 5% Movement Speed.", STATS: {SPEED_PERCENTAGE: 5}},
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals 200% Base Ad physical damage on-hit (1.5s cooldown)." },
+      { title: "Valor", desc: "Basic attacks grant a stack of 20 bonus Move Speed for a few seconds (50% for rangeds). It doesnt stack." },
     ],
   },
   {
     title: "Youmuu's Ghostblade",
     category: "PHYSICAL",
-    gold: 2900,
+    gold: 3000,
     image: "img/Youmuu's_Ghostblade_item_HD.webp",
-    stats: { AD: 55, CD: 15, ARMOR_PEN: 15 },
+    stats: { AD: 55, CD: 15 },
     passives: [
-      { title: "Wraith Step", desc: "Unique Active: Gain bonus Move Speed and Armor Penetration for 6 seconds (45s cooldown)." },
+      { title: "Slice", desc: "+ 15 Armor Penetration", STATS: {ARMOR_PEN: 15}},  
+      { title: "Wraith Step", desc: "Moving builds Momentum, granting a maximum of 40 bonus movement speed at 100 stacks. Attacking removes all Momentum. Momentum decays while movement is impaired." },
+      { title: "Spectral haste", desc: "Basic attacks that expend maximum Momentum grant 25% bonus attack speed for 4 seconds."}
     ],
   },
   {
     title: "Wit's End",
     category: "PHYSICAL",
-    gold: 2600,
+    gold: 2800,
     image: "img/Wit's_End_item_HD.webp",
-    stats: { ATTACK_SPEED: 40, MR: 35 },
+    stats: { ATTACK_SPEED: 45, MR: 45 },
     passives: [
-      { title: "Fray", desc: "Basic attacks deal bonus magic damage on-hit and restore Magic Resist for 4 seconds, stacking up to 4 times." },
+      { title: "Fray", desc: "Basic attacks deal 10 - 55 (based on level) bonus magic damage on-hit. While below 50% health, dealing damage to an enemy champion heals you for (Melee 100% / Ranged 66%) of this effect's post-mitigation damage." },
     ],
   },
   {
     title: "Sterak's Gage",
     category: "PHYSICAL",
-    gold: 2700,
+    gold: 3000,
     image: "img/Sterak's_Gage_item_HD.webp",
     bannedSet: ["LIFELINE"],
-    stats: { AD: 45, HP: 350 },
+    stats: { HP: 400 },
     passives: [
-      { title: "Lifeline", desc: "Taking damage that would leave you below 30% max Health grants a decaying shield and bonus Attack Damage for a few seconds (70s cooldown)." },
+      { title: "Heavy Handed", desc: "Gain bonus attack damage equal to 50% base AD."},
+      { title: "Lifeline", desc: "Taking damage that would leave you below 35% max Health grants a 75% Bonus Health decaying shield and bonus Attack Damage for 5 seconds (90s cooldown)." },
+      { title: "Sterak's Fury", desc: "Triggering Lifeline will increase size and grant 30% tenacity for 8 seconds."}
     ],
   },
   {
     title: "Spear of Shojin",
     category: "PHYSICAL",
-    gold: 2900,
+    gold: 3100,
     image: "img/Spear_of_Shojin_item_HD.webp",
-    stats: { AD: 40, HP: 300, CD: 15 },
+    stats: { AD: 40, HP: 450 },
     passives: [
-      { title: "Vermillion Edge", desc: "Damaging an enemy champion with an ability grants a stack (up to 3, or 4 for melee) that empowers your next basic attack to deal bonus true damage on-hit." },
+      { title: "Dragonforce", desc: "Gain 20 Basic ability haste"},
+      { title: "Vermillion Edge", desc: "Dealing damage to a monster or an enemy champion with abilities increases your champion's ability pasive damage by 3% for 6s. (Stacks 4 times)" },
     ],
   },
   {
@@ -404,9 +413,11 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Magnetic_Blaster_WR_item.webp",
-    stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 15, SPEED_PERCENTAGE: 5 },
+    stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 25 },
     passives: [
-      { title: "Power Fight", desc: "Your movement and basic attacks will generate stacks of Energy, stacking up to 100. At maximum stacks, your next basic attack will consume them all to activate all Energized effects" },
+      { title: "Fervor", desc: "+ 5% Movement Speed.", STATS: {SPEED_PERCENTAGE: 5}},
+      { title: "Energized", desc: "Moving and attacking will generate an Energized Attack."},
+      { title: "Power Blitz", desc: "Energized Attacks gain 100 range (50 range for melee attacks), deal 40-100 bonus magic damage, and grant 60 Movement Speed for 0.75s. This Damage bounces up to 5 enemies and can Critically Strike. (Deals 50% - 80% damage against minions.)" },
     ],
   },
   {
@@ -417,6 +428,7 @@ const PHYSICAL_ITEMS = [
     stats: { AD: 50, CD: 10 },
     passives: [
       { title: "Stab", desc: "+15 armor pen", stats: { ARMOR_PEN: 15} },
+      { title: "Shield Reaver", desc: "Dealing damage to an enemy champion afflicts them for 3 seconds, reducing their active shields strength as well as any others they gain. Melee champions inflict 40% (+ 10% bonus AD) reduction, capped at 60%. Ranged role Ranged champions inflict 25% (+ 10% bonus AD) reduction, capped at 45%." },
     ],
   },
   {
@@ -428,7 +440,7 @@ const PHYSICAL_ITEMS = [
     stats: { AD: 40, ATTACK_SPEED: 30 },
     passives: [
       {title: "Shadow", desc: "Basic attack deal 35 bonus magic damage on-hit"},
-      { title: "Juxtaposition", desc: "Basic attacks On-hit icon on-hit against champions alternate between Light and Dark hits, each granting a bonus for 5 seconds that stacks up to 3 times. Light hits grant 5 − 8 (based on level) bonus armor and bonus magic resist while Dark hits grant 11% armor penetration and magic penetration, for a total of 15 − 24 (based on level) bonus resistances and 33% penetration at maximum stacks of each." },
+      { title: "Juxtaposition", desc: "Basic attacks On-hit icon on-hit against champions alternate between Light and Dark hits, each granting a bonus for 5 seconds that stacks up to 3 times. Light hits grant 5−8 (based on level) bonus armor and bonus magic resist while Dark hits grant 11% armor penetration and magic penetration, for a total of 15−24 (based on level) bonus resistances and 40% penetration at maximum stacks of each." },
     ],
   },
   {
