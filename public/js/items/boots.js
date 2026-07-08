@@ -82,10 +82,10 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2000,
     image: "img/Immortal_Path_item_HD.png",
-    stats: { SPEED: 50, OMNIVAMP: 10, AD: 25 },
+    stats: { SPEED: 50 },
     passives: [
       { title: "Balanced of Power", desc: "Gain 12 Attack Damage or 20 Ability Power.", stats: { ADAPTATIVE: { value: 20, ratio: 0.6 } }},
-      { title: "Convertion", desc: "Gain 5% Omnivamp + 0.5% Omnivamp for each takedown participation, up to an additional 5% and a maximum of 10% Omnivamp." },
+      { title: "Convertion", desc: "Gain 5% Omnivamp + 0.5% Omnivamp for each takedown participation, up to an additional 5% and a maximum of 10% Omnivamp.", stats: { OMNIVAMP: 5 } },
       { title: "Now and Forever", desc: "While above 50% Health, deal 50% bonus damage. While below 50% Health, gain 12% increased Healing and Shielding." },
     ],
   },
