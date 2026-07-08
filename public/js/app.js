@@ -1,5 +1,6 @@
 const MAX_SLOTS = 6;
 const slots = new Array(MAX_SLOTS).fill(null);
+const slotCharges = new Array(MAX_SLOTS).fill(0);
 
 const CATEGORY_ORDER = ["PHYSICAL", "MAGIC", "DEFENSE", "SUPPORT", "BOOTS", "ACTIVE"];
 const CATEGORY_LABELS = {
@@ -41,14 +42,36 @@ function renderSlots() {
       slot.appendChild(img);
       slot.title = `${item.title} (click to remove)`;
       slot.addEventListener("click", () => removeItem(i));
+
+      //! Heartsteel case
+      if (item.title === "Heartsteel") {
+        const label = document.createElement("input");
+        label.value = slotCharges[i];
+        label.type = "number";
+        label.min = "0";
+        label.max = "2000";
+        label.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+        })
+        label.addEventListener("input", (e) => {
+          let value = Number(label.value);
+          if (value > 2000) value = 2000;
+          else if (value < 0 || Number.isNaN(value)) value = 0;
+
+          label.value = value;
+          slotCharges[i] = value;
+        })
+        slot.appendChild(label);
+      }
     }
     slotsEl.appendChild(slot);
   });
 }
 
-function sortByName(a, b){
+function sortByName(a, b) {
 
-  if(a["title"] < b["title"]) return -1;
+  if (a["title"] < b["title"]) return -1;
 
   return 1;
 
@@ -131,6 +154,7 @@ function addItem(item) {
 function removeItem(index) {
   clearNotice();
   slots[index] = null;
+  slotCharges[index] = 0;
   renderSlots();
   renderGallery();
 }
@@ -171,14 +195,25 @@ async function calculate() {
   const chosen = slots.filter(Boolean);
   if (chosen.length === 0) return;
 
-  const objects = chosen.map((item) => ({
-    gold: item.gold,
-    type: ITEM_TYPES[item.category],
-    title: item.title,
-    banned_set: bannedSetToTypeArray(item.bannedSet),
-    stats: statsToTypeArray(item.stats),
-    passives: passivesToJson(item.passives),
-  }));
+  const objects = slots
+    .map((item, i) => (item ? { item, charge: slotCharges[i] } : null))
+    .filter(Boolean)
+    .map(({ item, charge }) => {
+      const stats = statsToTypeArray(item.stats);
+      //! Add the dynamic bonus HP as an extra stat entry for this Heartsteel
+      if (item.title === "Heartsteel" && charge > 0) {
+        stats.push(toStatEntry("HP", charge));
+      }
+
+      return {
+        gold: item.gold,
+        type: ITEM_TYPES[item.category],
+        title: item.title,
+        banned_set: bannedSetToTypeArray(item.bannedSet),
+        stats,
+        passives: passivesToJson(item.passives),
+      };
+    });
 
   const res = await fetch("/api/attributes", {
     method: "POST",
@@ -199,6 +234,7 @@ async function calculate() {
 function clearSet() {
   clearNotice();
   slots.fill(null);
+  slotCharges.fill(0);
   resultsEl.hidden = true;
   renderSlots();
   renderGallery();

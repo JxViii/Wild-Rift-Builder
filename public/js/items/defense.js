@@ -92,7 +92,7 @@ const DEFENSE_ITEMS = [
     image: "img/Heartsteel_item_HD.png",
     stats: { HP: 700, CD: 20, HP_REGEN: 150 },
     passives: [
-      { title: "Colossal Consumption", desc: "While within 700 units of an enemy champion, charges for 2.5segs before dealing a huge strike against the enemy champion. This charged attack deals bonus ad dmg equal to 140 (+ 3.5% of max hp), and grants maximun hp equal to 15% of the dmg dealt (20s cooldown for each target)." },
+      { title: "Colossal Consumption", desc: "While within 700 units of an enemy champion, charges for 2.5segs before dealing a huge strike against the enemy champion. This charged attack deals bonus ad dmg equal to 140 (+ 3.5% of max hp), and grants maximun hp equal to 15% of the dmg dealt (20s cooldown for each target).", stats: { HP: 0 }},
     ],
   },
   // Patch 7.1

@@ -57,3 +57,7 @@ SPELLBLADE
 
 CONTINUE:
   BLACKFIRE TORCH
+
+Essence Reaver
+Navoris
+BLASTER
