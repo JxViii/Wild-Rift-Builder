@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cmath>
 #include "third_party/json.hpp"
 #include "token.hpp"
 
@@ -110,11 +111,43 @@ namespace lol
     void addObject(lol::Object obj);
     void deleteObject(size_t pos);
     double getAttribute(int type);
+    double getPen(int type);
     std::vector<lol::Stat> getAttributeStats(int type);
     int getGold();
     nlohmann::ordered_json print();
 
     friend bool isAlreadyBanned(lol::Set);
+  };
+
+  ///////////////////////////////////////////////////////////////////////////
+  // ABILITY
+  ///////////////////////////////////////////////////////////////////////////
+
+  class Ability
+  {
+
+  private:
+    //? 100 + 20%AP,
+    int _type;                      // AD / AP
+    int _base;                      // 100 base
+    double _scaling;                // + %type
+    double _penetration_percentage; // %type pen
+
+  public:
+    int getType() { return _type; };
+    int getBaseDamage() { return _base; };
+    double getScalingPercentage() { return _scaling; };
+    double getPenetrationPercentage() { return _penetration_percentage; };
+  };
+
+  constexpr double CUMULATIVE_PERCENT_REDUCTION(double x, double y)
+  {
+    return x / 100.0 + y / 100.0 - (x / 100.0) * (y / 100.0);
+  };
+
+  constexpr double POST_MITIGATION_DMG(double dmg, double R)
+  {
+    return dmg / ((1 + R) / 100);
   };
 
 }

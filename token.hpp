@@ -53,5 +53,4 @@
 #define MANAMUNE 52
 #define WINTER 53
 
-
 #endif

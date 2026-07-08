@@ -265,7 +265,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["FATALITY"],
     stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 15 },
     passives: [
-      { title: "Last Whisper", desc: "Grants 30% Armor Penetration, critical attacks gain 6% bonus Armo Penetration." },
+      { title: "Last Whisper", desc: "Grants 30% Armor Penetration, critical attacks gain 6% bonus Armo Penetration.", stats: {ARMOR_PEN_PERCENTAGE: 30} },
       { title: "Sepsis", desc: "Dealing physical damage to enemy champions inflicts 50% Grievous Wounds for 3 seconds." },
     ],
   },
@@ -299,7 +299,7 @@ const PHYSICAL_ITEMS = [
     image: "img/Overlord's_Bloodmail_item_HD.png",
     stats: { AD: 30, HP: 450 },
     passives: [
-      { title: "Tyranny", desc: "Gain bonus Attack Damage equal to 2.5% of bonus Health.", STATS: {HP_AD: 2.5}},
+      { title: "Tyranny", desc: "Gain bonus Attack Damage equal to 2.5% of bonus Health.", stats: {HP_AD: 2.5}},
       { title: "Retribution", desc: "Gain increased Attack Damage the more missing health you have, up to 9%. Max retribution reached at 30% Health" },
     ],
   },
@@ -310,7 +310,7 @@ const PHYSICAL_ITEMS = [
     image: "img/Phantom_Dancer_item_HD.png",
     stats: { AD: 20, CRIT: 25, ATTACK_SPEED: 40 },
     passives: [
-      { title: "Shadowalk", desc: "Grants +5% bonus Move Speed.", STATS: {SPEED_PERCENTAGE: 5} },
+      { title: "Shadowalk", desc: "Grants +5% bonus Move Speed.", stats: {SPEED_PERCENTAGE: 5} },
       { title: "Spectral Waltz", desc: "Basic attacks grant 7% bonus Move Speed and 25% bonus Attack Speed for 6s. It doesnt stack (10s cooldown, attacking an enemy champion reduces it 1s)" },
     ],
   },
@@ -323,7 +323,7 @@ const PHYSICAL_ITEMS = [
     stats: { AD: 40, CD: 15, },
     passives: [
       { title: "Icy", desc: "Damaging active abilities and empowered attacks slow enemies by 30% for 1 second." },
-      { title: "Last Whisper", desc: "Grants 33% Armor Penetration", STATS: {ARMOR_PEN_PERCENTAGE: 33} },
+      { title: "Last Whisper", desc: "Grants 33% Armor Penetration", stats: {ARMOR_PEN_PERCENTAGE: 33} },
       { title: "Frostbite", desc: "Apply Frostbite to enemies slowed by Icy for 6s, at 3 Frostbite stacks, all stacks are consumed to apply bleed on target, dealing (5 + 1-15 + 15% bonus Attack Damage) over 2s, also applies Grievous Wounds for 3s. (5s Cooldown)"}
     ],
   },
@@ -334,7 +334,7 @@ const PHYSICAL_ITEMS = [
     image: "img/The_Collector_item_old_HD.png",
     stats: { AD: 45, CRIT: 25 },
     passives: [
-      { title: "Killer", desc: "Grants +10 Armor Penetration.", STATS: {ARMOR_PEN: 10} },
+      { title: "Killer", desc: "Grants +10 Armor Penetration.", stats: {ARMOR_PEN: 10} },
       { title: "Death and Taxes", desc: "Damage that would leave an enemy champion below (4% + 2% Crit rate) max Health executes them instead, execute treshold increase 0,1% per kill; champion kills grant an additional 25 gold." },
     ],
   },
@@ -367,7 +367,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["SPELLBLADE"],
     stats: { AD: 30, HP: 333, CD: 20, ATTACK_SPEED: 30 },
     passives: [
-      { title: "Fervor", desc: "+ 5% Movement Speed.", STATS: {SPEED_PERCENTAGE: 5}},
+      { title: "Fervor", desc: "+ 5% Movement Speed.", stats: {SPEED_PERCENTAGE: 5}},
       { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals 200% Base Ad physical damage on-hit (1.5s cooldown)." },
       { title: "Valor", desc: "Basic attacks grant a stack of 20 bonus Move Speed for a few seconds (50% for rangeds). It doesnt stack." },
     ],
@@ -379,7 +379,7 @@ const PHYSICAL_ITEMS = [
     image: "img/Youmuu's_Ghostblade_item_HD.webp",
     stats: { AD: 55, CD: 15 },
     passives: [
-      { title: "Slice", desc: "+ 15 Armor Penetration", STATS: {ARMOR_PEN: 15}},  
+      { title: "Slice", desc: "+ 15 Armor Penetration", stats: {ARMOR_PEN: 15}},  
       { title: "Wraith Step", desc: "Moving builds Momentum, granting a maximum of 40 bonus movement speed at 100 stacks. Attacking removes all Momentum. Momentum decays while movement is impaired." },
       { title: "Spectral haste", desc: "Basic attacks that expend maximum Momentum grant 25% bonus attack speed for 4 seconds."}
     ],
@@ -425,7 +425,7 @@ const PHYSICAL_ITEMS = [
     image: "img/Magnetic_Blaster_WR_item.webp",
     stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 25 },
     passives: [
-      { title: "Fervor", desc: "+ 5% Movement Speed.", STATS: {SPEED_PERCENTAGE: 5}},
+      { title: "Fervor", desc: "+ 5% Movement Speed.", stats: {SPEED_PERCENTAGE: 5}},
       { title: "Energized", desc: "Moving and attacking will generate an Energized Attack."},
       { title: "Power Blitz", desc: "Energized Attacks gain 100 range (50 range for melee attacks), deal 40-100 bonus magic damage, and grant 60 Movement Speed for 0.75s. This Damage bounces up to 5 enemies and can Critically Strike. (Deals 50% - 80% damage against minions.)" },
     ],

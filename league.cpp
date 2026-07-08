@@ -177,6 +177,24 @@ double lol::Set::getAttribute(int type)
   return total;
 }
 
+double lol::Set::getPen(int type)
+{
+  double total = 0.0;
+  for (lol::Stat &stat : getAttributeStats(type))
+  {
+    double x = stat.getValue();
+
+    if (x > 0.0 && total != 0.0){
+      total = lol::CUMULATIVE_PERCENT_REDUCTION(total, x) * 100;
+    } else {
+      total += x;
+    }
+
+  }
+  total = std::round(total * 100.0) / 100.0;
+  return total;
+}
+
 std::vector<lol::Stat> lol::Set::getAttributeStats(int type)
 {
   std::vector<lol::Stat> result;
@@ -223,7 +241,7 @@ nlohmann::ordered_json lol::Set::print()
   double maxMana = getAttribute(MAX_MANA);
   double manaRegen = getAttribute(MANA_REGEN);
   double mp = getAttribute(MP);
-  double mpPercentage = getAttribute(MP_PERCENTAGE);
+  double mpPercentage = getPen(MP_PERCENTAGE);
   double hp = getAttribute(HP);
   double hpRegen = getAttribute(HP_REGEN);
   double speed = getAttribute(SPEED);
@@ -231,7 +249,7 @@ nlohmann::ordered_json lol::Set::print()
   double attackSpeed = getAttribute(ATTACK_SPEED);
   double ad = getAttribute(AD);
   double armorPen = getAttribute(ARMOR_PEN);
-  double armorPenPercentage = getAttribute(ARMOR_PEN_PERCENTAGE);
+  double armorPenPercentage = getPen(ARMOR_PEN_PERCENTAGE);
   double crit = getAttribute(CRIT);
   double armor = getAttribute(ARMOR);
   double mr = getAttribute(MR);
@@ -331,3 +349,6 @@ nlohmann::ordered_json lol::Set::print()
 
 
 ///////////////////////////////////////////////////////////////////////////
+// ABILITY
+///////////////////////////////////////////////////////////////////////////
+
