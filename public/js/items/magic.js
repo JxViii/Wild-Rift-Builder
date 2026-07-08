@@ -277,10 +277,10 @@ const MAGIC_ITEMS = [
     ],
   },
   {
-    title: "Rod of ages BASIC",
+    title: "Rod of Ages",
     category: "MAGIC",
     gold: 2700,
-    image: "img/Rod_of_Ages_item.webp",
+    image: "img/Rod_of_Ages_WR_item.webp",
     bannedSet: ["ROA"],
     stats: { HP: 350, AP: 50, MAX_MANA: 400 },
     passives: [
