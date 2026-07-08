@@ -35,12 +35,9 @@ function clearNotice() {
 
 function renderSlots() {
 
-  slotCharges.forEach( charge => console.log(charge) );
 
   slotsEl.innerHTML = "";
   slots.forEach((item, i) => {
-
-    console.log(item, i);
 
     const slot = document.createElement("div");
     slot.className = "slot" + (item ? " slot--filled" : "");
@@ -71,7 +68,6 @@ function renderSlots() {
 
         if (item.stack.img && item.stack.title) {
 
-          console.log(item.title);
 
           if (value === max) {
             img.src = item.stack.img;
@@ -94,8 +90,6 @@ function renderSlots() {
           else if (value < min || Number.isNaN(value)) value = min;
 
           if (item.stack.img && item.stack.title) {
-
-            console.log(item.title);
 
             if (value === max) {
               img.src = item.stack.img;
@@ -376,9 +370,15 @@ function clearSet() {
   renderGallery();
 }
 
+
 calculateBtn.addEventListener("click", calculate);
 clearBtn.addEventListener("click", clearSet);
-// resultsCloseEl.addEventListener("click", hideResults);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    calculate();
+  }
+})
 
 wrapper.addEventListener("click", () => {
   window.open(wrapper.dataset.url, '_blank');
