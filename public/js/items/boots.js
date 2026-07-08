@@ -2,7 +2,7 @@
 const BOOTS_ITEMS = [
   // NOTE: MERCS
   {
-    title: "(Mercs1) Mercury's Treads",
+    title: "MR T2: Mercury's Treads",
     category: "BOOTS",
     gold: 1200,
     image: "img/Mercury's_Treads_item_HD.png",
@@ -11,7 +11,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: TABIS TIER 3
   {
-    title: "(Tabi2) Armored Advance",
+    title: "ARMOR T3: Armored Advance",
     category: "BOOTS",
     gold: 2200,
     image: "img/Armored_Advance_item_HD.png",
@@ -23,7 +23,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: ATK SPEED
   {
-    title: "(ATK Speed1) Berserker's Greaves",
+    title: "ATK SPEED T2: Berserker's Greaves",
     category: "BOOTS",
     gold: 1200,
     image: "img/Berserker's_Greaves_item_HD.png",
@@ -31,7 +31,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: MERCS TIER 3
   {
-    title: "(Mercs2) Chainlaced Crushers",
+    title: "MR T3: Chainlaced Crushers",
     category: "BOOTS",
     gold: 2200,
     image: "img/Chainlaced_Crushers_item_HD.png",
@@ -42,7 +42,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: CDR TIER 3
   {
-    title: "(Ionia2) Crimson Lucidity",
+    title: "CD T3: Crimson Lucidity",
     category: "BOOTS",
     gold: 2000,
     image: "img/Crimson_Lucidity_item_HD.png",
@@ -54,7 +54,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: OMNIVAMP
   {
-    title: "(Omnivamp1) Gluttonous Greaves",
+    title: "LIFESTEAL T2: Gluttonous Greaves",
     category: "BOOTS",
     gold: 1000,
     image: "img/Gluttonous_Greaves_WR_item.webp",
@@ -66,7 +66,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: ATK SPEED TIER 3
   {
-    title: "(ATK Speed2) Gunmetal Greaves",
+    title: "ATK SPEED T3: Gunmetal Greaves",
     category: "BOOTS",
     gold: 2200,
     image: "img/Gunmetal_Greaves_item_HD.png",
@@ -78,7 +78,7 @@ const BOOTS_ITEMS = [
   },
   //  NOTE: OMNIVAMP TIER 3
   {
-    title: "(Omnivamp2) Immortal Path",
+    title: "LIFESTEAL T3: Immortal Path",
     category: "BOOTS",
     gold: 2000,
     image: "img/Immortal_Path_item_HD.png",
@@ -91,7 +91,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: CDR
   {
-    title: "(Ionia1) Ionian Boots of Lucidity",
+    title: "CD T2: Ionian Boots of Lucidity",
     category: "BOOTS",
     gold: 1000,
     image: "img/Ionian_Boots_of_Lucidity_item_HD.png",
@@ -103,7 +103,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: TABIS
   { 
-    title: "(Tabi1) Plated Steelcaps",
+    title: "ARMOR T2: Plated Steelcaps",
     category: "BOOTS",
     gold: 1200,
     image: "img/Plated_Steelcaps_item_HD.png",
@@ -114,7 +114,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: AP
   {
-    title: "(AP1) Sorcerer's Shoes",
+    title: "AP T2: Sorcerer's Shoes",
     category: "BOOTS",
     gold: 1200,
     image: "img/Sorcerer's_Shoes_item_HD.webp",
@@ -123,7 +123,7 @@ const BOOTS_ITEMS = [
   },
   //  NOTE: LEThALITY
   {
-    title: "(Lethality1) Boots of Dynamism",
+    title: "AD T2: Boots of Dynamism",
     category: "BOOTS",
     gold: 1200,
     image: "img/Boots_of_Dynamism.png",
@@ -132,7 +132,7 @@ const BOOTS_ITEMS = [
   },
   //  NOTE: LEThALITY TIER 3
   {
-    title: "(Lethality2) Armor Breaker",
+    title: "AD T3: Armor Breaker",
     category: "BOOTS",
     gold: 2200,
     image: "img/Boots_of_Dynamism.png",
@@ -143,7 +143,7 @@ const BOOTS_ITEMS = [
   },
   // NOTE: AP TIER 3
   {
-    title: "(AP2) Spellslinger's Shoes",
+    title: "AP T3: Spellslinger's Shoes",
     category: "BOOTS",
     gold: 2200,
     image: "img/Spellslinger's_Shoes_item.webp",

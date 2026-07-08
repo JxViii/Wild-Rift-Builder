@@ -18,6 +18,7 @@ const resultsEl = document.getElementById("results");
 const resultsBodyEl = document.getElementById("resultsBody");
 // const resultsCloseEl = document.getElementById("resultsClose");
 const noticeEl = document.getElementById("notice");
+const itemTooltipEl = document.getElementById("itemTooltip");
 const calculateBtn = document.getElementById("calculate");
 const clearBtn = document.getElementById("clear");
 
@@ -31,8 +32,14 @@ function clearNotice() {
 }
 
 function renderSlots() {
+
+  slotCharges.forEach( charge => console.log(charge) );
+
   slotsEl.innerHTML = "";
   slots.forEach((item, i) => {
+
+    console.log(item, i);
+
     const slot = document.createElement("div");
     slot.className = "slot" + (item ? " slot--filled" : "");
     if (item) {
@@ -54,6 +61,25 @@ function renderSlots() {
           e.stopPropagation();
           e.preventDefault();
         })
+
+        //! Checkeo previo
+        let value = Number(label.value);
+        let min = Number(label.min);
+        let max = Number(label.max);
+
+        if (item.stack.img && item.stack.title) {
+
+          console.log(item.title);
+
+          if (value === max) {
+            img.src = item.stack.img;
+            img.alt = item.stack.title;
+            slot.title = `${item.stack.title} (click to remove)`;
+          } else {
+            img.src = item.image;
+          }
+        }
+
         label.addEventListener("input", (e) => {
 
           let value = Number(label.value);
@@ -66,6 +92,9 @@ function renderSlots() {
           else if (value < min || Number.isNaN(value)) value = min;
 
           if (item.stack.img && item.stack.title) {
+
+            console.log(item.title);
+
             if (value === max) {
               img.src = item.stack.img;
               img.alt = item.stack.title;
@@ -94,6 +123,7 @@ function sortByName(a, b) {
 }
 
 function renderGallery() {
+  hideItemTooltip();
   galleryEl.innerHTML = "";
 
   let SORTED_ITEMS = ITEMS.sort(sortByName);
@@ -117,7 +147,6 @@ function renderGallery() {
       const inSet = slots.includes(item);
       const card = document.createElement("div");
       card.className = "item-card" + (inSet ? " item-card--disabled" : "");
-      card.title = item.title;
 
       const img = document.createElement("img");
       img.src = item.image;
@@ -127,12 +156,68 @@ function renderGallery() {
       if (!inSet) {
         card.addEventListener("click", () => addItem(item));
       }
+      card.addEventListener("mouseenter", () => showItemTooltip(item));
+      card.addEventListener("mousemove", (e) => moveItemTooltip(e));
+      card.addEventListener("mouseleave", hideItemTooltip);
       grid.appendChild(card);
     });
 
     section.appendChild(grid);
     galleryEl.appendChild(section);
   });
+}
+
+function showItemTooltip(item) {
+  itemTooltipEl.innerHTML = "";
+
+  const title = document.createElement("p");
+  title.className = "item-tooltip__title";
+  title.textContent = item.title;
+  itemTooltipEl.appendChild(title);
+
+  const statEntries = Object.entries(item.stats || {});
+  if (statEntries.length > 0) {
+    const stats = document.createElement("div");
+    stats.className = "item-tooltip__stats";
+    statEntries.forEach(([name, value]) => {
+      const stat = document.createElement("span");
+      stat.className = "item-tooltip__stat";
+      const readableValue = value !== null && typeof value === "object" ? value.value : value;
+      stat.innerHTML = `${name}: <val>${readableValue}</val>`;
+      stats.appendChild(stat);
+    });
+    itemTooltipEl.appendChild(stats);
+  }
+
+  (item.passives || []).forEach((passive) => {
+    const entry = document.createElement("p");
+    entry.className = "item-tooltip__passive";
+    entry.innerHTML = `<b>${passive.title}:</b> ${passive.desc}`;
+    itemTooltipEl.appendChild(entry);
+  });
+
+  itemTooltipEl.hidden = false;
+}
+
+function moveItemTooltip(e) {
+  const offset = 16;
+  let left = e.clientX + offset;
+  let top = e.clientY + offset;
+
+  const rect = itemTooltipEl.getBoundingClientRect();
+  if (left + rect.width > window.innerWidth) {
+    left = e.clientX - rect.width - offset;
+  }
+  if (top + rect.height > window.innerHeight) {
+    top = e.clientY - rect.height - offset;
+  }
+
+  itemTooltipEl.style.left = `${Math.max(0, left)}px`;
+  itemTooltipEl.style.top = `${Math.max(0, top)}px`;
+}
+
+function hideItemTooltip() {
+  itemTooltipEl.hidden = true;
 }
 
 function addItem(item) {

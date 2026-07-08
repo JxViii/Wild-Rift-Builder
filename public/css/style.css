@@ -606,6 +606,90 @@ input[type="number"] {
 
 }
 
+.item-tooltip[hidden]{
+
+  display: none;
+
+}
+
+.item-tooltip{
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: auto;
+  max-width: 320px;
+  padding: 0.9rem 1.1rem;
+  border-radius: 10px;
+
+  background: #232323f2;
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  pointer-events: none;
+
+}
+
+.item-tooltip__title{
+
+  font-weight: bold;
+  color: var(--white);
+  font-size: 1.05rem;
+
+}
+
+.item-tooltip__stats{
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+
+}
+
+.item-tooltip__stat{
+
+  font-size: 0.9rem;
+  color: var(--ll-grey);
+  font-weight: 500;
+
+}
+
+.item-tooltip__stat val{
+
+  font-size: 0.9rem;
+  color: var(--value);
+  font-weight: bold;
+  margin-left: 3px;
+
+}
+
+.item-tooltip__passive{
+
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ll-grey);
+
+}
+
+.item-tooltip__passive b{
+
+  font-size: 0.85rem;
+  color: var(--passive);
+  font-weight: 700;
+  margin-right: 4px;
+
+}
+
 .blog-footer{
 
   display: flex;
@@ -941,7 +1025,7 @@ input[type="number"] {
 
   .slot input[type=number]{
 
-    font-size: 20px;
+    font-size: 15px;
 
   }
 }
