@@ -230,6 +230,7 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 2700,
     image: "img/Manamune_item_HD.png",
+    bannedSet: ["MANAFLOW"],
     stats: { AD: 25, MAX_MANA: 300, CD: 20 },
     passives: [
       { title: "Awe", desc: "Grants bonus attack damage equal to 1,5% of max mana and refunds 15% of mana spent." },
