@@ -45,8 +45,12 @@
 
 }
 
+html{
+  overflow-x: hidden;
+}
+
 body{
-  
+
   background-color: var(--bg);
 
   background-image:
@@ -792,4 +796,137 @@ input[type="number"] {
 
   color: var(--white);
   font-weight: 800;
+}
+
+/* ? MOBILE */
+
+@media (max-width: 640px){
+
+  body{
+    padding: 5rem 0 2rem 0;
+  }
+
+  header{
+    gap: 6px;
+  }
+
+  header .wr-logo{
+    height: 110px;
+  }
+
+  header h1{
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  header span{
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .card{
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .builder{
+    margin-top: 30px;
+    gap: 25px;
+  }
+
+  .slots{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .slot{
+    height: 50px;
+    width: 50px;
+    border-radius: 12px;
+  }
+
+  .slot input[type=number]{
+    font-size: 18px;
+    width: 42px;
+  }
+
+  .builder__actions{
+    gap: 12px;
+  }
+
+  .builder__actions button{
+    font-size: 15px;
+    padding: 7px 14px;
+  }
+
+  .results{
+    width: 90%;
+    max-width: 90%;
+    margin: 1rem;
+    padding: 1rem;
+
+    font-size: 8px;
+  }
+
+  .results span{
+    font-size: 16px;
+  }
+
+  .results val{
+    font-size: 16px;
+  }
+
+  .results__stats{
+
+    align-items: start;
+    justify-content: left;
+    text-align: justify;
+
+    flex-wrap: wrap;
+
+  }
+
+  .results__passives val b{
+    font-size: 16px;
+  }
+
+  .results__stat, .results__passives p{
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .gallery{
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .item-card{
+    height: 48px;
+    width: 48px;
+    border-radius: 10px;
+  }
+
+  .patch{
+
+    right: 15px;
+    top: 20px;
+    
+    height: fit-content;
+    position: absolute;
+
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .patch span{
+    font-size: 0.8rem;
+  }
+
+  .blog-footer{
+    font-size: 16px;
+    margin-top: 50px;
+  }
+
 }
