@@ -2,6 +2,8 @@ const MAX_SLOTS = 6;
 const slots = new Array(MAX_SLOTS).fill(null);
 const slotCharges = new Array(MAX_SLOTS).fill(0);
 
+const wrapper = document.querySelector(".wrapper");
+
 const CATEGORY_ORDER = ["PHYSICAL", "MAGIC", "DEFENSE", "SUPPORT", "BOOTS", "ACTIVE"];
 const CATEGORY_LABELS = {
   PHYSICAL: "Physical",
@@ -377,6 +379,11 @@ function clearSet() {
 calculateBtn.addEventListener("click", calculate);
 clearBtn.addEventListener("click", clearSet);
 // resultsCloseEl.addEventListener("click", hideResults);
+
+wrapper.addEventListener("click", () => {
+  window.open(wrapper.dataset.url, '_blank');
+})
+
 
 renderSlots();
 renderGallery();
