@@ -43,21 +43,37 @@ function renderSlots() {
       slot.title = `${item.title} (click to remove)`;
       slot.addEventListener("click", () => removeItem(i));
 
-      //! Heartsteel case
-      if (item.title === "Heartsteel") {
+      //! Stackable case
+      if (item.stack) {
         const label = document.createElement("input");
         label.value = slotCharges[i];
         label.type = "number";
-        label.min = "0";
-        label.max = "2000";
+        label.min = item.stack.min;
+        label.max = item.stack.max;
         label.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
         })
         label.addEventListener("input", (e) => {
+
           let value = Number(label.value);
-          if (value > 2000) value = 2000;
-          else if (value < 0 || Number.isNaN(value)) value = 0;
+          let min = Number(label.min);
+          let max = Number(label.max);
+
+          if (value > max) {
+            value = max;
+          }
+          else if (value < min || Number.isNaN(value)) value = min;
+
+          if (item.stack.img && item.stack.title) {
+            if (value === max) {
+              img.src = item.stack.img;
+              img.alt = item.stack.title;
+              slot.title = `${item.stack.title} (click to remove)`;
+            } else {
+              img.src = item.image;
+            }
+          }
 
           label.value = value;
           slotCharges[i] = value;
@@ -173,7 +189,34 @@ function renderResults(data) {
   }
   resultsBodyEl.appendChild(statsList);
 
-  const passives = slots.filter(Boolean).flatMap((item) => item.passives || []);
+  const passives = slots
+    .map((item, i) => (item ? { item, charge: slotCharges[i] } : null))
+    .filter(Boolean)
+    .flatMap(({ item, charge }) => {
+
+      let result = [...(item.passives || [])];
+
+      if (item.stack) {
+
+        let max = Number(item.stack.max);
+
+        if (charge === max) {
+
+          if (item.stack.passives)
+            result.push(...item.stack.passives);
+
+          if (item.stack.delete) {
+            result = result.filter(p => p.title !== item.stack.delete);
+          }
+        }
+
+      }
+
+      return result;
+
+    })
+
+
   if (passives.length > 0) {
     const passivesList = document.createElement("div");
     passivesList.className = "results__passives";
@@ -200,9 +243,15 @@ async function calculate() {
     .filter(Boolean)
     .map(({ item, charge }) => {
       const stats = statsToTypeArray(item.stats);
-      //! Add the dynamic bonus HP as an extra stat entry for this Heartsteel
-      if (item.title === "Heartsteel" && charge > 0) {
-        stats.push(toStatEntry("HP", charge));
+      //! Add the dynamic stack attributes as an extra stat entry for stackable items
+
+      if (item.stack && charge > 0) {
+
+        stack_stats = Object.entries(item.stack.stats);
+
+        stack_stats.forEach(([name, value]) => {
+          stats.push(toStatEntry(name, charge * value));
+        })
       }
 
       return {

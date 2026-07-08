@@ -226,7 +226,7 @@ const PHYSICAL_ITEMS = [
     ],
   },
   {
-    title: "(Mana1) Manamune",
+    title: "Manamune",
     category: "PHYSICAL",
     gold: 2700,
     image: "img/Manamune_item_HD.png",
@@ -236,6 +236,15 @@ const PHYSICAL_ITEMS = [
       { title: "Awe", desc: "Grants bonus attack damage equal to 1,5% of max mana and refunds 15% of mana spent." },
       { title: "Mana Charge", desc: "Each basic attack on-hit or mana expenditure consumes a charge and grants +18 mana, up to a maximum of 700 mana, it activates until 3 times each 10s." },
     ],
+    stack: {
+      stats: { MAX_MANA: 1 },
+      min: "0",
+      max: "700",
+      title: "Muramana",
+      img: "img/Muramana_item_HD.png",
+      passives: [{ title: "Shock", desc: "Attacks against champions consume 2.5% of current Mana to deal that amount as bonus physical damage. Skills against champions consume 4% of current Mana to deal that amount as bonus physical damage + 6% Attack Damage. Only active while above 20% max Mana." }],
+      delete: "Mana Charge"
+    }
   },
   {
     title: "Maw of Malmortius",
@@ -260,18 +269,18 @@ const PHYSICAL_ITEMS = [
       { title: "Sepsis", desc: "Dealing physical damage to enemy champions inflicts 50% Grievous Wounds for 3 seconds." },
     ],
   },
-  {
-    title: "(Mana2) Muramana",
-    category: "PHYSICAL",
-    gold: 2700,
-    image: "img/Muramana_item_HD.png",
-    bannedSet: ["MANAFLOW"],
-    stats: { AD: 25, MAX_MANA: 1000, CD: 20 },
-    passives: [
-      { title: "Awe", desc: "Grants Attack Damage equal to 2% of max Mana and refunds 15% of all Mana spent." },
-      { title: "Shock", desc: "Attacks against champions consume 2.5% of current Mana to deal that amount as bonus physical damage. Skills against champions consume 4% of current Mana to deal that amount as bonus physical damage + 6% Attack Damage. Only active while above 20% max Mana." },
-    ],
-  },
+  // {
+  //   title: "(Mana2) Muramana",
+  //   category: "PHYSICAL",
+  //   gold: 2700,
+  //   image: "img/Muramana_item_HD.png",
+  //   bannedSet: ["MANAFLOW"],
+  //   stats: { AD: 25, MAX_MANA: 1000, CD: 20 },
+  //   passives: [
+  //     { title: "Awe", desc: "Grants Attack Damage equal to 2% of max Mana and refunds 15% of all Mana spent." },
+  //     { title: "Shock", desc: "Attacks against champions consume 2.5% of current Mana to deal that amount as bonus physical damage. Skills against champions consume 4% of current Mana to deal that amount as bonus physical damage + 6% Attack Damage. Only active while above 20% max Mana." },
+  //   ],
+  // },
   // NOTE: Wild Rift's actual item is "Navori Quickblades" — "Navori Flickerblade" is the PC LoL name; stats below are PC-based and uncertain for WR.
   {
     title: "Navori Flickerblade",

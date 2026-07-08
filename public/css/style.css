@@ -938,4 +938,10 @@ input[type="number"] {
     margin-top: 50px;
   }
 
+
+  .slot input[type=number]{
+
+    font-size: 20px;
+
+  }
 }
