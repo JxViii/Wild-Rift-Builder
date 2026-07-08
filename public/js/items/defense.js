@@ -80,7 +80,7 @@ const DEFENSE_ITEMS = [
     bannedSet: ["MANAFLOW"],
     stats: { HP: 350, MAX_MANA: 500, CD: 15 },
     passives: [
-      { title: "Awe", desc: "Grants bonus Health equal to 8% of max Mana and refunds 15% of all Mana spent." },
+      { title: "Awe", desc: "Grants bonus Health equal to 8% of max Mana and refunds 15% of all Mana spent.", stats: { MANA_HP : 8 } },
       { title: "Mana Charge", desc: "Increases max Mana by 12 every attack, when Mana is spent or when taking dmg from champions, epic monsters or towers. Caps at 700 bonus Mana, transforming Winter's Approach inot Fimbulwinter. Triggers up to 3 times every 10 segs. You may only carry 1 of these Tear of Goddess item at a time." },
     ],
     stack: {

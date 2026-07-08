@@ -233,7 +233,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["MANAFLOW"],
     stats: { AD: 25, MAX_MANA: 300, CD: 20 },
     passives: [
-      { title: "Awe", desc: "Grants bonus attack damage equal to 1,5% of max mana and refunds 15% of mana spent." },
+      { title: "Awe", desc: "Grants bonus attack damage equal to 1,5% of max mana and refunds 15% of mana spent.", stats: { MANA_AD : 1.5 } },
       { title: "Mana Charge", desc: "Each basic attack on-hit or mana expenditure consumes a charge and grants +18 mana, up to a maximum of 700 mana, it activates until 3 times each 10s." },
     ],
     stack: {
