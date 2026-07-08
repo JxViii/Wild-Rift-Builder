@@ -13,7 +13,6 @@ namespace lol
   {
 
   private:
-
     //! In case an stat is adaptative we stored the ratio between AD -> AP. Ex. 12 AD / 20 AD is a 0.6 RATIO
 
     int _type;
@@ -23,17 +22,17 @@ namespace lol
   public:
     Stat() : _type(0), _value(0), _adaptative(0.5) {}
     Stat(int type, double value) : _type(type), _value(value), _adaptative(0.5) {}
-    Stat(int type, double value, double adaptative) {
+    Stat(int type, double value, double adaptative)
+    {
 
-      if (type != ADAPTATIVE){
+      if (type != ADAPTATIVE)
+      {
         throw std::invalid_argument("You can't have an adaptative ratio without being the ADAPTATIVE stat, token: " + type);
       }
 
       _type = type;
       _value = value;
       _adaptative = adaptative;
-
-
     }
 
     const int getType() const { return _type; }
@@ -84,38 +83,38 @@ namespace lol
     std::vector<lol::Stat> getStats() { return _stats; };
     std::vector<lol::Passive> getPassives() { return _passives; };
 
-    double getAttribute( int type );
-    std::vector<lol::Stat> getAttributeStats( int type );
+    double getAttribute(int type);
+    std::vector<lol::Stat> getAttributeStats(int type);
   };
 
   class Set
   {
 
-    private:
-      bool _hasActive = false;
-      bool _hasBoots = false;
-      std::vector<int> _banned_set;
-      std::vector<lol::Object> _set;
-      std::size_t _capacity;
+  private:
+    bool _hasActive = false;
+    bool _hasBoots = false;
+    std::vector<int> _banned_set;
+    std::vector<lol::Object> _set;
+    std::size_t _capacity;
 
-    public:
-      Set(std::vector<lol::Object> set);
+  public:
+    Set(std::vector<lol::Object> set);
 
-      std::vector<int> getBannedSet() { return _banned_set; };
-      std::size_t getSize() { return 6; };
-      std::size_t getCapacity() { return _capacity; };
-      std::vector<lol::Object> getSet() { return _set; }; 
+    std::vector<int> getBannedSet() { return _banned_set; };
+    std::size_t getSize() { return 6; };
+    std::size_t getCapacity() { return _capacity; };
+    std::vector<lol::Object> getSet() { return _set; };
 
-      int isBanned( std::vector<int> ban );
-      int isBanned( int ban );
-      void addObject( lol::Object obj );
-      void deleteObject( size_t pos );
-      double getAttribute( int type );
-      std::vector<lol::Stat> getAttributeStats( int type );
-      int getGold();
-      nlohmann::ordered_json print();
+    int isBanned(std::vector<int> ban);
+    int isBanned(int ban);
+    void addObject(lol::Object obj);
+    void deleteObject(size_t pos);
+    double getAttribute(int type);
+    std::vector<lol::Stat> getAttributeStats(int type);
+    int getGold();
+    nlohmann::ordered_json print();
 
-      friend bool isAlreadyBanned( lol::Set );
+    friend bool isAlreadyBanned(lol::Set);
   };
 
 }

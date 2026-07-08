@@ -1,1 +1,6 @@
 BRANCH TEST
+
+Set { Object, ... } -> Backend
+
+Backend -> Object { stat: value, ... } -> store in SET_STATS;
+

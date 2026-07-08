@@ -1,6 +1,10 @@
 #include "league.hpp"
 #include "token.hpp"
 
+///////////////////////////////////////////////////////////////////////////
+// OBJECT
+///////////////////////////////////////////////////////////////////////////
+
 double lol::Object::getAttribute(int type)
 {
   double total = 0.0;
@@ -48,6 +52,10 @@ std::vector<lol::Stat> lol::Object::getAttributeStats(int type)
 
   return result;
 }
+
+///////////////////////////////////////////////////////////////////////////
+// SET
+///////////////////////////////////////////////////////////////////////////
 
 lol::Set::Set(std::vector<lol::Object> set)
 {
@@ -104,7 +112,8 @@ void lol::Set::addObject(lol::Object obj)
 
   if (ban[0] != 0)
   {
-    for( std::size_t i{}; i < ban.size(); ++i){
+    for (std::size_t i{}; i < ban.size(); ++i)
+    {
       if (isBanned(ban[i]) != -1)
       {
         throw std::invalid_argument("You can only have ONE of this items at a time! Token: " + ban[i]);
@@ -143,7 +152,8 @@ void lol::Set::deleteObject(size_t pos)
 
   if (ban[0] != 0)
   {
-    for( std::size_t i{}; i < ban.size(); ++i){
+    for (std::size_t i{}; i < ban.size(); ++i)
+    {
       int del = isBanned(ban[i]);
       _banned_set.erase(_banned_set.begin() + del);
     }
@@ -188,7 +198,6 @@ int lol::Set::getGold()
   return total;
 }
 
-
 int lol::Set::isBanned(int ban)
 {
   for (std::size_t i{}; i < getBannedSet().size(); ++i)
@@ -200,6 +209,10 @@ int lol::Set::isBanned(int ban)
   }
   return -1;
 }
+
+///////////////////////////////////////////////////////////////////////////
+// JSON
+///////////////////////////////////////////////////////////////////////////
 
 nlohmann::ordered_json lol::Set::print()
 {
@@ -251,14 +264,14 @@ nlohmann::ordered_json lol::Set::print()
 
   //! Estadísticas que escalan por MANA MAX
 
-  ap += maxMana * mana_ap/100;
-  ad += maxMana * mana_ad/100;
-  hp += maxMana * mana_hp/100;
+  ap += maxMana * mana_ap / 100;
+  ad += maxMana * mana_ad / 100;
+  hp += maxMana * mana_hp / 100;
 
   //! Estadísticas que escalan por HP
 
-  ap += hp * hp_ap/100;
-  ad += hp * hp_ad/100;
+  ap += hp * hp_ap / 100;
+  ad += hp * hp_ad / 100;
 
   //! Porcentajes de %AP y %AD sobre el total ( ej. RABADON )
 
@@ -269,7 +282,7 @@ nlohmann::ordered_json lol::Set::print()
 
   result["Gold"] = gold;
   if (ap != 0)
-    result["AP"] = (int) ap;
+    result["AP"] = (int)ap;
   if (cd != 0)
     result["CD"] = cd;
   if (maxMana != 0)
@@ -291,7 +304,7 @@ nlohmann::ordered_json lol::Set::print()
   if (attackSpeed != 0)
     result["Attack Speed"] = attackSpeed;
   if (ad != 0)
-    result["AD"] = (int) ad;
+    result["AD"] = (int)ad;
   if (armorPen != 0)
     result["Armor Pen"] = armorPen;
   if (armorPenPercentage != 0)
@@ -315,3 +328,6 @@ nlohmann::ordered_json lol::Set::print()
 
   return result;
 }
+
+
+///////////////////////////////////////////////////////////////////////////
