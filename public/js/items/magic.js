@@ -56,7 +56,7 @@ const MAGIC_ITEMS = [
   //   ],
   // },
   {
-    title: "Archangel's Staff",
+    title: "(mana1) Archangel's Staff",
     category: "MAGIC",
     gold: 3000,
     image: "img/Archangel's_Staff_item_HD.png",
@@ -68,7 +68,7 @@ const MAGIC_ITEMS = [
     ],
   },
   {
-    title: "Seraph's Embrace",
+    title: "(mana2) Seraph's Embrace",
     category: "MAGIC",
     gold: 3000,
     image: "img/Seraph's_Embrace_item.webp",

@@ -180,16 +180,16 @@ const PHYSICAL_ITEMS = [
     ],
   },
   // NOTE: gold/stats sourced from PC League of Legends data; this item is noted as exclusive to a PC-only game mode (Hextech ARAM) and may not exist in Wild Rift at all — verify before relying on it.
-  {
-    title: "Hubris",
-    category: "PHYSICAL",
-    gold: 3150,
-    image: "img/Hubris_item_HD.png",
-    stats: { AD: 65, CD: 15, ARMOR_PEN: 18 },
-    passives: [
-      { title: "Eminence", desc: "Scoring a champion takedown shortly after damaging them grants a permanent stack of bonus Attack Damage, up to a limit, decaying after 70 seconds without a takedown." },
-    ],
-  },
+  // {
+  //   title: "Hubris",
+  //   category: "PHYSICAL",
+  //   gold: 3150,
+  //   image: "img/Hubris_item_HD.png",
+  //   stats: { AD: 65, CD: 15, ARMOR_PEN: 18 },
+  //   passives: [
+  //     { title: "Eminence", desc: "Scoring a champion takedown shortly after damaging them grants a permanent stack of bonus Attack Damage, up to a limit, decaying after 70 seconds without a takedown." },
+  //   ],
+  // },
   {
     title: "Hullbreaker",
     category: "PHYSICAL",
@@ -200,16 +200,16 @@ const PHYSICAL_ITEMS = [
       { title: "Boarding Party", desc: "While no allied champions are nearby, gain bonus armor and magic resist and deal bonus damage to structures. Limited to 1 Hullbreaker." },
     ],
   },
-  {
-    title: "Immortal Shieldbow",
-    category: "PHYSICAL",
-    gold: 3000,
-    image: "img/Immortal_Shieldbow_item_HD.png",
-    stats: { AD: 40, ATTACK_SPEED: 15, CRIT: 25, OMNIVAMP: 5 },
-    passives: [
-      { title: "Lifeline", desc: "If damage would reduce you below 35% max health, gain a shield that absorbs damage based on critical strike chance (90s cooldown). Also grants bonus Physical Vamp briefly." },
-    ],
-  },
+  // {
+  //   title: "Immortal Shieldbow",
+  //   category: "PHYSICAL",
+  //   gold: 3000,
+  //   image: "img/Immortal_Shieldbow_item_HD.png",
+  //   stats: { AD: 40, ATTACK_SPEED: 15, CRIT: 25, OMNIVAMP: 5 },
+  //   passives: [
+  //     { title: "Lifeline", desc: "If damage would reduce you below 35% max health, gain a shield that absorbs damage based on critical strike chance (90s cooldown). Also grants bonus Physical Vamp briefly." },
+  //   ],
+  // },
   {
     title: "Lord Dominik's Regards",
     category: "PHYSICAL",
@@ -222,7 +222,7 @@ const PHYSICAL_ITEMS = [
     ],
   },
   {
-    title: "Manamune",
+    title: "(mana1) Manamune",
     category: "PHYSICAL",
     gold: 2500,
     image: "img/Manamune_item_HD.png",
@@ -257,7 +257,7 @@ const PHYSICAL_ITEMS = [
     ],
   },
   {
-    title: "Muramana",
+    title: "(mana2) Muramana",
     category: "PHYSICAL",
     gold: 2700,
     image: "img/Muramana_item_HD.png",
@@ -286,19 +286,19 @@ const PHYSICAL_ITEMS = [
     image: "img/Overlord's_Bloodmail_item_HD.png",
     stats: { AD: 30, HP: 450 },
     passives: [
-      { title: "Tyranny", desc: "Gain bonus Attack Damage equal to 2.5% of bonus Health." },
-      { title: "Retribution", desc: "Gain increased Attack Damage the more missing health you have, up to 9%." },
+      { title: "Tyranny", desc: "Gain bonus Attack Damage equal to 2.5% of bonus Health.", stats: { HP_AD: 2.5 } },
+      { title: "Retribution", desc: "Gain increased Attack Damage the more missing health you have, up to 9%. Maximum Retribution bonus while below 30% health." },
     ],
   },
   {
     title: "Phantom Dancer",
     category: "PHYSICAL",
-    gold: 3000,
+    gold: 2900,
     image: "img/Phantom_Dancer_item_HD.png",
-    stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 30 },
+    stats: { AD: 20, CRIT: 25, ATTACK_SPEED: 40 },
     passives: [
-      { title: "Shadowalk", desc: "Grants +5% bonus Move Speed." },
-      { title: "Spectral Waltz", desc: "Basic attacks grant 7% bonus Move Speed and a stack for 3 seconds, stacking up to 4 times for 25% bonus Attack Speed at max stacks." },
+      { title: "Swift-Foooted", desc: "Grants +5% bonus Move Speed.", stats: { SPEED_PERCENTAGE: 5 } },
+      { title: "Spectral Waltz", desc: "Basic attacks grant 7% bonus Move Speed and 25% Attack Speed for 6s. Bonuses do not stack (10s cooldown, reduced by 1s when your attack hits an enemy." },
     ],
   },
   {
@@ -317,34 +317,33 @@ const PHYSICAL_ITEMS = [
   {
     title: "The Collector",
     category: "PHYSICAL",
-    gold: 2900,
+    gold: 3000,
     image: "img/The_Collector_item_old_HD.png",
-    stats: { AD: 40, CRIT: 25, ARMOR_PEN: 10 },
+    stats: { AD: 45, CRIT: 25 },
     passives: [
-      { title: "Killer", desc: "Grants +10 Armor Penetration." },
-      { title: "Death and Taxes", desc: "Damage that would leave an enemy champion below 5% max Health executes them instead; champion kills grant an additional 25 gold." },
+      { title: "Killer", desc: "Grants +10 Armor Penetration.", stats: { ARMOR_PEN: 10 } },
+      { title: "Death and Taxes", desc: "Damage that would leave an enemy champion below ( 4% + 2% CRIT ) of their max Health executes them instead; permanently increasing the max Health percentage execution threshold by 0.1% and grants 25 bonus gold." },
     ],
   },
   // NOTE: Titanic Hydra does not appear in the current Wild Rift item list (legacy icon suggests it may have been removed) — gold cost and stats below are best-effort from its last documented version.
   {
     title: "Titanic Hydra",
     category: "PHYSICAL",
-    gold: 3300,
+    gold: 3000,
     image: "img/Titanic_Hydra_item_old_HD.png",
     stats: { AD: 40, HP: 450 },
     passives: [
-      { title: "Cleave", desc: "Every 2.5 seconds, your next attack deals bonus physical damage based on max Health and sends out a shockwave dealing physical damage to enemies behind the target." },
-      { title: "Colossus", desc: "Gain Attack Damage equal to 5 + 2.5% of bonus Health." },
+      { title: "Cleave", desc: "Every 1.75 seconds, your next attack deals bonus physical damage equal to 25 plus 3% bonus Health and sends out a shockwave dealing physical damage equal to 80 plus 10% bonus Health to enemies behind the target. Ranged champions do 75% damage." },
     ],
   },
   {
     title: "Sundered Sky",
     category: "PHYSICAL",
-    gold: 3100,
+    gold: 2900,
     image: "img/Sundered_Sky_item_HD.webp",
-    stats: { AD: 45, HP: 400, CD: 10 },
+    stats: { AD: 40, HP: 350, CD: 15 },
     passives: [
-      { title: "Lightshield Strike", desc: "Your next basic attack against a champion critically strikes for 175% damage and heals for 140% base AD plus 6% of missing Health (6s cooldown per target); excess healing becomes temporary bonus Health, stacking up to 5 times." },
+      { title: "Lightshield Strike", desc: "Your next basic attack against a champion critically strikes for 160% damage and heals for 125% base AD plus 6% of missing Health (6s cooldown per target)." },
     ],
   },
   {

@@ -60,7 +60,7 @@ const DEFENSE_ITEMS = [
   },
   // Patch 7.1
   {
-    title: "Fimbulwinter",
+    title: "(mana2) Fimbulwinter",
     category: "DEFENSE",
     gold: 2600,
     image: "img/Fimbulwinter_item_HD.png",
@@ -73,7 +73,7 @@ const DEFENSE_ITEMS = [
   },
   // Patch 7.1
   {
-    title: "Winter's Approach",
+    title: "(mana1) Winter's Approach",
     category: "DEFENSE",
     gold: 2600,
     image: "img/Winter's_Approach_item_HD.png",
