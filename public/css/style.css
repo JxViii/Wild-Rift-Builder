@@ -899,7 +899,15 @@ input[type="number"] {
   .gallery{
     max-width: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 2.5rem;
+  }
+
+  .gallery__grid{
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);  
+    align-items: center;
+
   }
 
   .item-card{
@@ -921,7 +929,8 @@ input[type="number"] {
   }
 
   .patch span{
-    font-size: 0.8rem;
+      font-size: 0.8rem;
+
   }
 
   .blog-footer{
