@@ -1,6 +1,6 @@
 
 const ability = {
-  type: AP,
+  type: STAT_TYPES["AP"],
   base: 185,
   scaling: 85,
 };

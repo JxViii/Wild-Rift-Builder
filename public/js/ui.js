@@ -190,7 +190,8 @@ function renderResults(data) {
   for (const [key, value] of Object.entries(data)) {
     const row = document.createElement("span");
     row.className = "results__stat";
-    row.innerHTML = `${key}: <val>${value}</val>`;
+    const label = STAT_READABLE_NAMES[key] || key;
+    row.innerHTML = `${label}: <val>${value}</val>`;
     statsList.appendChild(row);
   }
   resultsBodyEl.appendChild(statsList);

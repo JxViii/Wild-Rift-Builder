@@ -138,6 +138,13 @@ async function testAbility(){
 
   const { Gold, ...build } = setStats;
 
+  const stats = Object.entries(build)
+              .map(([name, value]) => {
+    return toStatEntry(name,value);
+  })
+
+  console.log(stats);
+
   const test = {
     ability: {
         type: ability.type,
@@ -149,7 +156,7 @@ async function testAbility(){
       R: toStatEntry("MR", dummy.R),
       reduction: dummy.reduction
     },
-    build: build
+    build: stats
   }
 
   const res = await fetch("/api/ability", {
@@ -164,6 +171,8 @@ async function testAbility(){
     showNotice(data.error || "Something went wrong calculating this set.");
     return;
   }
+
+  console.log(data);
 
 }
 
@@ -184,6 +193,16 @@ const main = async () => {
 
   renderSlots();
   renderGallery();
+
+
+   document.addEventListener('keydown', (e) => {
+    console.log(e.key);
+    if (e.key === 'a') {
+      testAbility();
+    }
+  })
+
+
 
 }
 

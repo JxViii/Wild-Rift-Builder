@@ -39,6 +39,9 @@ namespace lol
     const int getType() const { return _type; }
     double getValue() { return _value; }
     double getAdaptativeRatio() { return _adaptative; }
+
+    void setType( int type ) { _type = type ; }
+    void setValue( double value ) { _value = value; }
   };
 
   class Passive
@@ -164,6 +167,9 @@ namespace lol
     int getBaseDamage() { return _base; };
     double getScalingPercentage() { return _scaling; };
     double getPenetrationPercentage() { return _penetration_percentage; };
+
+    double getTotalDamage( lol::Stat stat );
+
   };
 
   class Dummy
@@ -182,6 +188,8 @@ namespace lol
     lol::Stat getResistance() { return _R; };
     double getDamageReductionPercentage() { return _dmg_reduction; };
 
+    double getMitigatedDamage( lol::Ability ability, std::vector<lol::Stat> build );
+
   };
 
   constexpr double CUMULATIVE_PERCENT_REDUCTION(double x, double y)
@@ -191,7 +199,7 @@ namespace lol
 
   constexpr double POST_MITIGATION_DMG(double dmg, double R)
   {
-    return dmg / ((1 + R) / 100);
+    return dmg / (1 + (R / 100));
   };
 
 }

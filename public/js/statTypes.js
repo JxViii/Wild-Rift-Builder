@@ -32,6 +32,42 @@ const STAT_TYPES = {
   MAGIC_VAMP: 101,
 };
 
+
+// TO get the actual output in READABLE data
+
+const STAT_READABLE_NAMES = {
+  AP: "AP",
+  CD: "CD",
+  MAX_MANA: "Max Mana",
+  MANA_REGEN: "Mana Regen",
+  MP: "MP",
+  MP_PERCENTAGE: "MP %",
+  HP: "HP",
+  HP_REGEN: "HP Regen",
+  SPEED: "Movement Speed",
+  SPEED_PERCENTAGE: "Movement Speed %",
+  ATTACK_SPEED: "Attack Speed",
+  AD: "AD",
+  ARMOR_PEN: "Armor Penetration",
+  ARMOR_PEN_PERCENTAGE: "Armor Penetration %",
+  CRIT: "Critical Rate",
+  ARMOR: "Armor",
+  MR: "MR",
+  HEAL: "Heal",
+  OMNIVAMP: "Omnivamp",
+  AP_PERCENTAGE: "AP %",
+  AD_PERCENTAGE: "AD %",
+  ADAPTATIVE: "Adaptative",
+  MANA_AD: "Mana/AD",
+  MANA_AP: "Mana/AP",
+  MANA_HP: "Mana/HP",
+  HP_AP: "HP/AP",
+  HP_AD: "HP/AD",
+  TENACITY: "Tenacity",
+  PHYSICAL_VAMP: "Physical Vamp",
+  MAGIC_VAMP: "Magic Vamp",
+};
+
 // Mirrors token.hpp's item category #defines.
 const ITEM_TYPES = {
   PHYSICAL: 30,

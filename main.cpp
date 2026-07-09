@@ -18,7 +18,7 @@ int main()
   svr.set_mount_point("/", "./public");
 
   svr.Post("/api/attributes", [](const httplib::Request &req, httplib::Response &res)
-  {
+           {
     try
     {
       json body = json::parse(req.body);
@@ -31,20 +31,17 @@ int main()
 
       lol::Set set(objects);
 
-      //! CAMBIAR PRINT PARA QUE LOS [] TENGAN EL NOMBRE DE LA STAT
       nlohmann::ordered_json result = set.print();
 
       res.set_content(result.dump(), "application/json");
     }
-    catch (const std::exception &e)
-    {
+    catch (const std::exception &e){
       res.status = 400;
       res.set_content(json{{"error", e.what()}}.dump(), "application/json");
-    }
-  });
+    } });
 
   svr.Post("/api/ability", [](const httplib::Request &req, httplib::Response &res)
-  {
+           {
     try
     {
       json body = json::parse(req.body);
@@ -66,8 +63,16 @@ int main()
       }
 
       nlohmann::ordered_json result = nlohmann::ordered_json::object();
-      result["received"] = test_build.size();
-      result["build"] = echoedBuild;
+
+      double test_dmg = 0.0;
+      for( lol::Stat &stat : test_build ){
+        if(stat.getType() == test_ability.getType()){
+          test_dmg = test_ability.getTotalDamage(stat);
+        }
+      } 
+
+      result["PRE_MITIGATION_DAMAGE"] = test_dmg;
+      result["POST_MITIGATION_DAMAGE"] = test_dummy.getMitigatedDamage(test_ability, test_build);
 
       res.set_content(result.dump(), "application/json");
     }
@@ -75,8 +80,7 @@ int main()
     {
       res.status = 400;
       res.set_content(json{{"error", e.what()}}.dump(), "application/json");
-    }
-  });
+    } });
 
   const char *portEnv = std::getenv("PORT");
   int port = portEnv ? std::atoi(portEnv) : 8080;
@@ -86,7 +90,6 @@ int main()
 
   return 0;
 }
-
 
 static lol::Stat statFromJson(const json &j)
 {
@@ -134,26 +137,27 @@ static lol::Object objectFromJson(const json &j)
   return lol::Object(bannedSet, gold, type, title, stats, passives);
 }
 
-static lol::Ability abilityFromJson(const json &j){
+static lol::Ability abilityFromJson(const json &j)
+{
 
   int type = j.at("type").get<int>();
   double base = j.at("base").get<double>();
   double scaling = j.at("scaling").get<double>();
 
-  if(j.contains("penetration_percentage")){
+  if (j.contains("penetration_percentage"))
+  {
     return lol::Ability(type, base, scaling, j.at("penetration_percentage"));
   }
 
   return lol::Ability(type, base, scaling);
-
 }
 
-static lol::Dummy dummyFromJson(const json &j){
+static lol::Dummy dummyFromJson(const json &j)
+{
 
   lol::Stat hp = statFromJson(j.at("HP"));
-  lol::Stat R = statFromJson(j.at("HP"));
+  lol::Stat R = statFromJson(j.at("R"));
   double reduction = j.at("reduction").get<double>();
 
   return lol::Dummy(hp, R, reduction);
-
 }

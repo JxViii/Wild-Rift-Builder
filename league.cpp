@@ -184,12 +184,14 @@ double lol::Set::getPen(int type)
   {
     double x = stat.getValue();
 
-    if (x > 0.0 && total != 0.0){
+    if (x > 0.0 && total != 0.0)
+    {
       total = lol::CUMULATIVE_PERCENT_REDUCTION(total, x) * 100;
-    } else {
+    }
+    else
+    {
       total += x;
     }
-
   }
   total = std::round(total * 100.0) / 100.0;
   return total;
@@ -304,51 +306,141 @@ nlohmann::ordered_json lol::Set::print()
   if (cd != 0)
     result["CD"] = cd;
   if (maxMana != 0)
-    result["Max Mana"] = maxMana;
+    result["MAX_MANA"] = maxMana;
   if (manaRegen != 0)
-    result["Mana Regen"] = manaRegen;
+    result["MANA_REGEN"] = manaRegen;
   if (mp != 0)
-    result["Magic Pen"] = mp;
+    result["MP"] = mp;
   if (mpPercentage != 0)
-    result["Magic Pen%"] = mpPercentage;
+    result["MP_PERCENTAGE"] = mpPercentage;
   if (hp != 0)
     result["HP"] = hp;
   if (hpRegen != 0)
-    result["HP Regen"] = hpRegen;
+    result["HP_REGEN"] = hpRegen;
   if (speed != 0)
-    result["Speed"] = speed;
+    result["SPEED"] = speed;
   if (speedPercentage != 0)
-    result["Speed%"] = speedPercentage;
+    result["SPEED_PERCENTAGE"] = speedPercentage;
   if (attackSpeed != 0)
-    result["Attack Speed"] = attackSpeed;
+    result["ATTACK_SPEED"] = attackSpeed;
   if (ad != 0)
     result["AD"] = (int)ad;
   if (armorPen != 0)
-    result["Armor Pen"] = armorPen;
+    result["ARMOR_PEN"] = armorPen;
   if (armorPenPercentage != 0)
-    result["Armor Pen%"] = armorPenPercentage;
+    result["ARMOR_PEN_PERCENTAGE"] = armorPenPercentage;
   if (crit != 0)
-    result["Crit"] = crit;
+    result["CRIT"] = crit;
   if (armor != 0)
-    result["Armor"] = armor;
+    result["ARMOR"] = armor;
   if (mr != 0)
     result["MR"] = mr;
   if (heal != 0)
-    result["Heal"] = heal;
+    result["HEAL"] = heal;
   if (omnivamp != 0)
-    result["Omnivamp"] = omnivamp;
+    result["OMNIVAMP"] = omnivamp;
   if (magicVamp != 0)
-    result["Magic Vamp"] = magicVamp;
+    result["MAGIC_VAMP"] = magicVamp;
   if (physicalVamp != 0)
-    result["Physical Vamp"] = physicalVamp;
+    result["PHYSICAL VAMP"] = physicalVamp;
   if (tenacity != 0)
-    result["Tenacity"] = tenacity;
+    result["TENACITY"] = tenacity;
 
   return result;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 // ABILITY
 ///////////////////////////////////////////////////////////////////////////
 
+double lol::Ability::getTotalDamage(lol::Stat stat)
+{
+  return getBaseDamage() + stat.getValue() * (getScalingPercentage() / 100);
+}
+
+///////////////////////////////////////////////////////////////////////////
+// DUMMY
+///////////////////////////////////////////////////////////////////////////
+
+//! return < flatPen , percentagePen >
+std::pair<double, double> getPenetrationsFromStatsVector(std::vector<lol::Stat> build, lol::Ability ability)
+{
+
+  double flatPen = 0.0;
+  double percentagePen = 0.0;
+
+  if (ability.getType() == AP)
+  {
+    for (lol::Stat &stat : build)
+    {
+      if (stat.getType() == MP)
+      {
+        flatPen = stat.getValue();
+      }
+      else if (stat.getType() == MP_PERCENTAGE)
+      {
+        percentagePen = stat.getValue();
+      }
+    }
+  }
+  else if (ability.getType() == AD)
+  {
+    for (lol::Stat &stat : build)
+    {
+      if (stat.getType() == ARMOR_PEN)
+      {
+        flatPen = stat.getValue();
+      }
+      else if (stat.getType() == ARMOR_PEN_PERCENTAGE)
+      {
+        percentagePen = stat.getValue();
+      }
+    }
+  }
+  else
+  {
+    throw std::invalid_argument("Invalid typing for an ability");
+  }
+
+  return std::pair<double, double>(flatPen, percentagePen);
+}
+
+double lol::Dummy::getMitigatedDamage(lol::Ability ability, std::vector<lol::Stat> build)
+{
+  //? Get the damage of ability.type
+
+  lol::Stat dmg_stat;
+
+  for (lol::Stat &stat : build)
+  {
+    if (ability.getType() == stat.getType())
+    {
+      dmg_stat.setType(stat.getType());
+      dmg_stat.setValue(stat.getValue());
+    }
+  }
+
+  //? Get the pen and %pen of the build -> depends on ability.type
+
+  std::pair<double, double> penetrations = getPenetrationsFromStatsVector(build, ability);
+
+  //? We break the resistance based on porcentual pen and flat pen
+  //? R' = R * (1 - %pen) - flatPen
+
+  double expected_R = getResistance().getValue() * (1 - (penetrations.second / 100)) - penetrations.first;
+
+  //? With the R already computed we apply the post mitigate damage
+  //? DMG' = DMG / (1 + R' / 100)
+
+  double expected_DMG = POST_MITIGATION_DMG(ability.getTotalDamage(dmg_stat), expected_R);
+
+  //? This is basically a check to know if the enemy has Force of Nature
+  //? DMG'' = DMG' * (1 - %Reduction)
+
+  if (getDamageReductionPercentage() != 0.0)
+  {
+    expected_DMG *= (1 - getDamageReductionPercentage() / 100);
+  }
+
+  return expected_DMG;
+}
