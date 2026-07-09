@@ -127,7 +127,7 @@ namespace lol
   {
 
   private:
-    //? 100 + 20%AP,
+    //? 100 + 20% AP,
     int _type;                      // AD / AP
     int _base;                      // 100 base
     double _scaling;                // + %type
