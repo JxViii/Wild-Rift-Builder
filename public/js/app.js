@@ -129,12 +129,45 @@ async function calculate() {
   //!  Asign the result to setStats
   setStats = data;
 
-  console.log(setStats);
-
   renderResults(data);
 }
 
-const main = () => {
+async function testAbility(){
+
+//? TESTING THE ABILITY FEATURE CALC
+
+  const { Gold, ...build } = setStats;
+
+  const test = {
+    ability: {
+        type: ability.type,
+        base: ability.base,
+        scaling: ability.scaling,
+    },
+    dummy: {
+      HP: toStatEntry("HP", dummy.HP),
+      R: toStatEntry("MR", dummy.R),
+      reduction: dummy.reduction
+    },
+    build: build
+  }
+
+  const res = await fetch("/api/ability", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify( test ),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    showNotice(data.error || "Something went wrong calculating this set.");
+    return;
+  }
+
+}
+
+const main = async () => {
 
   calculateBtn.addEventListener("click", calculate);
   clearBtn.addEventListener("click", clearSet);
@@ -148,7 +181,6 @@ const main = () => {
   wrapper.addEventListener("click", () => {
     window.open(wrapper.dataset.url, '_blank');
   })
-
 
   renderSlots();
   renderGallery();

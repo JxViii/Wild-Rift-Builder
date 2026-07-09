@@ -129,15 +129,59 @@ namespace lol
   private:
     //? 100 + 20%AP,
     int _type;                      // AD / AP
-    int _base;                      // 100 base
+    double _base;                   // 100 base
     double _scaling;                // + %type
     double _penetration_percentage; // %type pen
 
   public:
+    Ability(int type, int base, double scaling)
+    {
+      if (type != AP && type != AD)
+      {
+        throw std::invalid_argument("Invalid typing for an ability. Token: " + type);
+      }
+
+      _type = type;
+      _base = base;
+      _scaling = scaling;
+      _penetration_percentage = 0.0;
+    }
+
+    Ability(int type, int base, double scaling, double pentration_percentage)
+    {
+      if (type != AP && type != AD)
+      {
+        throw std::invalid_argument("Invalid typing for an ability. Token: " + type);
+      }
+
+      _type = type;
+      _base = base;
+      _scaling = scaling;
+      _penetration_percentage = pentration_percentage;
+    }
+
     int getType() { return _type; };
     int getBaseDamage() { return _base; };
     double getScalingPercentage() { return _scaling; };
     double getPenetrationPercentage() { return _penetration_percentage; };
+  };
+
+  class Dummy
+  {
+
+  private:
+    lol::Stat _hp;
+    lol::Stat _R;
+    double _dmg_reduction;//%
+
+  public:
+
+    Dummy(lol::Stat hp, lol::Stat R, double dmg_reduction) : _hp(hp), _R(R), _dmg_reduction(dmg_reduction) {}
+
+    lol::Stat getHP() { return _hp; };
+    lol::Stat getResistance() { return _R; };
+    double getDamageReductionPercentage() { return _dmg_reduction; };
+
   };
 
   constexpr double CUMULATIVE_PERCENT_REDUCTION(double x, double y)
