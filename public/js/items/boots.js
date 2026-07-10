@@ -57,7 +57,7 @@ const BOOTS_ITEMS = [
     title: "LIFESTEAL T2: Gluttonous Greaves",
     category: "BOOTS",
     gold: 1000,
-    image: "img/Gluttonous_Greaves_WR_item.webp",
+    image: "img/Gluttonous_Greaves.webp",
     stats: { SPEED: 45 },
     passives: [
       { title: "Balanced of Power", desc: "Gain 12 Attack Damage or 20 Ability Power.", stats: { ADAPTATIVE: { value: 20, ratio: 0.6 } } },
@@ -81,7 +81,7 @@ const BOOTS_ITEMS = [
     title: "LIFESTEAL T3: Immortal Path",
     category: "BOOTS",
     gold: 2000,
-    image: "img/Immortal_Path_item_HD.png",
+    image: "img/Inmortal_Treds.webp",
     stats: { SPEED: 50 },
     passives: [
       { title: "Balanced of Power", desc: "Gain 12 Attack Damage or 20 Ability Power.", stats: { ADAPTATIVE: { value: 20, ratio: 0.6 } }},
@@ -135,7 +135,7 @@ const BOOTS_ITEMS = [
     title: "AD T3: Armor Breaker",
     category: "BOOTS",
     gold: 2200,
-    image: "img/Boots_of_Dynamism.png",
+    image: "img/Armor_Breaker.webp",
     stats: { SPEED: 50, ARMOR_PEN_PERCENTAGE: 6, AD: 25, ARMOR_PEN: 12 },
     passives: [
       { title: "Cloudwalker", desc: "Gain 20 out-of-combat Movement Speed."}

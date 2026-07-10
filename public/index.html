@@ -83,9 +83,9 @@
               </div>
               <div class="skill-card__desc">
                 <p>
-                  This <strong>[...]</Cool></strong>  ability deals <input type="number" id="abilityBase" value="185" class="skill-input" aria-label="Base damage">
+                  This <strong>[...]</Cool></strong>  ability deals <input type="number" id="abilityBase" value="185" min="0" max="2000" class="skill-input" aria-label="Base damage">
                   <span class="skill-dmg-type" id="abilityDmgTypeLabel">magic damage</span>
-                  (+<input type="number" id="abilityScaling" value="85" class="skill-input skill-input--pct" aria-label="Scaling ratio">%
+                  (+<input type="number" id="abilityScaling" value="85" min="0" max="700" class="skill-input skill-input--pct" aria-label="Scaling ratio">%
                   <span class="skill-dmg-type" id="abilityScalingTypeLabel">AP</span>)
                 </p>
               </div>
@@ -102,13 +102,13 @@
               </div>
               <div class="skill-card__desc">
                 <p>
-                  Has <input type="number" id="dummyHp" value="1200" class="skill-input" aria-label="Health"> Health and
-                  <input type="number" id="dummyResistance" value="116" class="skill-input" aria-label="Resistance">
+                  Has <input type="number" id="dummyHp" value="1200" min="1000" max="10000" class="skill-input" aria-label="Health"> Health and
+                  <input type="number" id="dummyResistance" value="116" min="36" max="1000" class="skill-input" aria-label="Resistance">
                   <span class="skill-resistance" id="dummyResistanceLabel">Magic Resistance</span>.
                 </p>
                 <p>
                   Reduces all incoming damage by an additional
-                  <input type="number" id="dummyReduction" value="20" class="skill-input skill-input--pct" aria-label="Damage reduction">%
+                  <input type="number" id="dummyReduction" value="20" min="0" max="100" class="skill-input skill-input--pct" aria-label="Damage reduction">%
                   (<span id="dummyReductionLabel">Magic Resistance</span> Reduction).
                 </p>
               </div>

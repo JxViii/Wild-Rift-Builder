@@ -13,6 +13,21 @@ const dummyResistanceLabelEl = document.getElementById("dummyResistanceLabel");
 const dummyReductionEl = document.getElementById("dummyReduction");
 const dummyReductionLabelEl = document.getElementById("dummyReductionLabel");
 
+function clampSkillInput(el) {
+  let value = Number(el.value);
+  const min = Number(el.min);
+  const max = Number(el.max);
+
+  if (value > max) value = max;
+  else if (value < min || Number.isNaN(value)) value = min;
+
+  el.value = value;
+}
+
+[abilityBaseEl, abilityScalingEl, dummyHpEl, dummyResistanceEl, dummyReductionEl].forEach((el) => {
+  el.addEventListener("input", () => clampSkillInput(el));
+});
+
 function getAbilityInput() {
   return {
     type: STAT_TYPES[abilityTypeEl.value],
