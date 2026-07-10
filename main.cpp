@@ -64,15 +64,13 @@ int main()
 
       nlohmann::ordered_json result = nlohmann::ordered_json::object();
 
-      double test_dmg = 0.0;
-      for( lol::Stat &stat : test_build ){
-        if(stat.getType() == test_ability.getType()){
-          test_dmg = test_ability.getTotalDamage(stat);
-        }
-      } 
+      //! [  DMG, R, DMG', R' ]
+      std::vector<double> data = test_dummy.getMitigatedDamage(test_ability, test_build);
 
-      result["PRE_MITIGATION_DAMAGE"] = test_dmg;
-      result["POST_MITIGATION_DAMAGE"] = test_dummy.getMitigatedDamage(test_ability, test_build);
+      result["PRE_MITIGATION_DAMAGE"] = data.at(0);
+      result["RESISTANCE_BEFORE_PEN"] = data.at(1);
+      result["POST_MITIGATION_DAMAGE"] = data.at(2);
+      result["RESISTANCE_AFTER_PEN"] = data.at(3);
 
       res.set_content(result.dump(), "application/json");
     }

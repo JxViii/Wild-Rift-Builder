@@ -188,7 +188,7 @@ namespace lol
     lol::Stat getResistance() { return _R; };
     double getDamageReductionPercentage() { return _dmg_reduction; };
 
-    double getMitigatedDamage( lol::Ability ability, std::vector<lol::Stat> build );
+    std::vector<double> getMitigatedDamage( lol::Ability ability, std::vector<lol::Stat> build );
 
   };
 

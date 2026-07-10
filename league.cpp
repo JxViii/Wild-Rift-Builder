@@ -405,9 +405,13 @@ std::pair<double, double> getPenetrationsFromStatsVector(std::vector<lol::Stat> 
   return std::pair<double, double>(flatPen, percentagePen);
 }
 
-double lol::Dummy::getMitigatedDamage(lol::Ability ability, std::vector<lol::Stat> build)
+
+//! return [  DMG, R, DMG', R' ]
+std::vector<double> lol::Dummy::getMitigatedDamage(lol::Ability ability, std::vector<lol::Stat> build)
 {
   //? Get the damage of ability.type
+
+  std::vector<double> results;
 
   lol::Stat dmg_stat;
 
@@ -419,6 +423,8 @@ double lol::Dummy::getMitigatedDamage(lol::Ability ability, std::vector<lol::Sta
       dmg_stat.setValue(stat.getValue());
     }
   }
+
+  double DMG = ability.getTotalDamage(dmg_stat);
 
   //? Get the pen and %pen of the build -> depends on ability.type
 
@@ -442,5 +448,10 @@ double lol::Dummy::getMitigatedDamage(lol::Ability ability, std::vector<lol::Sta
     expected_DMG *= (1 - getDamageReductionPercentage() / 100);
   }
 
-  return expected_DMG;
+  results.push_back(DMG);
+  results.push_back(getResistance().getValue());
+  results.push_back(expected_DMG);
+  results.push_back(expected_R);
+
+  return results;
 }

@@ -23,6 +23,15 @@ const noticeEl = document.getElementById("notice");
 const itemTooltipEl = document.getElementById("itemTooltip");
 const calculateBtn = document.getElementById("calculate");
 const clearBtn = document.getElementById("clear");
+const modeToggleEl = document.getElementById("modeToggle");
+const itemsViewEl = document.getElementById("itemsView");
+const calculatorViewEl = document.getElementById("calculatorView");
+const calculateAbilityBtn = document.getElementById("calculateAbility");
+const dmgFinalEl = document.getElementById("dmgFinal");
+const dmgPreEl = document.getElementById("dmgPre");
+const dmgPostEl = document.getElementById("dmgPost");
+const dmgResistanceBeforeEl = document.getElementById("dmgResistanceBefore");
+const dmgResistanceAfterEl = document.getElementById("dmgResistanceAfter");
 
 function showNotice(message) {
   noticeEl.textContent = message;
@@ -31,6 +40,15 @@ function showNotice(message) {
 
 function clearNotice() {
   noticeEl.hidden = true;
+}
+
+function setMode(mode) {
+  itemsViewEl.hidden = mode !== "items";
+  calculatorViewEl.hidden = mode !== "calculator";
+
+  [...modeToggleEl.children].forEach((btn) => {
+    btn.classList.toggle("is-active", btn.dataset.mode === mode);
+  });
 }
 
 function addItem(item) {
@@ -134,7 +152,7 @@ async function calculate() {
 
 async function testAbility(){
 
-//? TESTING THE ABILITY FEATURE CALC
+//? ABILITY DAMAGE CALCULATOR
 
   const { Gold, ...build } = setStats;
 
@@ -143,18 +161,20 @@ async function testAbility(){
     return toStatEntry(name,value);
   })
 
-  console.log(stats);
+  const abilityInput = getAbilityInput();
+  const dummyInput = getDummyInput();
+  const resistanceName = abilityInput.type === STAT_TYPES.AD ? "ARMOR" : "MR";
 
   const test = {
     ability: {
-        type: ability.type,
-        base: ability.base,
-        scaling: ability.scaling,
+        type: abilityInput.type,
+        base: abilityInput.base,
+        scaling: abilityInput.scaling,
     },
     dummy: {
-      HP: toStatEntry("HP", dummy.HP),
-      R: toStatEntry("MR", dummy.R),
-      reduction: dummy.reduction
+      HP: toStatEntry("HP", dummyInput.hp),
+      R: toStatEntry(resistanceName, dummyInput.resistance),
+      reduction: dummyInput.reduction
     },
     build: stats
   }
@@ -172,14 +192,19 @@ async function testAbility(){
     return;
   }
 
-  console.log(data);
-
+  dmgPreEl.textContent = data.PRE_MITIGATION_DAMAGE.toFixed(0);
+  dmgPostEl.textContent = data.POST_MITIGATION_DAMAGE.toFixed(0);
+  dmgResistanceBeforeEl.textContent = data.RESISTANCE_BEFORE_PEN.toFixed(0);
+  dmgResistanceAfterEl.textContent = data.RESISTANCE_AFTER_PEN.toFixed(0);
+  dmgFinalEl.textContent = data.POST_MITIGATION_DAMAGE.toFixed(0);
 }
 
 const main = async () => {
 
   calculateBtn.addEventListener("click", calculate);
   clearBtn.addEventListener("click", clearSet);
+  calculateAbilityBtn.addEventListener("click", testAbility);
+  abilityTypeEl.addEventListener("change", updateAbilityTypeUI);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
@@ -191,9 +216,15 @@ const main = async () => {
     window.open(wrapper.dataset.url, '_blank');
   })
 
+  modeToggleEl.addEventListener("click", (e) => {
+    const btn = e.target.closest(".mode-toggle__option");
+    if (btn) setMode(btn.dataset.mode);
+  });
+
   renderSlots();
   renderGallery();
-
+  setMode("items");
+  updateAbilityTypeUI();
 
    document.addEventListener('keydown', (e) => {
     console.log(e.key);

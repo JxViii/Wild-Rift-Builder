@@ -52,11 +52,121 @@
     </div>
 
     <section class="results" id="results" hidden>
-      <!-- <button type="button" class="results__close" id="resultsClose" title="Hide results">×</button> -->
       <div class="results__body" id="resultsBody"></div>
     </section>
 
-    <section class="gallery" id="gallery"></section>
+    <div class="mode-toggle" id="modeToggle">
+      <button type="button" class="mode-toggle__option is-active" data-mode="items">Items</button>
+      <button type="button" class="mode-toggle__option" data-mode="calculator">Calculator</button>
+    </div>
+
+    <div class="view view--items" id="itemsView" hidden>
+      <section class="gallery" id="gallery"></section>
+    </div>
+
+    <div class="view view--calculator" id="calculatorView">
+
+      <div class="calculator__wrapper">
+
+        <div class="calculator__grid">
+          <div class="calculator__ability skill-card">
+            <div class="skill-card__header">
+              <h2 class="skill-card__name">Test Ability</h2>
+              <select id="abilityType" class="skill-card__type-select">
+                <option value="AP">AP</option>
+                <option value="AD">AD</option>
+              </select>
+            </div>
+            <div class="skill-card__body">
+              <div class="skill-card__icon skill-card__icon--ability">
+                <img src="img/icon.png" alt="Practice Dummy">
+              </div>
+              <div class="skill-card__desc">
+                <p>
+                  This <strong>[...]</Cool></strong>  ability deals <input type="number" id="abilityBase" value="185" class="skill-input" aria-label="Base damage">
+                  <span class="skill-dmg-type" id="abilityDmgTypeLabel">magic damage</span>
+                  (+<input type="number" id="abilityScaling" value="85" class="skill-input skill-input--pct" aria-label="Scaling ratio">%
+                  <span class="skill-dmg-type" id="abilityScalingTypeLabel">AP</span>)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator__dummy skill-card">
+            <div class="skill-card__header">
+              <h2 class="skill-card__name">Practice Dummy</h2>
+            </div>
+            <div class="skill-card__body">
+              <div class="skill-card__icon skill-card__icon--dummy">
+                <img src="img/dummy.webp" alt="Practice Dummy">
+              </div>
+              <div class="skill-card__desc">
+                <p>
+                  Has <input type="number" id="dummyHp" value="1200" class="skill-input" aria-label="Health"> Health and
+                  <input type="number" id="dummyResistance" value="116" class="skill-input" aria-label="Resistance">
+                  <span class="skill-resistance" id="dummyResistanceLabel">Magic Resistance</span>.
+                </p>
+                <p>
+                  Reduces all incoming damage by an additional
+                  <input type="number" id="dummyReduction" value="20" class="skill-input skill-input--pct" aria-label="Damage reduction">%
+                  (<span id="dummyReductionLabel">Magic Resistance</span> Reduction).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="calculateAbility" class="calculator__calculate">
+          <div class="button-title">Calculate Damage</div>
+          <div class="button-hover"></div>
+        </button>
+
+        <div class="calculator__dmg">
+          <p>
+            Your <strong>Ability</strong> would deal <strong class="type"><span id="dmgFinal">___</span> damage</strong> with this <strong>Build</strong> against this <strong>Dummy</strong>
+          </p>
+
+          <div class="calculator__data skill-card">
+            <div class="skill-card__header">
+              <h3 class="skill-card__name">Damage Breakdown</h3>
+            </div>
+            <div class="skill-card__body skill-card__body--stats">
+              <p>Resistence before applying Penetration: <strong id="dmgResistanceBefore" class="stat-value stat-value--resistance">___</strong></p>
+              <p>Total Ability Damage: <strong id="dmgPre" class="stat-value stat-value--type">___</strong></p>
+              <p>Resistence after applying Penetration: <strong id="dmgResistanceAfter" class="stat-value stat-value--resistance">___</strong></p>
+              <p>Ability Damage Post Mitigation: <strong id="dmgPost" class="stat-value stat-value--type">___</strong></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="calculator__info">
+        <p>
+          This is a simple calculator in order to give an estimation
+          on how the stats you get on your build actually work. We don't want
+          this calculator to be taken as something absurdly complex, just a quick way
+          for you to check if its better to build penetration or raw damage in some scenarios.
+        </p>
+        <p>
+          We simulate an <strong>ability's damage</strong> against a <strong>practice dummy</strong>
+        </p>
+        <h3>Ability parameters</h3>
+        <ul>
+          <li>Type of damage</li>
+          <li>Base damage</li>
+          <li>Scaling ratio</li>
+        </ul>
+        <h3>Dummy parameters</h3>
+        <ul>
+          <li>Resistence (Armor | MR)</li>
+          <li>Incoming Damage Reduction</li>
+          <p>This last one works as a way to say: enemy has the passive of <strong>Force of Nature</strong>, he reduces incoming damage by X%</p>
+        </ul>
+        <p>If you have any doubts, feel free to text us on <strong>Discord</strong></p>
+      </div>
+    </div>
+
 
     <div class="item-tooltip" id="itemTooltip" hidden></div>
   </main>
