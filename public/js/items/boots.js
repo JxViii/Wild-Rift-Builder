@@ -15,7 +15,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Armored_Advance_item_HD.png",
-    stats: { ARMOR: 35, SPEED: 50, HP: 150 },
+    stats: { ARMOR: 35, SPEED: 45, HP: 150 },
     passives: [
       { title: "Block", desc: "Basic attacks from champions deal 10% reduced damage to you." },
       { title: "Noxian Endurance", desc: "aking physical damage from champions grants a physical shield equal to 20 - 140 (based on level) + 5% of your max Health. (12-second cooldown)" },
@@ -35,7 +35,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Chainlaced_Crushers_item_HD.png",
-    stats: { MR: 35, SPEED: 50, TENACITY: 30, HP: 150 },
+    stats: { MR: 35, SPEED: 45, TENACITY: 30, HP: 150 },
     passives: [
       { title: "Noxian Persistence", desc: "Taking magic damage from champions grants a magic shield equal to 20 - 140 (based on level) + 5% of your max Health (12-second cooldown)." },
     ],
@@ -46,7 +46,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2000,
     image: "img/Crimson_Lucidity_item_HD.png",
-    stats: { CD: 25, SPEED: 50, MANA_REGEN: 75 },
+    stats: { CD: 25, SPEED: 45, MANA_REGEN: 75 },
     passives: [
       { title: "Summoned", desc: "Grants 20 Summoner Spell Haste." },
       { title: "Noxian Haste", desc: "After damaging an enemy champion with an ability, shielding or healing an allied champion, or casting a Summoner Spell, gain 10% (melee) / 8% (ranged) Movement Speed for 4 seconds. The same ability can only trigger this once every 4 seconds." },
@@ -70,7 +70,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Gunmetal_Greaves_item_HD.png",
-    stats: { ATTACK_SPEED: 50, SPEED: 50, PHYSICAL_VAMP: 5 },
+    stats: { ATTACK_SPEED: 50, SPEED: 45, PHYSICAL_VAMP: 5 },
     passives: [
       { title: "Blessed blade", desc: "Basic attacks restore 12 Health on hit." },
       { title: "Noxian Gait", desc: "When your basic attacks hit champions, gain 15% (melee) / 10% (ranged) burst Movement Speed for 2 seconds."}
@@ -82,7 +82,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2000,
     image: "img/Inmortal_Treds.webp",
-    stats: { SPEED: 50 },
+    stats: { SPEED: 45 },
     passives: [
       { title: "Balanced of Power", desc: "Gain 12 Attack Damage or 20 Ability Power.", stats: { ADAPTATIVE: { value: 20, ratio: 0.6 } }},
       { title: "Convertion", desc: "Gain 5% Omnivamp + 0.5% Omnivamp for each takedown participation, up to an additional 5% and a maximum of 10% Omnivamp.", stats: { OMNIVAMP: 5 } },
@@ -95,7 +95,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 1000,
     image: "img/Ionian_Boots_of_Lucidity_item_HD.png",
-    stats: { SPEED: 50, CD: 25, MANA_REGEN: 75 },
+    stats: { SPEED: 45, CD: 25, MANA_REGEN: 75 },
     passives: [
       { title: "Summoned", desc: "Reduces summoner spell cooldowns by 20%." },
       { title: "Sprint", desc: "Active: increases movement speed for a few seconds, removed on taking or dealing damage to champions." },
@@ -136,7 +136,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Armor_Breaker.webp",
-    stats: { SPEED: 50, ARMOR_PEN_PERCENTAGE: 6, AD: 25, ARMOR_PEN: 12 },
+    stats: { SPEED: 45, ARMOR_PEN_PERCENTAGE: 6, AD: 25, ARMOR_PEN: 12 },
     passives: [
       { title: "Cloudwalker", desc: "Gain 20 out-of-combat Movement Speed."}
     ],
@@ -147,7 +147,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Spellslinger's_Shoes_item.webp",
-    stats: { SPEED: 50, AP: 40, MANA_REGEN: 100, MP: 18, MP_PERCENTAGE: 8 },
+    stats: { SPEED: 45, AP: 40, MANA_REGEN: 100, MP: 18, MP_PERCENTAGE: 8 },
     passives: [
       { title: "Big Bully", desc: "Basic attacks and active abilities deal an additional 22 true damage to minions." },
     ],
