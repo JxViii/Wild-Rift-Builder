@@ -194,8 +194,13 @@ namespace lol
 
   constexpr double CUMULATIVE_PERCENT_REDUCTION(double x, double y)
   {
-    return x / 100.0 + y / 100.0 - (x / 100.0) * (y / 100.0);
+    return x / 100.0 + y / 100.0;
   };
+
+  // constexpr double CUMULATIVE_PERCENT_REDUCTION(double x, double y)
+  // {
+  //   return x / 100.0 + y / 100.0 - (x / 100.0) * (y / 100.0);
+  // };
 
   constexpr double POST_MITIGATION_DMG(double dmg, double R)
   {

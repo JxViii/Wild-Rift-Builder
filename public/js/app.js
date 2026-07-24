@@ -310,13 +310,13 @@ const main = async () => {
     }
   })
 
-  // ! TF TESTING
+  //! TF TESTING
 
-  // document.addEventListener('keydown', (e) => {
-  //   if (e.key === 't') {
-  //     twisted_fate();
-  //   }
-  // })
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 't') {
+      twisted_fate();
+    }
+  })
 
 
 }

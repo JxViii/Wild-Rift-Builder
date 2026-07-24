@@ -1,5 +1,5 @@
 
-// ! Twisted fate values
+//! Twisted fate values
 
 const AD_SCALE = {
   11: 77,
