@@ -1,6 +1,14 @@
 // Magic items — part of the ITEMS catalog (see items.js).
 const MAGIC_ITEMS = [
   {
+    title: "Amplyfing Tome",
+    category: "MAGIC",
+    gold: 500,
+    image: "img/Amplifying_Tome_item.webp",
+    stats: { AP: 20 },
+    passives: [],
+  },
+  {
     title: "Rabadon's Deathcap",
     category: "MAGIC",
     gold: 3400,

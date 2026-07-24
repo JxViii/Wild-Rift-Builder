@@ -150,16 +150,16 @@ async function calculate() {
   renderResults(data);
 }
 
-async function testAbility(){
+async function testAbility() {
 
-//? ABILITY DAMAGE CALCULATOR
+  //? ABILITY DAMAGE CALCULATOR
 
   const { Gold, ...build } = setStats;
 
   const stats = Object.entries(build)
-              .map(([name, value]) => {
-    return toStatEntry(name,value);
-  })
+    .map(([name, value]) => {
+      return toStatEntry(name, value);
+    })
 
   const abilityInput = getAbilityInput();
   const dummyInput = getDummyInput();
@@ -167,9 +167,9 @@ async function testAbility(){
 
   const test = {
     ability: {
-        type: abilityInput.type,
-        base: abilityInput.base,
-        scaling: abilityInput.scaling,
+      type: abilityInput.type,
+      base: abilityInput.base,
+      scaling: abilityInput.scaling,
     },
     dummy: {
       HP: toStatEntry("HP", dummyInput.hp),
@@ -182,7 +182,7 @@ async function testAbility(){
   const res = await fetch("/api/ability", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify( test ),
+    body: JSON.stringify(test),
   });
 
   const data = await res.json();
@@ -197,6 +197,83 @@ async function testAbility(){
   dmgResistanceBeforeEl.textContent = data.RESISTANCE_BEFORE_PEN.toFixed(0);
   dmgResistanceAfterEl.textContent = data.RESISTANCE_AFTER_PEN.toFixed(0);
   dmgFinalEl.textContent = data.POST_MITIGATION_DAMAGE.toFixed(0);
+}
+
+async function testAbilityTesting(abilityX, MR) {
+
+  const { Gold, ...build } = setStats;
+
+  const stats = Object.entries(build)
+    .map(([name, value]) => {
+      return toStatEntry(name, value);
+    })
+
+  const abilityInput = getAbilityInput();
+  const dummyInput = getDummyInput();
+  const resistanceName = abilityInput.type === STAT_TYPES.AD ? "ARMOR" : "MR";
+
+  const test = {
+    ability: {
+      type: abilityX.type,
+      base: abilityX.base,
+      scaling: abilityX.scaling,
+    },
+    dummy: {
+      HP: toStatEntry("HP", dummyInput.hp),
+      R: toStatEntry(resistanceName, MR),
+      reduction: 0
+    },
+    build: stats
+  }
+
+  const res = await fetch("/api/ability", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(test),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    showNotice(data.error || "Something went wrong calculating this set.");
+    return;
+  }
+
+  return data.POST_MITIGATION_DAMAGE;
+}
+
+
+const twisted_fate = async () => {
+
+  console.log(" ");
+  console.log(" ");
+  console.log(" ");
+
+  for(let MR=40; MR !== 150; MR+=10){
+
+    const Q_dmg = await testAbilityTesting(Q, MR);
+    const W_dmg = await testAbilityTesting(yellow, MR);
+    const liche_dmg = await testAbilityTesting(liche, MR);
+    const E_dmg = await testAbilityTesting(E, MR);
+    const nashors_dmg = await testAbilityTesting(nashor, MR);
+
+    const AA = AD_SCALE[13] * 0.5;
+
+    const n_AA = AA + nashors_dmg;
+
+    // console.log("W: ", W_dmg);
+    // console.log("Liche: ", liche_dmg);
+    // console.log("Q: ", Q_dmg);
+    // console.log("E: ", E_dmg);
+    // console.log("auto: ", AD_SCALE[15] * 0.5);
+
+    // ! Intended combo: W(stun) E Q AA AA AA AA E
+
+    const sum = W_dmg + liche_dmg + nashors_dmg + E_dmg + Q_dmg + n_AA + n_AA + n_AA + n_AA + E_dmg;
+
+    console.log("Combo: ", sum, " MR: ", MR);  
+  }
+
 }
 
 const main = async () => {
@@ -226,13 +303,20 @@ const main = async () => {
   setMode("items");
   updateAbilityTypeUI();
 
-   document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', (e) => {
     console.log(e.key);
     if (e.key === 'a') {
       testAbility();
     }
   })
 
+  // ! TF TESTING
+
+  // document.addEventListener('keydown', (e) => {
+  //   if (e.key === 't') {
+  //     twisted_fate();
+  //   }
+  // })
 
 
 }
