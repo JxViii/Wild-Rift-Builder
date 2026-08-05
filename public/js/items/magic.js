@@ -25,7 +25,7 @@ const MAGIC_ITEMS = [
     image: "img/Luden's_Tempest_item_HD.png",
     stats: { AP: 100, MAX_MANA: 500, CD: 10 },
     passives: [
-      { title: "Discordic Echo", desc: "Damaging an enemy with an ability deals bonus magic damage 110 + 10%AP. (10s cooldown)" },
+      { title: "Discordic Echo", desc: "Damaging an enemy with an ability deals bonus magic damage 140 + 15%AP. (9s cooldown)" },
     ],
   },
   {

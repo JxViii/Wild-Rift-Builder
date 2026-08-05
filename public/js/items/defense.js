@@ -128,10 +128,10 @@ const DEFENSE_ITEMS = [
   {
     title: "Iceborn Gauntlet",
     category: "DEFENSE",
-    gold: 3100,
+    gold: 3000,
     image: "img/Iceborn_Gauntlet_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { HP: 250, MAX_MANA: 250, ARMOR: 50, CD: 30 },
+    stats: { HP: 300, MAX_MANA: 250, ARMOR: 50, CD: 30 },
     passives: [
       { title: "Spellblade", desc: "After using an ability, your next basic attack (within 10 seconds) deals bonus physical damage on-hit equal to (100% base ad + 25% bonus armor) to surrounding enemies and creates an icy field for 2 seconds that slows them by 30%. Armor increases the size of the icy field (1.5s CD) Damage is reduced vs structures." },
     ],

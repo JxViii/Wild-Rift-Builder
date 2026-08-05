@@ -220,7 +220,7 @@ const PHYSICAL_ITEMS = [
     gold: 3300,
     image: "img/Lord_Dominik's_Regards_item_HD.png",
     bannedSet: ["FATALITY"],
-    stats: { AD: 25, CRIT: 25, ARMOR_PEN_PERCENTAGE: 36 },
+    stats: { AD:30, CRIT: 25, ARMOR_PEN_PERCENTAGE: 36 },
     passives: [
       { title: "Giant Slayer", desc: "Deal increased damage against champions based on their bonus health, max 12% bonus damage when enemy chmapion has 1200 bonus health." },
     ],
@@ -285,7 +285,7 @@ const PHYSICAL_ITEMS = [
   {
     title: "Navori Flickerblade",
     category: "PHYSICAL",
-    gold: 2800,
+    gold: 2700,
     image: "img/Navori_Quickblades_WR_item.webp",
     stats: { ATTACK_SPEED: 40, CRIT: 25, SPEED_PERCENTAGE: 5 },
     passives: [
@@ -423,7 +423,7 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Magnetic_Blaster_WR_item.webp",
-    stats: { AD: 25, CRIT: 25, ATTACK_SPEED: 25 },
+    stats: { AD: 30, CRIT: 25, ATTACK_SPEED: 25 },
     passives: [
       { title: "Fervor", desc: "+ 5% Movement Speed.", stats: {SPEED_PERCENTAGE: 5}},
       { title: "Energized", desc: "Moving and attacking will generate an Energized Attack."},
