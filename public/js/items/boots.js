@@ -6,7 +6,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 1200,
     image: "img/Mercury's_Treads_item_HD.png",
-    stats: { MR: 25, SPEED: 45, HP: 150, TENACITY: 15 },
+    stats: { MR: 25, SPEED: 45, HP: 150, TENACITY: 30 },
     passives: [],
   },
   // NOTE: TABIS TIER 3
@@ -15,7 +15,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Armored_Advance_item_HD.png",
-    stats: { ARMOR: 35, SPEED: 45, HP: 150 },
+    stats: { ARMOR: 30, SPEED: 45, HP: 150 },
     passives: [
       { title: "Block", desc: "Basic attacks from champions deal 10% reduced damage to you." },
       { title: "Noxian Endurance", desc: "aking physical damage from champions grants a physical shield equal to 20 - 140 (based on level) + 5% of your max Health. (12-second cooldown)" },
@@ -27,7 +27,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 1200,
     image: "img/Berserker's_Greaves_item_HD.png",
-    stats: { ATTACK_SPEED: 30, SPEED: 45 },
+    stats: { ATTACK_SPEED: 35, SPEED: 45 },
   },
   // NOTE: MERCS TIER 3
   {
@@ -35,7 +35,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Chainlaced_Crushers_item_HD.png",
-    stats: { MR: 35, SPEED: 45, TENACITY: 30, HP: 150 },
+    stats: { MR: 30, SPEED: 45, TENACITY: 30, HP: 150 },
     passives: [
       { title: "Noxian Persistence", desc: "Taking magic damage from champions grants a magic shield equal to 20 - 140 (based on level) + 5% of your max Health (12-second cooldown)." },
     ],
@@ -73,7 +73,7 @@ const BOOTS_ITEMS = [
     stats: { ATTACK_SPEED: 50, SPEED: 45, PHYSICAL_VAMP: 5 },
     passives: [
       { title: "Blessed blade", desc: "Basic attacks restore 12 Health on hit." },
-      { title: "Noxian Gait", desc: "When your basic attacks hit champions, gain 15% (melee) / 10% (ranged) burst Movement Speed for 2 seconds."}
+      { title: "Noxian Gait", desc: "When your basic attacks hit champions, gain 10% (melee) / 7% (ranged) burst Movement Speed for 2 seconds."}
     ],
   },
   //  NOTE: OMNIVAMP TIER 3
@@ -109,7 +109,7 @@ const BOOTS_ITEMS = [
     image: "img/Plated_Steelcaps_item_HD.png",
     stats: { SPEED: 45, ARMOR: 25},
     passives: [
-      { title: "Block", desc: "Reduces all damage from basic attacks by 6%." },
+      { title: "Block", desc: "Reduces all damage from basic attacks by 10%." },
     ],
   },
   // NOTE: AP
@@ -147,9 +147,9 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Spellslinger's_Shoes_item.webp",
-    stats: { SPEED: 45, AP: 40, MANA_REGEN: 100, MP: 18, MP_PERCENTAGE: 8 },
+    stats: { SPEED: 45, AP: 35, MANA_REGEN: 100, MP: 18, MP_PERCENTAGE: 8 },
     passives: [
-      { title: "Big Bully", desc: "Basic attacks and active abilities deal an additional 22 true damage to minions." },
+      { title: "Big Bully", desc: "Basic attacks and active abilities deal an additional 18 true damage to minions." },
     ],
   },
 ];

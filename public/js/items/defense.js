@@ -142,9 +142,9 @@ const DEFENSE_ITEMS = [
     category: "DEFENSE",
     gold: 2800,
     image: "img/Kaenic_Rookern_item_HD.png",
-    stats: { HP: 350, MR: 75, HP_REGEN: 100 },
+    stats: { HP: 350, MR: 80, HP_REGEN: 100 },
     passives: [
-      { title: "Magebane", desc: "After not taking magic damage for 12 seconds, gain a magic shield that absorbs damage equal to 70-180 (+ 10% of max hp)." },
+      { title: "Magebane", desc: "After not taking magic damage for 12 seconds, gain a magic shield that absorbs damage equal to 50-150 (+ 14% of max hp)." },
     ],
   },
   // {
@@ -175,7 +175,7 @@ const DEFENSE_ITEMS = [
     gold: 2900,
     image: "img/Sunfire_Aegis_item_HD.webp",
     bannedSet: ["BURN"],
-    stats: { HP: 425, ARMOR: 20, CD: 15 },
+    stats: { HP: 350, ARMOR: 40, CD: 15 },
     passives: [
       { title: "Immolate", desc: "While in combat, deal magic dmg equal to 16-25 (+0.8% of your bonus hp) per second. Damaging champs or epic monsters with Immolate increases the dmg they take by 5% for 5 seconds. stacking up to 6 times." },
       { title: "Flametouch", desc: " At max Immolate stacks, attacks burn enemies around you for 50% of Immolate's dmg over 3 segs. Immolate deals 130% dmg to monsters and 175-250% to minions." }

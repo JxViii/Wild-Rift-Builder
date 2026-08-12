@@ -37,7 +37,7 @@ const ACTIVE_ITEMS = [
     category: "ACTIVE",
     gold: 3100,
     image: "img/Stridebreaker.webp",
-    stats: { AD: 40, HP: 400, ATTACK_SPEED: 15 },
+    stats: { AD: 40, HP: 400, ATTACK_SPEED: 25 },
     passives: [
       { title: "Breaking Shockwave", desc: "Active: Dash a short distance forward and deal physical damage equal to 100% Attack Damage to nearby enemies. Enemies hit are slowed by 40% for 3s. (25s cooldown" },
       { title: "Stride", desc: "Dealing physical damage grants 20 Movement Speed for 2s"}
@@ -99,9 +99,9 @@ const ACTIVE_ITEMS = [
     category: "ACTIVE",
     gold: 2500,
     image: "img/Mikael's_Blessing_item_HD.png",
-    stats: { HP: 300, MANA_REGEN: 50, HEAL: 6, CD: 15 },
+    stats: { HP: 300, MANA_REGEN: 50, HEAL: 9, CD: 15 },
     passives: [
-      { title: "Cleanse", desc: "Active: Remove all crowd control effects from the target champion and make them immune to all crowd control except suppression and airborne effects for 0.2s. Also heals the target for 150-250 Health. (90s cooldown)" },
+      { title: "Cleanse", desc: "Active: Remove all crowd control effects from the target champion and make them immune to all crowd control except suppression and airborne effects for 0.2s. Also heals the target for 150-250 Health. (75s cooldown)" },
     ],
   },
   // NOTE: gold cost uncertain for the Wild Rift version — value below is carried over from PC LoL's Shurelya's Battlesong recipe cost, verify in-game.
