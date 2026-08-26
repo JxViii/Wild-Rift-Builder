@@ -276,7 +276,7 @@ const MAGIC_ITEMS = [
   {
     title: "Stormsurge",
     category: "MAGIC",
-    gold: 2900,
+    gold: 2800,
     image: "img/Stormsurge_item_HD.webp",
     stats: { AP: 90, SPEED_PERCENTAGE: 6, MP: 15 },
     passives: [

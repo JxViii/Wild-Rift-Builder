@@ -139,7 +139,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["SPELLSHIELD"],
     stats: { AD: 50, HP: 250 },
     passives: [
-      { title: "Gouge", desc: "+8 Armor Penetration.", stats: {ARMOR_PEN: 8} },
+      { title: "Gouge", desc: "+12 Armor Penetration.", stats: {ARMOR_PEN: 12} },
       { title: "Annul", desc: "Grants a spell shield that blocks the next enemy ability (35s de enfriamiento)."},
     ],
   },
