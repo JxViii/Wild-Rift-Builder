@@ -143,7 +143,7 @@ const PHYSICAL_ITEMS = [
     title: "Essence Reaver",
     category: "PHYSICAL",
     gold: 3000,
-    image: "img/Essence_Reaver_WR_item.webp",
+    image: "img/Essence_Reaver_item_HD.png",
     bannedSet: ["SPELLBLADE"],
     stats: { AD: 50, CRIT: 25, CD: 20 },
     passives: [
