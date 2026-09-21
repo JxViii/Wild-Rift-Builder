@@ -11,7 +11,7 @@ const DEFENSE_ITEMS = [
       { title: "Resurrect", desc: "Upon taking lethal damage, restore 50% base HP and 100% MAX MANA after 4 seconds of extasis. (180s cooldown)" },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Force of Nature",
     category: "DEFENSE",
@@ -20,21 +20,21 @@ const DEFENSE_ITEMS = [
     stats: { MR: 60, HP: 400 },
     passives: [
       { title: "Storm", desc: "+ 5% Movement Speed.", stats: { SPEED_PERCENTAGE: 5 } },
-      { title: "Absorb", desc: "Taking magic damage from enemy champions grants 1 Steadfast stack, up to 4, for 7 seconds. Dealing damage to enemy champions refreshes the duration. At max stacks, gain 6% Movement Speed and 70 bonus Magic Resist." },
+      { title: "Absorb", desc: "Taking magic damage from enemy champions grants 1 Steadfast stack, up to 4, for 7 seconds. Dealing damage to an enemy champions refreshes the duration of the stacks. At maximum stacks, gain 6% Movement Speed and 70 bonus Magic Resist." },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Frozen Heart",
     category: "DEFENSE",
-    gold: 2550,
+    gold: 2650,
     image: "img/Frozen_Heart_item_HD.png",
     stats: { ARMOR: 80, MAX_MANA: 400, CD: 20 },
     passives: [
       { title: "Winter's Caress", desc: "All enemy champions within 650 units lose 25% Attack Speed." },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Abyssal Mask",
     category: "DEFENSE",
@@ -45,15 +45,14 @@ const DEFENSE_ITEMS = [
       { title: "Unmake", desc: "All enemy champions within 6.5 meters take 12% increased magic damage." },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Dead Man's Plate",
     category: "DEFENSE",
     gold: 2800,
     image: "img/Dead_Man's_Plate_item_HD.png",
-    stats: { ARMOR: 70, HP: 350 },
+    stats: { ARMOR: 70, HP: 350, SPEED_PERCENTAGE: 4 },
     passives: [
-      { title: "Relentless", desc: "+4% Movement Speed", stats: { SPEED_PERCENTAGE: 4 } },
       { title: "Momentum", desc: "Moving builds Momentum, granting up to 40 bonus Move Speed at 100 stacks. Attacking removes all Momentum. Stacks decay when movement is impaired." },
       { title: "Crushing Blow", desc: "Attacks deal up to 100 bonus ap dmg based on Momentum removed. Melee attacks with max Momentum slow by 75% for 1 second." }
     ],
@@ -71,7 +70,7 @@ const DEFENSE_ITEMS = [
   //     { title: "Frozen Colossus", desc: "Immobilizing or slowing an enemy champion consumes 3% current Mana to grant a shield for 3 seconds, absorbing 90-180 (+ 4.5% of current Mana), increased by 80% if there is more than 1 enemy champion nearby. Only triggers when above 20% max Mana (8s cooldown). Shield is 50% effective for ranged champions." },
   //   ],
   // },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Winter's Approach",
     category: "DEFENSE",
@@ -89,7 +88,7 @@ const DEFENSE_ITEMS = [
       max: "700",
       title: "Fimbulwinter",
       img: "img/Fimbulwinter_item_HD.png",
-      passives: [{ title: "Frozen Colossus", desc: "Whenever you impair an enemy champion's movement, gain a shield for 3 seconds that absorbs 120 + 4.5% max Mana, increased by 80% if more than one enemy champion is nearby. (8 second cooldown) Ranged champions use this shield at 50% effectiveness." }],
+      passives: [{ title: "Frozen Colossus", desc: "Whenever you impair an enemy champion's movement, gain a shield for 3 seconds that absorbs 120 + 4.5% max Mana. If more than one enemy champion is nearby, the shield is increased by 80%. (8 second cooldown) Ranged champions use this shield at 50% effectiveness." }],
       delete: "Mana Charge"
     }
   },
@@ -157,7 +156,7 @@ const DEFENSE_ITEMS = [
   //    { title: "Blessed", desc: "Increases all healing, regen, shields, and drain effects on yourself by 30%." },
   //  ],
   // },
-  // Patch 7.1
+  // Patch 7.2
   {
     title: "Unending Despair",
     category: "DEFENSE",
@@ -168,16 +167,16 @@ const DEFENSE_ITEMS = [
       { title: "Anguish", desc: "Every 4 seconds while in combat with champions, deal magic damage to nearby enemy champions equal to 3% of your max Health as magic damage and heal for 250% of the damage dealt. Unaffected by Item Ability Haste" },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
-    title: "Sunfire Aegis",
+    title: "Sunfire Aegis", 
     category: "DEFENSE",
     gold: 2900,
     image: "img/Sunfire_Aegis_item_HD.webp",
     bannedSet: ["BURN"],
     stats: { HP: 350, ARMOR: 40, CD: 15 },
     passives: [
-      { title: "Immolate", desc: "Upon entering combat, deals 20 + 1.5% bonus Health magic damage to nearby enemies every second. Immolate deals 175% - 250% damage to minions and 130% damage to monsters." },
+      { title: "Immolate", desc: "Upon entering combat, deals 20 + 1.5% bonus Health Magic Damage to nearby enemies every second. Immolate deals 175%–250% damage to minions and 130% damage to monsters." },
     ],
   },
   // Patch 7.1
@@ -227,18 +226,18 @@ const DEFENSE_ITEMS = [
       { title: "Dawnbringer", desc: "If you are within 400 units of an enemy champion when you immobilize an enemy champion or are immobilized by enemy champions, you deal 40 (+ 2.5% bonus hp) magic damage to nearby enemy champions, reveal them for 3 seconds and gain 20% armor and 20% magic resistance (3 second cooldown)." },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Amaranth's Twinguard",
     category: "DEFENSE",
     gold: 3200,
     image: "img/Twinguard.webp",
-    stats: { ARMOR: 50, MR: 50, HP: 300 },
+    stats: { HP: 300, ARMOR: 50, MR: 50 },
     passives: [
-      { title: "Endurance", desc: "While in combat with enemy champions, gain 1 Endurance stack each second, up to 5 stacks. At max stacks, gain 20% increased size, 20% Tenacity, 30% bonus Armor and 30% bonus Magic Resistance until leaving combat.", stats: { TENACITY: 20 } },
+      { title: "Endurance", desc: "While in combat with enemy champions, gain 1 Endurance stack each second, up to 5 stacks. At max stacks, gain 20% increased size, 20% Tenacity, 30% bonus Armor, and 30% bonus Magic Resistance until leaving combat.", stats: { TENACITY: 20 } },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3
   {
     title: "Mantle of the Twelfth Hour",
     category: "DEFENSE",
@@ -251,15 +250,14 @@ const DEFENSE_ITEMS = [
     ],
   },
   // Patch 7.1
-  // REMOVED in patch 7.3: the new jungle system no longer needs a jungle-specific Sunfire Aegis.
   // {
-  // title: "Searing Crown",
-  // category: "DEFENSE",
-  // gold: 2700,
-  // image: "img/Searing_Crown.webp",
-  // stats: { HP: 300, ARMOR: 50 },
-  // passives: [
-  // { title: "Fiery Touch", desc: "Your basic attacks and ability hits inflict a burn that deals magic damage equal to (Melee 1.4% / Ranged 0.7%) target's maximum health per second over 3 seconds. This deals 150% damage against minions and monsters, up to 125 damage against monsters." },
-  // ],
+  //   title: "Searing Crown",
+  //   category: "DEFENSE",
+  //   gold: 2700,
+  //   image: "img/Searing_Crown.webp",
+  //   stats: { HP: 300, ARMOR: 50 },
+  //   passives: [
+  //     { title: "Fiery Touch", desc: "Your basic attacks and ability hits inflict a burn that deals magic damage equal to (Melee 1.4% / Ranged 0.7%) target's maximum health per second over 3 seconds. This deals 150% damage against minions and monsters, up to 125 damage against monsters." },
+  //   ],
   // },
 ];
