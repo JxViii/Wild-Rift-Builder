@@ -5,7 +5,7 @@ const ACTIVE_ITEMS = [
     category: "ACTIVE",
     gold: 3100,
     image: "img/Galeforce_item_HD.png",
-    stats: { AD: 50, CRIT: 25, ATTACK_SPEED: 15, SPEED_PERCENTAGE: 5 },
+    stats: { AD: 60, CRIT: 25, SPEED_PERCENTAGE: 4 },
     passives: [
       { title: "Cloudburst", desc: "Active: Dash in the target direction and fire 3 projectiles at the lowest-Health enemy near the destination, dealing a total of 40-125 (based on level) + 35% bonus Attack Damage physical damage. (60s cooldown)" },
     ],
@@ -22,11 +22,12 @@ const ACTIVE_ITEMS = [
     ],
   },
   {
+    // NOTE: the 7.3 notes list this item under its passive's name, "Salvation".
     title: "Redemption",
     category: "ACTIVE",
-    gold: 2600,
+    gold: 2450,
     image: "img/Redemption_item.webp",
-    stats: { AP: 50, HEAL: 5, MANA_REGEN: 50, HP: 150, CD: 15 },
+    stats: { AP: 40, HEAL: 8, MANA_REGEN: 50, CD: 10 },
     passives: [
       { title: "Salvation", desc: "Active: Select a large area. After 2.5s, call down a beam of light that heals allied champions for 150-350 Health (scaling with ally level) and burns enemy champions for true damage equal to 10% of their max Health. It can be casted while dead. (60s cooldown)" },
     ],
@@ -89,7 +90,7 @@ const ACTIVE_ITEMS = [
     category: "ACTIVE",
     gold: 3100,
     image: "img/Mercurial_Scimitar_item_HD.png",
-    stats: { AD: 45, MR: 40, PHYSICAL_VAMP: 10 },
+    stats: { AD: 45, MR: 40, LIFESTEAL: 12 },
     passives: [
       { title: "Quicksilver", desc: "Active: Remove all crowd control effects from your champion and become immune to all crowd control for 0.25s. Afterwards, gain 30% Tenacity and 30% slow resist for 1.5s. (60s cooldown)" },
     ],
@@ -108,9 +109,9 @@ const ACTIVE_ITEMS = [
   {
     title: "Shurelya's Battlesong",
     category: "ACTIVE",
-    gold: 2600,
+    gold: 2450,
     image: "img/Shurelya's_Battlesong_item_Unused_HD.png",
-    stats: { AP: 35, CD: 20, MANA_REGEN: 50, SPEED_PERCENTAGE: 5 },
+    stats: { AP: 35, CD: 20, MANA_REGEN: 50, SPEED_PERCENTAGE: 4 },
     passives: [
       { title: "Inspiring Speech", desc: "Active: Grant nearby allies 30% Movement Speed for 4s. (60s cooldown)" },
     ],

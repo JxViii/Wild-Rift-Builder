@@ -32,6 +32,8 @@
 #define TENACITY 28
 #define PHYSICAL_VAMP 29
 #define MAGIC_VAMP 101
+#define LIFESTEAL 102
+#define MANA_HEAL 103
 
 #define PHYSICAL 30
 #define MAGIC 31

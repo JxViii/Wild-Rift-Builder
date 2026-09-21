@@ -70,7 +70,7 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Gunmetal_Greaves_item_HD.png",
-    stats: { ATTACK_SPEED: 50, SPEED: 45, PHYSICAL_VAMP: 5 },
+    stats: { ATTACK_SPEED: 50, SPEED: 45, LIFESTEAL: 5 },
     passives: [
       { title: "Blessed blade", desc: "Basic attacks restore 12 Health on hit." },
       { title: "Noxian Gait", desc: "When your basic attacks hit champions, gain 10% (melee) / 7% (ranged) burst Movement Speed for 2 seconds."}

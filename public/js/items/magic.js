@@ -25,7 +25,7 @@ const MAGIC_ITEMS = [
     image: "img/Luden's_Tempest_item_HD.png",
     stats: { AP: 100, MAX_MANA: 500, CD: 10 },
     passives: [
-      { title: "Discordic Echo", desc: "Damaging an enemy with an ability deals bonus magic damage 140 + 15%AP. (9s cooldown)" },
+      { title: "Echo", desc: "Your next damaging ability or empowered basic attack deals 75 + 8% Ability Power magic damage to the primary target and up to 5 nearby enemies. For each fewer target hit by Echo, the primary target takes an additional 20 + 1.2% Ability Power magic damage. (9 second cooldown)" },
     ],
   },
   {
@@ -44,12 +44,11 @@ const MAGIC_ITEMS = [
   {
     title: "Nashor's Tooth",
     category: "MAGIC",
-    gold: 2800,
+    gold: 2900,
     image: "img/Nashor's_Tooth_item_HD.png",
-    stats: { ATTACK_SPEED: 45, CD: 20 },
+    stats: { AP: 80, ATTACK_SPEED: 50, CD: 15 },
     passives: [
-      { title: "Magic Fang", desc: "Obtain 25 AD or 50 AP", stats: { ADAPTATIVE: 50 } },
-      { title: "Icathian Bite", desc: "Basic attacks deal bonus magic damage on-hit (15 AP + 20% Bonus AD + 30% Bonus AP)." },
+      { title: "Gnaw", desc: "Basic attacks deal 15 + 20% bonus Ability Power magic damage on-hit." },
     ],
   },
   // NOTE: Actualizer is an AAA ARAM-exclusive item; stats/gold uncertain, verify in-game.
@@ -139,6 +138,7 @@ const MAGIC_ITEMS = [
     image: "img/Cosmic_Drive_item_HD.png",
     stats: { AP: 70, CD: 25, HP: 300 },
     passives: [
+      { title: "Cosmic", desc: "+4% Movement Speed", stats: { SPEED_PERCENTAGE: 4 } },
       { title: "Spellweaving", desc: "Dealing damage with abilities grants bonus +30 Movement Speed for 4 seconds." },
     ],
   },
@@ -171,9 +171,9 @@ const MAGIC_ITEMS = [
     gold: 3100,
     image: "img/Dusk_and_Dawn_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { HP: 350, AP: 70, CD: 20, ATTACK_SPEED: 25 },
+    stats: { HP: 300, AP: 60, CD: 20, ATTACK_SPEED: 20 },
     passives: [
-      { title: "Spellblade", desc: "After casting an ability, your next attack deals an additional on-hit effect equal to 75% base Attack Damage + 10% Ability Power as magic damage and applies one extra on-hit effect to the target. (1.5-second cooldown)" },
+      { title: "Spellblade", desc: "After casting an ability, your next attack deals bonus magic damage equal to 75% base Attack Damage + 10% Ability Power and heals you for 10% Ability Power + 3% bonus Health. Shortly afterward, it applies one additional on-hit effect to the target. (1.5 second cooldown) Deals reduced damage to structures." },
     ],
   },
   {
@@ -330,7 +330,7 @@ const MAGIC_ITEMS = [
     stats: { AP: 110 },
     passives: [
       { title: "Balance", desc: "Gain +15 of Magic Penetration", stats: { MP: 15 }},
-      { title: "Inevitable Demise", desc: "Abilities and empowered attacks will critically strike for 20% bonus damage against enemies below 35% HP" },
+      { title: "Inevitable Demise", desc: "Abilities and empowered attacks will critically strike for 20% bonus damage against enemies below 40% HP" },
     ],
   },
 ];

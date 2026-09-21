@@ -259,12 +259,14 @@ nlohmann::ordered_json lol::Set::print()
   double omnivamp = getAttribute(OMNIVAMP);
   double magicVamp = getAttribute(MAGIC_VAMP);
   double physicalVamp = getAttribute(PHYSICAL_VAMP);
+  double lifesteal = getAttribute(LIFESTEAL);
   double apPercentage = getAttribute(AP_PERCENTAGE);
   double adPercentage = getAttribute(AD_PERCENTAGE);
   std::vector<lol::Stat> adaptativeStats = getAttributeStats(ADAPTATIVE);
   double mana_ad = getAttribute(MANA_AD);
   double mana_ap = getAttribute(MANA_AP);
   double mana_hp = getAttribute(MANA_HP);
+  double mana_heal = getAttribute(MANA_HEAL);
   double hp_ap = getAttribute(HP_AP);
   double hp_ad = getAttribute(HP_AD);
   double tenacity = getAttribute(TENACITY);
@@ -287,6 +289,7 @@ nlohmann::ordered_json lol::Set::print()
   ap += maxMana * mana_ap / 100;
   ad += maxMana * mana_ad / 100;
   hp += maxMana * mana_hp / 100;
+  heal += maxMana * mana_heal / 100;
 
   //! Estadísticas que escalan por HP
 
@@ -342,7 +345,9 @@ nlohmann::ordered_json lol::Set::print()
   if (magicVamp != 0)
     result["MAGIC_VAMP"] = magicVamp;
   if (physicalVamp != 0)
-    result["PHYSICAL VAMP"] = physicalVamp;
+    result["PHYSICAL_VAMP"] = physicalVamp;
+  if (lifesteal != 0)
+    result["LIFESTEAL"] = lifesteal;
   if (tenacity != 0)
     result["TENACITY"] = tenacity;
 

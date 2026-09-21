@@ -30,6 +30,8 @@ const STAT_TYPES = {
   TENACITY: 28,
   PHYSICAL_VAMP: 29,
   MAGIC_VAMP: 101,
+  LIFESTEAL: 102,
+  MANA_HEAL: 103,
 };
 
 
@@ -66,6 +68,8 @@ const STAT_READABLE_NAMES = {
   TENACITY: "Tenacity",
   PHYSICAL_VAMP: "Physical Vamp",
   MAGIC_VAMP: "Magic Vamp",
+  LIFESTEAL: "Lifesteal",
+  MANA_HEAL: "Mana/Heal",
 };
 
 // Mirrors token.hpp's item category #defines.
