@@ -179,7 +179,7 @@ const DEFENSE_ITEMS = [
       { title: "Immolate", desc: "Upon entering combat, deals 20 + 1.5% bonus Health Magic Damage to nearby enemies every second. Immolate deals 175%–250% damage to minions and 130% damage to monsters." },
     ],
   },
-  // Patch 7.1
+  // Patch 7.3n
   {
     title: "Warmog's Armor",
     category: "DEFENSE",
@@ -187,15 +187,15 @@ const DEFENSE_ITEMS = [
     image: "img/Warmog.png",
     stats: { HP: 700, HP_REGEN: 100, CD: 20 },
     passives: [
-      { title: "Warmog's Heart", desc: "If you have at least 950 bonus hp, restore 3.5% of your maximum hp every second after 5 seconds without taking damage." },
+      { title: "Warmog's Heart", desc: "If you have at least 1250 bonus hp, restore 3.5% of your maximum hp every second after 5 seconds without taking damage." },
       { title: "Blessed", desc: " Increases all healing and shielding effects on you by 30%." }
     ],
   },
-  // Patch 7.1
+  // Patch 7.3b
   {
     title: "Thormail",
     category: "DEFENSE",
-    gold: 2700,
+    gold: 2850,
     image: "img/Thornmail_item.webp",
     stats: { HP: 200, ARMOR: 75 },
     passives: [

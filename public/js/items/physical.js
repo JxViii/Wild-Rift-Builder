@@ -363,7 +363,7 @@ const PHYSICAL_ITEMS = [
   {
     title: "Youmuu's Ghostblade",
     category: "PHYSICAL",
-    gold: 3000,
+    gold: 2900,
     image: "img/Youmuu's_Ghostblade_item_HD.webp",
     stats: { AD: 55, CD: 15, SPEED_PERCENTAGE: 4 },
     passives: [
@@ -466,7 +466,7 @@ const PHYSICAL_ITEMS = [
   {
     title: "Yun Tal Wildarrows",
     category: "PHYSICAL",
-    gold: 3100,
+    gold: 3000,
     image: "img/Yun_Tal.webp",
     stats: { AD: 50, ATTACK_SPEED: 25 },
     passives: [
@@ -510,13 +510,13 @@ const PHYSICAL_ITEMS = [
   {
     title: "Statikk Shiv",
     category: "PHYSICAL",
-    gold: 3000,
+    gold: 2900,
     image: "img/Statikk_Shiv.webp",
     stats: { AD: 40, AP: 40, ATTACK_SPEED: 30, SPEED_PERCENTAGE: 4 },
     passives: [
       {title: "Energized", desc: "Moving and attacking generate an Energized attack."},
       {title: "Electrospark", desc: "Your Energized attack fires chain lightning that bounces to additional targets. Bounce count: 3 / 4 / 5 / 6, increasing at levels 1 / 5 / 9 / 13, dealing 60 magic damage, increased to 90 against minions and monsters. Applies on-hit effects to secondary bounce targets."},
-      {title: "ElectroShock", desc: "Basic attacks grant 5 bonus Energized stacks."},
+      {title: "ElectroShock", desc: "Basic attacks grant 7 bonus Energized stacks."},
     ],
   },
 ];

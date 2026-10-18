@@ -68,9 +68,9 @@ const ACTIVE_ITEMS = [
   {
     title: "Locket of the Iron Solari",
     category: "ACTIVE",
-    gold: 2600,
+    gold: 2500,
     image: "img/Locket_of_the_Iron_Solari_item_HD.png",
-    stats: { HP: 200, ARMOR: 30, MR: 30, CD: 10 },
+    stats: { HP: 300, ARMOR: 30, MR: 30, CD: 10 },
     passives: [
       { title: "Locket", desc: "Active: Grant yourself and nearby allies a shield that absorbs 250-370 damage for 2.5s. If that target has received this effect within the last 20s, the shield value is halved.(60s cooldown)" },
     ],
