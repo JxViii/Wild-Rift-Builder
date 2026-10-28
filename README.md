@@ -116,7 +116,7 @@ Then open <http://localhost:8080>.
 
 **Requirements:** a C++17 compiler (g++ or clang) and pthreads. The only dependencies,
 [cpp-httplib](https://github.com/yhirose/cpp-httplib) and [nlohmann/json](https://github.com/nlohmann/json),
-are vendored as single headers in `third_party/`.
+are vendored as single headers in `src/third_party/`.
 
 ---
 
@@ -124,12 +124,13 @@ are vendored as single headers in `third_party/`.
 
 ```
 .
-├── main.cpp            # HTTP server, routes and JSON → model parsing
-├── league.hpp/.cpp     # Stat, Passive, Object, Set, Ability, Dummy + game math
-├── token.hpp           # Numeric IDs for every stat type
-├── third_party/        # httplib.h, json.hpp
-├── readme/             # Screenshots used in this README
-├── public/
+├── src/                    # C++ backend
+│   ├── main.cpp            # HTTP server, routes and JSON → model parsing
+│   ├── league.hpp/.cpp     # Stat, Passive, Object, Set, Ability, Dummy + game math
+│   ├── token.hpp           # Numeric IDs for every stat type
+│   └── third_party/        # httplib.h, json.hpp
+├── readme/                 # Screenshots used in this README
+├── public/                 # Frontend (served as-is)
 │   ├── index.html
 │   ├── css/style.css
 │   ├── img/            # Item art and icons

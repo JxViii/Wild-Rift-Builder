@@ -1,13 +1,13 @@
 CXX := g++
 CXXFLAGS := -std=c++17 -O2 -pthread
 TARGET := wr_calc
-SRCS := main.cpp league.cpp
+SRCS := src/main.cpp src/league.cpp
 
 .PHONY: all run clean
 
 all: $(TARGET)
 
-$(TARGET): $(SRCS) league.hpp token.hpp
+$(TARGET): $(SRCS) src/league.hpp src/token.hpp
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
 
 run: $(TARGET)
