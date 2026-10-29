@@ -98,7 +98,7 @@ const PHYSICAL_ITEMS = [
   {
     title: "Divine Sunderer",
     category: "PHYSICAL",
-    gold: 3400,
+    gold: 3300,
     image: "img/Divine_Sunderer_item_HD.png",
     bannedSet: ["SPELLBLADE"],
     stats: { HP: 425, AD: 25, CD: 25 },
@@ -145,7 +145,7 @@ const PHYSICAL_ITEMS = [
     gold: 3000,
     image: "img/Essence_Reaver_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { AD: 50, CRIT: 25, CD: 20 },
+    stats: { AD: 55, CRIT: 25, CD: 20 },
     passives: [
       { title: "Spellblade", desc: "After casting an ability, your next basic attack within 10 seconds deals bonus physical damage equal to 135% x base Attack Damage + 0 - 80 (based on Critical Rate) and restores Mana equal to 50% of the damage dealt. (1.5 second cooldown)" },
     ],
@@ -482,7 +482,7 @@ const PHYSICAL_ITEMS = [
     stats: { AD: 50, ATTACK_SPEED: 20, CRIT: 25 },
     passives: [
       {title: "Energized", desc: "Moving and attacking generate an Energized attack."},
-      {title: "Bolt", desc: "Your Energized attack deals 120 bonus magic damage and grants 45% Movement Speed for 1.5 seconds."},
+      {title: "Bolt", desc: "Your Energized attack deals 100 bonus magic damage and grants 35% Movement Speed for 1.5 seconds."},
     ],
   },
   {
@@ -504,7 +504,7 @@ const PHYSICAL_ITEMS = [
     stats: { CRIT: 25, ATTACK_SPEED: 45, SPEED_PERCENTAGE: 4 },
     passives: [
       {title: "Night Vigil", desc: "Gain 20 Ultimate ability haste."},
-      {title: "Opening Barrage", desc: "After casting your ultimate ability, your next 3 attacks gain 50% Attack Speed and are guaranteed to crit, dealing 80% of your normal critical strike damage for 8 seconds. If an attack would already crit, it instead deals 15% bonus true damage. (45 second cooldown)"},
+      {title: "Opening Barrage", desc: "After casting your ultimate ability, your next 3 attacks gain 50% Attack Speed and are guaranteed to crit, dealing 85% of your normal critical strike damage for 8 seconds. If an attack would already crit, it instead deals 17.5% bonus true damage. (45 second cooldown)"},
     ],
   },
   {
