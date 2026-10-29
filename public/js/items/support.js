@@ -102,7 +102,7 @@ const SUPPORT_ITEMS = [
     bannedSet: ["MANAFLOW"],
     stats: { HP: 200, MAX_MANA: 500, MANA_REGEN: 50, HEAL: 6 },
     passives: [
-      { title: "Harmony", desc: "Gain bonus Heal and Shield Power equal to 0.5% of max Mana and refund 25% of Mana spent.", stats: { MANA_HEAL: 0.5 } },
+      { title: "Harmony", desc: "Gain bonus Heal and Shield Power equal to 0.25% of max Mana and refund 25% of Mana spent.", stats: { MANA_HEAL: 0.25 } },
       { title: "Mana Charge", desc: "Mana expenditure grants 14 max Mana, up to 700. This can trigger at most 2 times every 10 seconds. At max stacks, it automatically upgrades into Diadem of Songs." },
     ],
     stack: {

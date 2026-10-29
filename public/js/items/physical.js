@@ -34,7 +34,7 @@ const PHYSICAL_ITEMS = [
   {
     title: "Death's Dance",
     category: "PHYSICAL",
-    gold: 3200,
+    gold: 3300,
     image: "img/Death's_Dance_item_HD.png",
     stats: { AD: 50, ARMOR: 45, CD: 15 },
     passives: [
@@ -468,10 +468,10 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Yun_Tal.webp",
-    stats: { AD: 50, ATTACK_SPEED: 25 },
+    stats: { AD: 50, ATTACK_SPEED: 35 },
     passives: [
       {title: "Practice Makes Perfect", desc: "Basic attacks permanently grant Critical Rate, gaining 0.4% / 0.2% (melee / ranged) Critical Rate per attack, up to a maximum of 25%."},
-      {title: "Flurry", desc: "Attacking an enemy champion grants 25% Attack Speed for 6 seconds (20 second cooldown). Attacks reduce this cooldown by 1 second, and this reduction increases to 2 seconds on a critical strike."},
+      {title: "Flurry", desc: "Attacking an enemy champion grants 35% Attack Speed for 6 seconds (25 second cooldown). Attacks reduce this cooldown by 1 second, and this reduction increases to 2 seconds on a critical strike."},
     ],
   },
   {
