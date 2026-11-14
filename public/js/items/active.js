@@ -49,7 +49,7 @@ const ACTIVE_ITEMS = [
     category: "ACTIVE",
     gold: 3100,
     image: "img/Goredrinker_item_HD.png",
-    stats: { AD: 40, HP: 350, CD: 15, OMNIVAMP: 8 },
+    stats: { AD: 45, HP: 400, CD: 15, OMNIVAMP: 8 },
     passives: [
       { title: "Thirsting Slash", desc: "Active: Deal physical damage equal to 175% Attack Damage to nearby enemies. Restore Health equal to 20% Attack Damage + 10% missing Health for each enemy hit. (12s cooldown)" },
     ],
@@ -58,11 +58,11 @@ const ACTIVE_ITEMS = [
   {
     title: "Hextech Rocketbelt",
     category: "ACTIVE",
-    gold: 2700,
+    gold: 2650,
     image: "img/Hextech_Rocketbelt_item_HD.png",
-    stats: { AP: 70, HP: 250, CD: 20 },
+    stats: { AP: 70, HP: 300, CD: 20 },
     passives: [
-      { title: "Rocket Salvo", desc: "Active: Dash a short distance in the target direction, unleashing an arc of rockets that deal 100 + 10% AP magic damage to enemies hit, if a champion or monster is hit by more than one rocket, additional rockets deal only 10% damage (30s cooldown)." },
+      { title: "Rocket Salvo", desc: "Active: Dash a short distance in the target direction, unleashing an arc of rockets that deal 110 + 15% AP magic damage to enemies hit, if a champion or monster is hit by more than one rocket, additional rockets deal only 10% damage (30s cooldown)." },
     ],
   },
   {

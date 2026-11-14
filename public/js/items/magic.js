@@ -25,7 +25,7 @@ const MAGIC_ITEMS = [
     image: "img/Luden's_Tempest_item_HD.png",
     stats: { AP: 100, MAX_MANA: 500, CD: 10 },
     passives: [
-      { title: "Echo", desc: "Your next damaging ability or empowered basic attack deals 75 + 8% Ability Power magic damage to the primary target and up to 5 nearby enemies. For each fewer target hit by Echo, the primary target takes an additional 20 + 1.2% Ability Power magic damage. (9 second cooldown)" },
+      { title: "Echo", desc: "Your next damaging ability or empowered basic attack deals 80 + 9% Ability Power magic damage to the primary target and up to 5 nearby enemies. For each fewer target hit by Echo, the primary target takes an additional 22.5 + 1.4% Ability Power magic damage. (9 second cooldown)" },
     ],
   },
   {
@@ -33,7 +33,7 @@ const MAGIC_ITEMS = [
     category: "MAGIC",
     gold: 3000,
     image: "img/Liandry's_Torment_item_HD.png",
-    stats: { AP: 70, HP: 300 },
+    stats: { AP: 60, HP: 300 },
     passives: [
       { title: "Torment", desc: "Damaging abilities burn enemies, dealing bonus magic damage over time 2% of the targets max HP as bonus magic damage per second for 3 seconds" },
       {
@@ -193,9 +193,9 @@ const MAGIC_ITEMS = [
     gold: 2800,
     image: "img/Lich_Bane_item_HD.png",
     bannedSet: ["SPELLBLADE"],
-    stats: { AP: 100, CD: 10 },
+    stats: { AP: 100, SPEED_PERCENTAGE: 6, CD: 10 },
     passives: [
-      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit 75% Base AD + 45% AP." },
+      { title: "Spellblade", desc: "After using an ability, your next basic attack within 10 seconds deals bonus magic damage on-hit 75% Base AD + 50% AP." },
     ],
   },
   {
@@ -223,7 +223,7 @@ const MAGIC_ITEMS = [
   {
     title: "Morellonomicon",
     category: "MAGIC",
-    gold: 2650,
+    gold: 2550,
     image: "img/Morellonomicon_item_HD.png",
     stats: { AP: 75, HP: 300, CD: 15 },
     passives: [
@@ -287,13 +287,13 @@ const MAGIC_ITEMS = [
   {
     title: "Rod of Ages",
     category: "MAGIC",
-    gold: 2700,
+    gold: 2600,
     image: "img/Rod_of_Ages_WR_item.webp",
     bannedSet: ["ROA"],
     stats: { HP: 350, AP: 50, MAX_MANA: 400 },
     passives: [
-      { title: "Eternity", desc: "Restore mana equal to 15% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second." },
-      { title: "Veterancy", desc: "This item gains 15 bonus health, 30 bonus mana and 4 ability power every 40 seconds, stacking up to 10 times." },
+      { title: "Eternity", desc: "Restore mana equal to 20% of incoming damage from champions, and Attack speed icon heal for an amount equal to 20% of mana spent, up to 25 per cast; toggle abilities can only heal for up to 25 per second." },
+      { title: "Veterancy", desc: "This item gains 20 bonus health, 40 bonus mana and 4 ability power every 40 seconds, stacking up to 10 times." },
     ],
     stack: {
       stats: { HP: 15, MAX_MANA: 30, AP: 4 },

@@ -122,7 +122,7 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Eclipse_item_HD.png",
-    stats: { AD: 65, CD: 20 },
+    stats: { AD: 60, CD: 20 },
     passives: [
       { title: "Ever Rising Moon", desc: "Hitting an enemy champion inflicts a stack (max one per attack/cast per champion, lasting 1.8s). At 2 stacks, they're consumed to deal bonus physical damage equal to 7% of the target's max health (3,5% for rangeds) and grant you a shield equal to (Melee 160 / Ranged 80) (+ (Melee 40% / Ranged 20%) bonus AD) lasting 2 seconds (6 second cooldown)." },
     ],
