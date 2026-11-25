@@ -27,7 +27,10 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 1200,
     image: "img/Berserker's_Greaves_item_HD.png",
-    stats: { ATTACK_SPEED: 35, SPEED: 45 },
+    stats: { ATTACK_SPEED: 30, SPEED: 45 },
+     passives: [
+      { title: "Blessed blade", desc: "Basic attacks restore 5 Health on hit." }
+    ],
   },
   // NOTE: MERCS TIER 3
   {
@@ -70,9 +73,9 @@ const BOOTS_ITEMS = [
     category: "BOOTS",
     gold: 2200,
     image: "img/Gunmetal_Greaves_item_HD.png",
-    stats: { ATTACK_SPEED: 50, SPEED: 45, LIFESTEAL: 5 },
+    stats: { ATTACK_SPEED: 45, SPEED: 45, LIFESTEAL: 5 },
     passives: [
-      { title: "Blessed blade", desc: "Basic attacks restore 12 Health on hit." },
+      { title: "Blessed blade", desc: "Basic attacks restore 5 Health on hit." },
       { title: "Noxian Gait", desc: "When your basic attacks hit champions, gain 10% (melee) / 7% (ranged) burst Movement Speed for 2 seconds."}
     ],
   },

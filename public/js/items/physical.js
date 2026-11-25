@@ -167,7 +167,7 @@ const PHYSICAL_ITEMS = [
     category: "PHYSICAL",
     gold: 3000,
     image: "img/Guinsoo's_Rageblade_item_HD.png",
-    stats: { AD: 35, AP: 30, ATTACK_SPEED: 30 },
+    stats: { AD: 35, AP: 30, ATTACK_SPEED: 25 },
     passives: [
       { title: "Wrath", desc: "Attacks deal 30 bonus magic damage." },
       { title: "Seething Strike", desc: "Basic attacks grant 8% Attack Speed, stacking up to 4 times. At max stacks, every 3rd basic attack triggers an additional on-hit effect." },
@@ -204,7 +204,7 @@ const PHYSICAL_ITEMS = [
     bannedSet: ["LIFELINE"],
     stats: { AD: 55, CRIT: 25 },
     passives: [
-      { title: "Lifeline", desc: "When you take damage that would reduce you to below 35% Health, gain a shield for 3 seconds (Melee 350-650 / Ranged 300-550, based on champion level). (70 second cooldown)" },
+      { title: "Lifeline", desc: "When you take damage that would reduce you to below 35% Health, gain a shield for 3 seconds (Melee 380-700 / Ranged 320-550, based on champion level). (70 second cooldown)" },
     ],
   },
   {

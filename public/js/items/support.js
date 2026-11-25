@@ -8,7 +8,7 @@ const SUPPORT_ITEMS = [
     stats: { AP: 50, MANA_REGEN: 50, HEAL: 8 },
     passives: [
       { title: "Ardent", desc: "Grants +4% Move Speed." , stats: { SPEED_PERCENTAGE: 4 }},
-      { title: "Censer", desc: "Shielding or healing an allied champion other than yourself empowers both you and that champion for 6 seconds, granting 30% bonus Attack Speed and 25 bonus magic damage on basic attacks." },
+      { title: "Censer", desc: "Shielding or healing an allied champion other than yourself empowers both you and that champion for 6 seconds, granting 25% bonus Attack Speed and 25 bonus magic damage on basic attacks." },
     ],
   },
   {
@@ -79,7 +79,7 @@ const SUPPORT_ITEMS = [
     category: "SUPPORT",
     gold: 2500,
     image: "img/Harmonic_Echo.png",
-    stats: { HP: 200, AP: 40, MANA_REGEN: 50, CD: 20 },
+    stats: { HP: 200, AP: 25, MANA_REGEN: 50, CD: 20 },
     passives: [
       {title: "Harmonic Echo", desc: "When you heal or shield an allied champion, the effect links to the nearest allied champion within range with the lowest percentage Health, excluding yourself, and grants them 30% of that heal or 35% of that shield. If no other allied champion is in range, the original target instead receives that same extra heal or shield."},
     ],
